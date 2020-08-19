@@ -1,6 +1,6 @@
 # KingBoo 
 
-# 2020-2-Innovación y Emprendimiento de TI-IETI
+## 2020-2-Innovación y Emprendimiento de TI-IETI
 
 ## Descripción
 
