@@ -1,1 +1,22 @@
-"# KingBoo" 
+# KingBoo :book: :crown: 
+
+## 2020-2-Innovación y Emprendimiento de TI-IETI
+
+## Descripción
+
+KingBoo es una App interactiva en la que podrás reservar en restaurantes, cines, parqueaderos, entre otres ... 
+
+## Integrantes y Roles
+
+|     Nombre    |     Rol         |
+|:--------------:|:-------------: |
+|Dagoberto Borda|Product Owner    |
+|Oscar Mendez|Product Owner    |
+|Luis A. Jaramillo|Team Developer |
+|Carlos Castaneda|Team Developer  |
+|Fernando Barrera|Team Developer  |
+|Alejandra Gomez|Team Developer  |
+|Juan C. Ortiz|Team Developer  |
+
+
+### Creado por ECIDevelopersIETI 
