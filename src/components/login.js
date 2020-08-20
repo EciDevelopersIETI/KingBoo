@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://github.com/fernando-b15/LAB1-IETI/blob/master/img/curso1.PNG?raw=true)',
+    backgroundImage: 'url(https://github.com/EciDevelopersIETI/KingBoo-Front-End/blob/master/img/logo.PNG?raw=true)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
