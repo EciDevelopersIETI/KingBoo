@@ -15,6 +15,7 @@ function App() {
   const SignUpShopView = () => <SignUpShop />;
   const home = () => <Home />;
   const proveedor = () => <Proveedor />;
+  const reserva = () => <Reserva />;
 
 
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/sign-up-provider" component={SignUpShopView} />
         <Route exact path="/home" component={home} />
         <Route exact path="/proveedor" component={proveedor} />
+        <Route exact path="/reserva" component={reserva} />
 
       </div>
     </div>

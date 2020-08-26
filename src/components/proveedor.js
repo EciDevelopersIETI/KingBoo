@@ -15,6 +15,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {reserva} from './reserva'
 
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit" href="https://material-ui.com/">
+            KingBoo
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
+}
 
 export default function Proveedor() {
     return (
@@ -37,6 +49,10 @@ export default function Proveedor() {
                                      Descripción
                                 </Typography>
                              </Paper>
+                             <p>La mejor peluqueria de toda Neiva.
+                             Tenemos a los mejores estilistas de la 
+                             ciudad a un excelente precio, Con descuentos
+                             para nuestros clientes habituales</p>
                         </Grid>
                         <Grid item xs={6}>
                             <Paper class="outlinenone">
@@ -44,22 +60,52 @@ export default function Proveedor() {
                                      Imagenes
                                 </Typography>
                             </Paper>
+                            <br/>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Paper class="outlinenone-second" >imagen 1</Paper>
+                                    <br/>
+                                    <Paper class="outlinenone-second" >imagen 2</Paper>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Paper class="outlinenone-second" >imagen 3</Paper>
+                                    <br/>
+                                    <Paper class="outlinenone-second" >imagen 4</Paper>
+                                </Grid>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={6}>
-                             <p>La mejor peluqueria de toda Neiva.</p>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Paper >imagen 1</Paper>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Paper >imagen 2</Paper>
-                         </Grid>
                         <Grid item xs={6}>
                             <Paper class="outlinenone">
                                  <Typography variant="h5">
                                       Caracteristicas principales
                                  </Typography>
-                             </Paper>
+                            </Paper>
+                            <br/>
+                            <Grid item>
+                                <Paper class="outlinenone-second">
+                                    <Typography variant="h6">
+                                        Corte de cabello
+                                    </Typography>
+                                </Paper>
+                                <br/>
+                                <Paper class="outlinenone-second">
+                                    <Typography variant="h6">
+                                        Manicura
+                                    </Typography>
+                                </Paper>
+                                <br/>
+                                <Paper class="outlinenone-second">
+                                    <Typography variant="h6">
+                                        Barba
+                                    </Typography>
+                                </Paper>
+                                <br/>
+                                <Paper class="outlinenone-second">
+                                    <Typography variant="h6">
+                                        Depilacion
+                                    </Typography>
+                                </Paper>
+                            </Grid>
                         </Grid>
                         <Grid item xs={6}>
                             <Paper class="outlinenone">
@@ -67,33 +113,21 @@ export default function Proveedor() {
                                       Ubicaciones :
                                  </Typography>
                              </Paper>
+                             <p>Diagonal 123 # 4b-5h, Neiva</p>
                         </Grid>
                    </Grid>
                    <br/>
                    <br/>
-
-
-
-                   <Button
-                       type="submit"
-                       fullWidth
-                       variant="contained"
-                       color="primary"
-                   >
-                      Haz tu reserva
-                   </Button>
-                    <br/>
-                    <br/>
-                   <Button
-                     type="submit"
-                     fullWidth
-                     variant="contained"
-                     color="second"
-                   >
-                     Agregar otro servicio
-                   </Button>
-               <Box mt={5} component="h3" >
-                    KingBoo
+                   <Grid container spacing={1}>
+                        <Grid item xs={3}>
+                            <Button  href="/reserva" variant="body2" type="submit" variant="contained" color="primary"> Haz tu reserva </Button>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Button type="submit"  variant="contained" color="second"> Agregar otro servicio </Button>
+                        </Grid>                
+                   </Grid>  
+               <Box mt={5}>
+                    <Copyright />
                </Box>
         </Container>
     );
