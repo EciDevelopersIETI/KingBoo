@@ -67,52 +67,6 @@ export default function Reserva() {
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                autoComplete="nombre"
-                                name="nombre"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="nombre"
-                                label="Nombre"
-                                autoFocus
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="apellido"
-                                label="Apellido"
-                                name="apellido"
-                                autoComplete="apeliido"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                type="tel"
-                                id="tel"
-                                label="Telefono"
-                                name="Telefono"
-                                autoComplete="Telefono"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
                                 id="date"
                                 label="Fecha"
                                 type="date"
@@ -163,6 +117,18 @@ export default function Reserva() {
                                     <Checkbox edge="start" tabIndex={-1} disableRipple/>
                                 </ListItem>
                             </List>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                type="tel"
+                                id="tel"
+                                label="Comentarios"
+                                name="Comentarios"
+                                autoComplete="Comentarios"
+                            />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel

@@ -35,7 +35,7 @@ export default function Proveedor() {
                 <header className="App-header">
                     <br/>
                     <Typography component="div" variant="h2">
-                        Peluqueria Las Mañas de Luis
+                        Peluqueria Alejandra
                     </Typography>
                     <br/>
                 </header>
@@ -49,9 +49,9 @@ export default function Proveedor() {
                                      Descripción
                                 </Typography>
                              </Paper>
-                             <p>La mejor peluqueria de toda Neiva.
+                             <p>La mejor peluqueria de todo Neiva.
                              Tenemos a los mejores estilistas de la 
-                             ciudad a un excelente precio, Con descuentos
+                             ciudad a un excelente precio. Con descuentos
                              para nuestros clientes habituales</p>
                         </Grid>
                         <Grid item xs={6}>
