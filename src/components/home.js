@@ -1,19 +1,7 @@
-import React from 'react';
-
-
-export default function Home() {
-    return (
-        <p>home</p>
-    );
-}
-
-
 import React, { Fragment } from "react";
 
 const Home = () => {
     // crear codigo java
-
-
     return (
         <Fragment>
 
@@ -110,15 +98,6 @@ const Home = () => {
                 
 
             </section>
-
-
-
-
-
-
-
-
-
 
         </Fragment>
     )
