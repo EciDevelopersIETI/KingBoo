@@ -4,11 +4,14 @@ import './App.css';
 import Login from './components/login';
 import SignUp from './components/signUp';
 import Home from './components/home';
+import SignUpShop from "./components/signUpShop";
+
 function App() {
 
   const LoginView = () => <Login />;
   const SignUpView = () => <SignUp />;
-  const home = () => <Home />
+  const SignUpShopView = () => <SignUpShop />;
+  const home = () => <Home />;
 
   return (
     <Router>
@@ -16,6 +19,7 @@ function App() {
       <div>
         <Route exact path="/" component={LoginView} />
         <Route exact path="/sign-up" component={SignUpView} />
+        <Route exact path="/sign-up-provider" component={SignUpShopView} />
         <Route exact path="/home" component={home} />
       </div>
     </div>
