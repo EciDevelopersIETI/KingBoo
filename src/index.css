@@ -11,3 +11,78 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Style Home */
+
+.container{
+  width: 80%;
+  max-width: 1920px;
+  margin: auto;
+}
+
+.navg{
+  background-color: rgba(0, 38, 255, 0.582);
+
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 20px;
+}
+
+nav div > a{
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+}
+
+nav div > a:hover{
+
+  border-bottom: 1px solid white;
+}
+
+nav div > .btn-nav-rigth{
+  border-right: 2px solid white;
+}
+
+/* imagen */
+
+img{
+  height: 70vh;
+}
+
+/* About Us */
+
+.about-us{
+  text-align: start;
+}
+
+/* user date */
+
+.user-date{
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-date > div{
+  display: flex;
+}
+
+.user-date div > div{
+  height: 100%;
+  margin-right: 20px;
+}
+
+.user-date i{
+  font-size: 70px;
+  color: rgba(0, 38, 255, 0.582);
+}
+
+.icono{
+  display: flex;
+  align-items: center;
+}
