@@ -4,6 +4,8 @@ import './App.css';
 import Login from './components/login';
 import SignUp from './components/signUp';
 import Home from './components/home';
+import Proveedor from './components/proveedor';
+import Reserva from './components/reserva';
 import SignUpShop from "./components/signUpShop";
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
   const SignUpView = () => <SignUp />;
   const SignUpShopView = () => <SignUpShop />;
   const home = () => <Home />;
+  const proveedor = () => <Proveedor />;
+
 
   return (
     <Router>
@@ -21,6 +25,8 @@ function App() {
         <Route exact path="/sign-up" component={SignUpView} />
         <Route exact path="/sign-up-provider" component={SignUpShopView} />
         <Route exact path="/home" component={home} />
+        <Route exact path="/proveedor" component={proveedor} />
+
       </div>
     </div>
   </Router>

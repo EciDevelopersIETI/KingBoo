@@ -157,6 +157,13 @@ export default function SignUp() {
               </Link>
             </Grid>
           </Grid>
+          <Grid container justify="flex-end">
+            <Grid item>
+                <Link href="/proveedor" variant="body2">
+                    {"vistaProveedor"}
+                </Link>
+            </Grid>
+          </Grid>
         </form>
       </div>
       <Box mt={5}>
