@@ -12,9 +12,9 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import logo from './logo.PNG';
-import logo2 from './logo2.PNG';
-import logo5 from './logo5.PNG';
+import logo from './img/logo.PNG';
+import logo2 from './img/logo2.PNG';
+import logo5 from './img/logo5.PNG';
 
 
 function Copyright() {
