@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import logo from './img/logo.PNG';
 import logo2 from './img/logo2.PNG';
 import logo5 from './img/logo5.PNG';
+import {loginUser} from './../api/login';
 
 
 function Copyright() {
@@ -66,6 +67,8 @@ export default function LogIn() {
 
   const handleSubmit = e => {
     e.preventDefault();
+	console.log(e);
+    loginUser(e.target);
   }; 
 
   return (

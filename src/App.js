@@ -17,7 +17,6 @@ function App() {
   const proveedor = () => <Proveedor />;
   const reserva = () => <Reserva />;
 
-
   return (
     <Router>
     <div className="App">
