@@ -12,6 +12,10 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import logo from './logo.PNG';
+import logo2 from './logo2.PNG';
+import logo5 from './logo5.PNG';
+
 
 function Copyright() {
   return (
@@ -28,13 +32,13 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: '100%',
   },
   image: {
     backgroundImage: 'url(https://github.com/EciDevelopersIETI/KingBoo-Front-End/blob/master/img/logo.PNG?raw=true)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -65,11 +69,12 @@ export default function LogIn() {
   }; 
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid container component="main" justify='center' alignItems='center' style={{ backgroundColor: '#f5a623'}} className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+	  <img src={logo2} style={{ height: '20%' ,width: '20%'}}/> 
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
+		<img src={logo} width='100%'/> 
+		<div className={classes.paper} border='1px solid red'>		
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -131,6 +136,8 @@ export default function LogIn() {
           </form>
         </div>
       </Grid>
+	  <img src={logo5} style={{ height: '20%' ,width: '20%'}}/> 
     </Grid>
+
   );
 }
