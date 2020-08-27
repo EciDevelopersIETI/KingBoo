@@ -12,6 +12,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
 
 function Copyright() {
@@ -46,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),
     },
 }));
+
 
 export default function SignUpShop() {
     const classes = useStyles();
@@ -84,6 +89,18 @@ export default function SignUpShop() {
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
+                                required
+                                fullWidth
+                                type="number"
+                                id="nit"
+                                label="NIT"
+                                name="Nit"
+                                autoComplete="Nit"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
                                 fullWidth
                                 id="web"
                                 type="url"
@@ -103,8 +120,52 @@ export default function SignUpShop() {
                                 autoComplete="dir"
                             />
                         </Grid>
+
                         <Grid item xs={12}>
-                            <Typography component="p" variant="p">
+                            <List 
+                            component="nav" aria-label="nested-list-subheader"  subheader={
+                                <ListSubheader component="div" id="nested-list-subheader">
+                                Que servicios Prestas ?
+                                </ListSubheader>
+                                }
+                                >
+                                <ListItem button>
+                                    <ListItemText primary="Corte de Cabello" />
+                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                </ListItem>
+                                <ListItem button>
+                                    <ListItemText primary="Barba" />
+                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                </ListItem>
+                                <ListItem button>
+                                    <ListItemText primary="Manicura" />
+                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                </ListItem>
+                                <ListItem button>
+                                    <ListItemText primary="Depilacion" />
+                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                </ListItem>
+                            </List>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                multiline
+                                rows={5}
+                                required
+                                fullWidth
+                                type="tel"
+                                id="comentarios"
+                                label="Comentarios"
+                                name="Comentarios"
+                                autoComplete="Comentarios"
+                            />
+                        </Grid>
+
+
+                        <Grid item xs={12}>
+                            <Typography component="h6" variant="h6">
                                 Datos del Responsable
                             </Typography>
                         </Grid>
@@ -149,7 +210,7 @@ export default function SignUpShop() {
                                 variant="outlined"
                                 required
                                 fullWidth
-                                type="tel"
+                                type="number"
                                 id="tel"
                                 label="Telefono"
                                 name="Telefono"
@@ -158,8 +219,9 @@ export default function SignUpShop() {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
-                                control={<Checkbox value="parqueadero" color="primary" />}
-                                label="Cuento con parqueaderos disponibles para mis clientes."
+                                required={true}
+                                control={<Checkbox value="condiciones" color="primary" />}
+                                label="Acepto los terminos y condiciones."
                             />
                         </Grid>
                     </Grid>

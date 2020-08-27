@@ -100,7 +100,7 @@ export default function Reserva() {
                                 </ListSubheader>
                                 }
                                 >
-                                <ListItem>
+                                <ListItem button>
                                     <ListItemText primary="Corte de Cabello" />
                                     <Checkbox edge="start" tabIndex={-1} disableRipple/>
                                 </ListItem>
