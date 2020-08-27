@@ -120,7 +120,7 @@ export default function SignUp() {
                   variant="outlined"
                   required
                   fullWidth
-                  type="tel"
+                  type="number"
                   id="tel"
                   label="Telefono"
                   name="Telefono"
