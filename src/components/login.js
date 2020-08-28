@@ -68,7 +68,12 @@ export default function LogIn() {
   const handleSubmit = e => {
     e.preventDefault();
 	console.log(e);
-    loginUser(e.target);
+	const user={
+		email: document.getElementById("email").value,
+		password: document.getElementById("password").value
+	}
+	console.log(user);
+    loginUser(user);
   }; 
 
   return (

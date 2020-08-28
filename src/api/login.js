@@ -7,10 +7,12 @@ const axiosHeader = axios.create({
 });
 
 const loginUser = user => {
-    axiosHeader.post('/users/login', {
-      email: user.email.value,
-      password: user.password.value
-    })
+	console.log('llega auiiiiiiiiiiiiii');
+	console.log(user);
+    axios.post('http://localhost:8080/users/login', {
+             email: user.email,
+             password: user.password
+     })
 	
       .then(function (response) {
         window.location.href = "/home";
