@@ -7,6 +7,8 @@ import Home from './components/home';
 import Proveedor from './components/proveedor';
 import Reserva from './components/reserva';
 import SignUpShop from "./components/signUpShop";
+import CrearSitio from "./views/crearSitio";
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
   const home = () => <Home />;
   const proveedor = () => <Proveedor />;
   const reserva = () => <Reserva />;
+  const crearSitio = () => <CrearSitio/>
+
 
   return (
     <Router>
@@ -27,7 +31,7 @@ function App() {
         <Route exact path="/home" component={home} />
         <Route exact path="/proveedor" component={proveedor} />
         <Route exact path="/reserva" component={reserva} />
-
+        <Route exact path="/nuevositio" component={crearSitio} />
       </div>
     </div>
   </Router>
