@@ -31,25 +31,35 @@ export default class crearSitioForm extends Component {
         this.setState({ sitio: this.state.sitio });
     }
 
-    handleCapacidadChange = (id, index) => {
-        this.state.capacidad[index].id = id;
+    handleCapacidadChange = (e) => {
+        this.sitio.capacidad = e.target.value;
         this.setState({ sitio: this.state.sitio });
     }
 
-    handleDireccionChange = (name, index) => {
-
-        this.state.direccion[index].name = name;
+    handleDireccionChange = (e) => {
+        this.sitio.direccion = e.target.value;
         this.setState({ sitio: this.state.sitio });
     }
 
-    handleCorreoChange = (e, index) => {
-        this.state.correo[index].price = e.target.value;
+    handleCorreoChange = (e) => {
+        this.sitio.correo = e.target.value;
         this.setState({ sitio: this.state.sitio });
     }
 
-    handleDescripcionChange = (e, index) => {
-        this.state.descripcion[index].description = e.target.value;
+    handleContactoUnoChange = (e) => {
+        this.sitio.contactoUno = e.target.value;
         this.setState({ sitio: this.state.sitio });
+    }
+
+    handleContactoDosChange = (e) => {
+        this.sitio.contactoDos = e.target.value;
+        this.setState({ sitio: this.state.sitio });
+    }
+
+    handleDescripcionChange = (e) => {
+        this.sitio.descripcion = e.target.value;
+        this.setState({ sitio: this.state.sitio });
+        
     }
 
     handleRemove = (index) => {
@@ -88,7 +98,7 @@ export default class crearSitioForm extends Component {
                                         required />
                                     <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
                                     <Form.Control.Feedback type="invalid">Por favor ingresa un tipo de negocio.</Form.Control.Feedback>
-                                    <Form.Text className="text-muted">El tipo de negocio es ...</Form.Text>
+                                    <Form.Text className="text-muted">El tipo de negocio es el sector al que pertenece.</Form.Text>
                                 </Col>
                             </Form.Group>
 
@@ -99,14 +109,14 @@ export default class crearSitioForm extends Component {
                                         required  />
                                     <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
                                     <Form.Control.Feedback type="invalid">Por favor ingresa un nombre al negocio.</Form.Control.Feedback>
-                                    <Form.Text className="text-muted">El nombre del negocio es ...</Form.Text>
+                                    <Form.Text className="text-muted">El nombre con el que se identifica el negocio.</Form.Text>
                                 </Col>
                             </Form.Group>
 
                             <Form.Group as={Row} controlId="formNit">
                                 <Form.Label column sm={2} md={2} lg={2} xl={1} className="ml-auto">NIT:</Form.Label>
                                 <Col sm={10} md={10} lg={7} xl={6} className="mr-auto">
-                                    <Form.Control type="number" placeholder="NIT del negocio"
+                                    <Form.Control type="number" min="1" placeholder="NIT del negocio"
                                         required />
                                     <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
                                     <Form.Control.Feedback type="invalid">Por favor ingresa el NIT del negocio.</Form.Control.Feedback>
@@ -117,7 +127,7 @@ export default class crearSitioForm extends Component {
                             <Form.Group as={Row} controlId="formCapacidad">
                                 <Form.Label column sm={2} md={2} lg={2} xl={1} className="ml-auto">Capacidad actual:</Form.Label>
                                 <Col sm={10} md={10} lg={7} xl={6} className="mr-auto">
-                                    <Form.Control type="number" placeholder="Cantidad de personas"
+                                    <Form.Control type="number" min="1" placeholder="Cantidad de personas"
                                         required />
                                     <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
                                     <Form.Control.Feedback type="invalid">Por favor ingresa la cantidad de personas.</Form.Control.Feedback>
@@ -139,11 +149,33 @@ export default class crearSitioForm extends Component {
                             <Form.Group as={Row} controlId="formCorreo">
                                 <Form.Label column sm={2} md={2} lg={2} xl={1} className="ml-auto">Correo:</Form.Label>
                                 <Col sm={10} md={10} lg={7} xl={6} className="mr-auto">
-                                    <Form.Control type="email" placeholder="Correo corporativo."
+                                    <Form.Control type="email" placeholder="Correo corporativo"
                                         required />
                                     <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
                                     <Form.Control.Feedback type="invalid">Por favor ingrese el correo corporativo del negocio.</Form.Control.Feedback>
                                     <Form.Text className="text-muted">El correo corporativo es el que usa la empresa.</Form.Text>
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} controlId="formContactoUno">
+                                <Form.Label column sm={2} md={2} lg={2} xl={1} className="ml-auto">Contacto 1:</Form.Label>
+                                <Col sm={10} md={10} lg={7} xl={6} className="mr-auto">
+                                    <Form.Control type="tel" placeholder="Teléfono"
+                                        required />
+                                    <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">Por favor ingresa un número telefónico.</Form.Control.Feedback>
+                                    <Form.Text className="text-muted">El contacto es el número telefónico a donde uno se puede comunicar en caso de una novedad.</Form.Text>
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} controlId="formContactoDos">
+                                <Form.Label column sm={2} md={2} lg={2} xl={1} className="ml-auto">Contacto 2:</Form.Label>
+                                <Col sm={10} md={10} lg={7} xl={6} className="mr-auto">
+                                    <Form.Control type="tel" placeholder="Teléfono"
+                                        required />
+                                    <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">Por favor ingresa un número telefónico.</Form.Control.Feedback>
+                                    <Form.Text className="text-muted">El contacto es el número telefónico a donde uno se puede comunicar en caso de una novedad.</Form.Text>
                                 </Col>
                             </Form.Group>
 
