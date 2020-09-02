@@ -39,15 +39,31 @@
   }
 }
 
+.imagen{
+    width: 51%;
+    height: 50%;  
+}
+
 .outlinenone{
-    background-color: #282c34;
+    background-color: #1a80f3;
+    width: 90%;
     color: white;
-    border-radius: 5px;
+    border-radius: 2px;
+    padding: 2% 2% 2% 2% ;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+
 }
 .outlinenone-second{
-  background-color: #c2c5cc;
+  background-color: #6fb1fc;
+  width: 100%;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ontlineimg{
+  width: 80%;
+  height: 100%;  
 }
 
 .img-anchor{

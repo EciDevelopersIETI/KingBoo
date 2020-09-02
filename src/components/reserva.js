@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Button from 'react-bootstrap/Button'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -15,6 +15,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Header from '../components/header';
 
 
 function Copyright() {
@@ -58,6 +59,7 @@ export default function Reserva() {
     };
     return (
         <Container component="main" maxWidth="xs">
+            <Header></Header>
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component="h1" variant="h2">
@@ -138,15 +140,7 @@ export default function Reserva() {
                         </Grid>
 
                     </Grid>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        Listo
-                    </Button>
+                    <Button className={classes.submit}> Listo </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/proveedor" variant="body2">
