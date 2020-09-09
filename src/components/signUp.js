@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {newUser} from './../api/createUser';
 
 
 function Copyright() {
@@ -52,6 +53,15 @@ export default function SignUp() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(document.getElementById("firstName").value);
+    const user = {
+      firstName: document.getElementById("firstName").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+      telefono: (document.getElementById("telefono").value).toString()
+    };
+    newUser(user);
+
   }; 
 
 
@@ -69,7 +79,7 @@ export default function SignUp() {
            onSubmit={handleSubmit}
         >
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -77,19 +87,8 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="firstName"
-                label="First Name"
+                label="Nombre de usuario"
                 autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
@@ -121,9 +120,9 @@ export default function SignUp() {
                   required
                   fullWidth
                   type="number"
-                  id="tel"
+                  id="telefono"
                   label="Telefono"
-                  name="Telefono"
+                  name="telefono"
                   autoComplete="Telefono"
               />
             </Grid>
