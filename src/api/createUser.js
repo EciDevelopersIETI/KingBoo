@@ -6,24 +6,26 @@ const axiosHeader = axios.create({
     headers: { Authorization: "Bearer " + localStorage.getItem("accessToken") }
 });
 
-const loginUser = user => {
+const newUser = user => {
 	console.log('llega auiiiiiiiiiiiiii');
 	console.log(user);
-    axios.post('https://kingboooback.herokuapp.com/users/login', {
+    axios.post('https://kingboooback.herokuapp.com/users/newuser', {
              email: user.email,
-             password: user.password
+             password: user.password,
+             telefono: user.telefono,
+             userName: user.firstName
      })
 	
       .then(function (response) {
-        window.location.href = "/home";
+        alert("Creacion exitosa !!!!!!!!!!!")
       })
       .catch(function (error) { 
 		console.log(error);
-        alert("Check credentials");
+        alert("Error al crear USER");
       });
 
   };
 
 export {
-    loginUser,
-} 
+    newUser,
+}
