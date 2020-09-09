@@ -10,6 +10,7 @@ import SignUpShop from "./components/signUpShop";
 import CrearSitio from "./views/crearSitio";
 import ListaSitios from "./views/listaSitios";
 import ListadoReservas from "./components/listadoReservas";
+import ReservasEnSitio from "./components/reservasEnSitio";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const crearSitio = () => <CrearSitio/>
   const listaSitios = () => <ListaSitios/>
   const listadoReservas = () => <ListadoReservas/>
+  const reservasEnSitio = () => <ReservasEnSitio/>
 
 
   return (
@@ -38,6 +40,7 @@ function App() {
         <Route exact path="/nuevositio" component={crearSitio} />
         <Route exact path="/listasitios" component={listaSitios} />
         <Route exact path="/listadoreservas" component={listadoReservas} />
+        <Route exact path="/reservasEnSitio" component={reservasEnSitio} />
       </div>
     </div>
   </Router>

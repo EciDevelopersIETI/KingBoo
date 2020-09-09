@@ -86,3 +86,34 @@ img{
   display: flex;
   align-items: center;
 }
+
+/* Style Reservas */
+
+.reserv{
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+
+  padding: 20px;
+}
+
+.reserv .lista-datos{
+  text-align: start;
+}
+
+.reserv .lista-datos > li {
+  list-style: none;
+}
+
+.reserv .lista-datos span {
+  font-weight: bold;
+}
+
+.botones{
+  align-self: flex-end;
+}
+
+.botones > button{
+  align-self: flex-end;
+  margin-right: 20px;
+}

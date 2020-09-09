@@ -1,96 +1,79 @@
-import React, { Component } from 'react';
-import MaterialTable from 'material-table';
-import { Container, Row, Col } from 'reactstrap';
-import Header from './header';
+import React, { Fragment } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 import Title from './title';
+import Header from './header';
 
-export default function reservasEnSitio() {
-  const [state, setState] = React.useState({
-    columns: [
-      { title: 'Nombre', field: 'nombre' },
-      { title: 'ID', field: 'id' },
-      { title: 'Fecha reserva', field: 'fechaReserva' },
-      {title: 'Hora reserva', field: 'horaReserva'},
-      {title: 'Tipo servicio', field: 'tipoServicio'},
-      {title: 'Asignar a', field: 'asignarA'},
-    ],
-    data: [
-      {
-        nombre: 'Alejandra Gomez',
-        id: '1234567890',
-        fechaReserva: '20/08/2018',
-        horaReserva: '10:00',
-        tipoServicio: 'Manicure',
-        asignarA: 'Baran',
+const ReservasEnSitio = ()=> {
 
-      },
-      {
-        nombre: 'Maria Gonzales',
-        id: '0987654321',
-        fechaReserva: '20/08/2018',
-        horaReserva: '12:00',
-        tipoServicio: 'Depilacion',
-        asignarA: 'Paquita',
+  const datos = [
+    {
+      id: uuidv4(),
+      nombre: 'Alejandra Gomez',
+      cc: '1234567890',
+      fechaReserva: '20/08/2018',
+      horaReserva: '10:00',
+      tipoServicio: 'Manicure',
+      asignarA: 'Baran',
 
-      },
-      {
-        nombre: 'Maria Gonzales',
-        id: '0987654321',
-        fechaReserva: '20/08/2018',
-        horaReserva: '13:00',
-        tipoServicio: 'Manicure',
-        asignarA: 'Marcela',
+    },
+    {
+      id: uuidv4(),
+      nombre: 'Maria Gonzales',
+      cc: '0987654321',
+      fechaReserva: '20/08/2018',
+      horaReserva: '12:00',
+      tipoServicio: 'Depilacion',
+      asignarA: 'Paquita',
 
-      },
-    ],
-  });
+    },
+    {
+      id: uuidv4(),
+      nombre: 'Maria Gonzales',
+      cc: '0987654321',
+      fechaReserva: '20/08/2018',
+      horaReserva: '13:00',
+      tipoServicio: 'Manicure',
+      asignarA: 'Marcela',
+
+    }
+  ]
 
   return (
-    <div>
-        <Header></Header>
-        <Title pageTitle="Reservas"/>
-        <MaterialTable
-        title="Editable Example"
-        columns={state.columns}
-        data={state.data}
-        editable={{
-            onRowAdd: (newData) =>
-            new Promise((resolve) => {
-                setTimeout(() => {
-                resolve();
-                setState((prevState) => {
-                    const data = [...prevState.data];
-                    data.push(newData);
-                    return { ...prevState, data };
-                });
-                }, 600);
-            }),
-            onRowUpdate: (newData, oldData) =>
-            new Promise((resolve) => {
-                setTimeout(() => {
-                resolve();
-                if (oldData) {
-                    setState((prevState) => {
-                    const data = [...prevState.data];
-                    data[data.indexOf(oldData)] = newData;
-                    return { ...prevState, data };
-                    });
-                }
-                }, 600);
-            }),
-            onRowDelete: (oldData) =>
-            new Promise((resolve) => {
-                setTimeout(() => {
-                resolve();
-                setState((prevState) => {
-                    const data = [...prevState.data];
-                    data.splice(data.indexOf(oldData), 1);
-                    return { ...prevState, data };
-                });
-                }, 600);
-            }),
-        }}
-        />
-    </div>
+
+    <Fragment>
+      <Header></Header>
+      <Title pageTitle="Reservas Sitio X"/>
+      <div >
+        {datos.map((dato, i) =>{
+          return(
+            <div key={i} className='card reserv' >
+              <div className='lista-datos'>
+                <h2><span>Reserva:</span> {i+1}</h2>
+                <li><span>Nombre:</span> {dato.nombre}</li>
+                <li><span>Cedula:</span> {dato.cc}</li>
+                <li><span>Fecha Reserva:</span> {dato.fechaReserva}</li>
+                <li><span>Hora de Reserva:</span> {dato.horaReserva}</li>
+                <li><span>Tipo de Servicio:</span> {dato.tipoServicio}</li>
+                <label> <span>Asignar cliente a: </span> </label>
+                <select id='Empleados'>
+                  <option value='...'>...</option>
+                  <option value='pedro'>pedro</option>
+                  <option value='juan'>juan</option>
+                  <option value='maria'>maria</option>
+                </select>
+              </div>
+              <div className='botones'>
+                <button className='btn btn-success'>Enviar datos</button>
+                <button className='btn btn-secondary'>Cancelar datos</button>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </Fragment>
   );
+
 }
+
+export default ReservasEnSitio;
