@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 import Title from './title';
 import Header from './header';
@@ -8,7 +7,6 @@ const ReservasEnSitio = ()=> {
 
   const datos = [
     {
-      id: uuidv4(),
       nombre: 'Alejandra Gomez',
       cc: '1234567890',
       fechaReserva: '20/08/2018',
@@ -18,7 +16,6 @@ const ReservasEnSitio = ()=> {
 
     },
     {
-      id: uuidv4(),
       nombre: 'Maria Gonzales',
       cc: '0987654321',
       fechaReserva: '20/08/2018',
@@ -28,7 +25,6 @@ const ReservasEnSitio = ()=> {
 
     },
     {
-      id: uuidv4(),
       nombre: 'Maria Gonzales',
       cc: '0987654321',
       fechaReserva: '20/08/2018',
