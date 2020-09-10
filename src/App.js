@@ -23,8 +23,12 @@ function App() {
   const home = () => <Home />;
   const proveedor = () => <Proveedor />;
   const reserva = () => <Reserva />;
-  const crearSitio = () => <CrearSitio/>
-  const listaSitios = () => <ListaSitios/>
+  const crearSitio = () => <CrearSitio/>;
+  const listaSitios = () => <ListaSitios/>;
+  const listadoReservas = () => <ListadoReservas/>;
+  const reservasEnSitio = () => <ReservasEnSitio/>;
+  const homeUser = () => <HomeUser/>;
+  const editarSitio = () => <EditarSitio/>;
 
 
   return (
@@ -39,6 +43,10 @@ function App() {
         <Route exact path="/reserva" component={reserva} />
         <Route exact path="/nuevositio" component={crearSitio} />
         <Route exact path="/listasitios" component={listaSitios} />
+        <Route exact path="/listadoreservas" component={listadoReservas} />
+        <Route exact path="/reservasEnSitio" component={reservasEnSitio} />
+        <Route exact path="/homeuser" component={homeUser} />
+        <Route exact path="/editarsitio" component={editarSitio} />
       </div>
     </div>
   </Router>
