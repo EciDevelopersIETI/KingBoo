@@ -1,20 +1,19 @@
 import React, { Fragment } from "react";
 
 const Home = () => {
-    // crear codigo java
     return (
         <Fragment>
 
             <section className='navg'>
                 <nav className='container'>
                     <div>
-                        <a href='#' className='btn-nav-rigth'>Home</a>
+                        <a href='/' className='btn-nav-rigth'>Home</a>
                         <a href='#' className='btn-nav-rigth'>About</a>
                         <a href='#' className='btn-nav-rigth'>Pricing</a>
                     </div>
                     <div>
-                        <a className='btn-nav'>Login</a>
-                        <a className='btn-nav'>Register</a>
+                        <a href='login' className='btn-nav'>Login</a>
+                        <a href='sign-up'className='btn-nav'>Register</a>
                     </div>
                 </nav>
             </section>

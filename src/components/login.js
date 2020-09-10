@@ -81,7 +81,7 @@ export default function LogIn() {
       <CssBaseline />
 	  <img src={logo2} style={{ height: '20%' ,width: '20%'}}/> 
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-		<img src={logo} width='100%'/> 
+		<img src={logo} style={{ height: '100%',width: '85%' }}/> 
 		<div className={classes.paper} border='1px solid red'>		
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
