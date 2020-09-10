@@ -15,7 +15,7 @@ const loginUser = user => {
      })
 	
       .then(function (response) {
-        window.location.href = "/home";
+        window.location.href = "/homeuser";
       })
       .catch(function (error) { 
 		console.log(error);

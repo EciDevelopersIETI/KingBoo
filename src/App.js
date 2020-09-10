@@ -11,6 +11,7 @@ import CrearSitio from "./views/crearSitio";
 import ListaSitios from "./views/listaSitios";
 import ListadoReservas from "./components/listadoReservas";
 import ReservasEnSitio from "./components/reservasEnSitio";
+import {HomeUser} from "./components/homeUser";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function App() {
@@ -25,22 +26,24 @@ function App() {
   const listaSitios = () => <ListaSitios/>
   const listadoReservas = () => <ListadoReservas/>
   const reservasEnSitio = () => <ReservasEnSitio/>
+  const homeUser = () => <HomeUser/>
 
 
   return (
     <Router>
     <div className="App">
       <div>
-        <Route exact path="/" component={LoginView} />
+        <Route exact path="/" component={home} />
         <Route exact path="/sign-up" component={SignUpView} />
         <Route exact path="/sign-up-provider" component={SignUpShopView} />
-        <Route exact path="/home" component={home} />
+        <Route exact path="/login" component={LoginView} />
         <Route exact path="/proveedor" component={proveedor} />
         <Route exact path="/reserva" component={reserva} />
         <Route exact path="/nuevositio" component={crearSitio} />
         <Route exact path="/listasitios" component={listaSitios} />
         <Route exact path="/listadoreservas" component={listadoReservas} />
         <Route exact path="/reservasEnSitio" component={reservasEnSitio} />
+		<Route exact path="/homeuser" component={homeUser} />
       </div>
     </div>
   </Router>
