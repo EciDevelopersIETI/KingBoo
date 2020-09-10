@@ -12,6 +12,7 @@ import ListaSitios from "./views/listaSitios";
 import ListadoReservas from "./components/listadoReservas";
 import ReservasEnSitio from "./components/reservasEnSitio";
 import {HomeUser} from "./components/homeUser";
+import EditarSitio from "./views/editarSitio";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function App() {
@@ -24,9 +25,6 @@ function App() {
   const reserva = () => <Reserva />;
   const crearSitio = () => <CrearSitio/>
   const listaSitios = () => <ListaSitios/>
-  const listadoReservas = () => <ListadoReservas/>
-  const reservasEnSitio = () => <ReservasEnSitio/>
-  const homeUser = () => <HomeUser/>
 
 
   return (
@@ -41,9 +39,6 @@ function App() {
         <Route exact path="/reserva" component={reserva} />
         <Route exact path="/nuevositio" component={crearSitio} />
         <Route exact path="/listasitios" component={listaSitios} />
-        <Route exact path="/listadoreservas" component={listadoReservas} />
-        <Route exact path="/reservasEnSitio" component={reservasEnSitio} />
-		<Route exact path="/homeuser" component={homeUser} />
       </div>
     </div>
   </Router>

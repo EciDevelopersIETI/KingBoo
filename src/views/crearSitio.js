@@ -6,7 +6,6 @@ import Copyright from '../components/copyright';
 import Title from '../components/title';
 
 
-import LogoImage from '../img/logo.PNG'
 
 
 export default class crearSitio extends Component {
