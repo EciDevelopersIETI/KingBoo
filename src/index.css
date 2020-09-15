@@ -48,12 +48,6 @@ nav div > .btn-nav-rigth{
   border-right: 2px solid white;
 }
 
-/* imagen */
-
-img{
-  height: 70vh;
-}
-
 /* About Us */
 
 .about-us{
@@ -116,4 +110,10 @@ img{
 .botones > button{
   align-self: flex-end;
   margin-right: 20px;
+}
+
+/* Mis reservas*/
+
+.padding-60px{
+  padding: 60px !important; 
 }

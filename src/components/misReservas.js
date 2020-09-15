@@ -22,7 +22,7 @@ const MisReservas = () => {
         " non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       direccion: "Cra 57a #4B-85",
       imagen:
-        "https://github.com/EciDevelopersIETI/KingBoo-Front-End/blob/master/src/img/salonbelleza1.jpg",
+        "https://www.logopik.com/wp-content/uploads/edd/2018/11/Beauty-Salon-Logo-Vector.png",
       reservas: [
         {
           fechaReserva: "20/12/2020",
@@ -47,7 +47,7 @@ const MisReservas = () => {
         " non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       direccion: "Diag 77b #116B-42",
       imagen:
-        "https://github.com/EciDevelopersIETI/KingBoo-Front-End/blob/master/src/img/parqueadero1.jpeg",
+        "https://ccoutletfactory.com/wp-content/uploads/2018/07/city-parking-marcas-outlet-factory.jpg",
       reservas: [
         {
           fechaReserva: "20/03/2020",
@@ -80,35 +80,37 @@ const MisReservas = () => {
       <div>
         {datos.map((dato, i) => {
           return (
-            <div key={i} className="card reserv">
+            <div key={i} className="card reserv padding-60px">
               <div className="lista-datos">
                 <h2>
                   <span>{dato.nombreNegocio}</span>
                 </h2>
                 <label>{dato.descripcion}</label>
+                <br></br>
                 <li>
                   <span>Direccion:</span> {dato.direccion}
                 </li>
+                <br></br>
                 <div>
-                  <TableContainer component={Paper}>
-                    <Table size="small" aria-label="a dense table">
+                  <TableContainer component={Paper} >
+                    <Table size="medium" aria-label="a dense table">
                       <TableHead>
                         <TableRow>
-                          <TableCell align="right">Servicio</TableCell>
-                          <TableCell align="right">Fecha y Hora Reserva</TableCell>
-                          <TableCell align="right">Cancelar Reserva</TableCell>
+                          <TableCell ><span>Servicio</span></TableCell>
+                          <TableCell ><span>Fecha y Hora Reserva</span></TableCell>
+                          <TableCell ><span>Cancelar Reserva</span></TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {dato.reservas.map((reserva, index) => (
                           <TableRow key={index}>
-                              <TableCell align="right">
+                              <TableCell >
                               {reserva.tipoServicio}
                             </TableCell>
-                            <TableCell align="right">
+                            <TableCell >
                               {reserva.fechaReserva} - {reserva.horaReserva}
                             </TableCell>
-                            <TableCell align="right">
+                            <TableCell>
                                <button className="btn btn-secondary">Cancelar datos</button>
                             </TableCell>
                           </TableRow>
@@ -119,9 +121,6 @@ const MisReservas = () => {
                 </div>
               </div>
               <img src={dato.imagen} alt={dato.nombreNegocio}></img>
-              <div className="botones">
-                
-              </div>
             </div>
           );
         })}
