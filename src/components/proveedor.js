@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -16,8 +16,13 @@ import {reserva} from './reserva'
 import Title from '../components/title'
 import Header from '../components/header';
 import Button from 'react-bootstrap/Button'
-import Image1 from '../img/salonbelleza1.jpg'
 import Image2 from '../img/peluqueria2.jpg'
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
 
 function Copyright() {
     return (
@@ -32,110 +37,90 @@ function Copyright() {
     );
 }
 
+const datos = [
+    {
+      nombreNegocio: "Peluqueria",
+      descripcion:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor " +
+      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+      "ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit " +
+      "in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat" +
+      "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+
+      direccion: "Cra 67 # 12-52",
+      imagen:
+        "./img/peluqueria2.jpg",
+      servicios: [
+        {
+            tipo: "Corte de cabello",
+        },
+        {
+            tipo: "Barba",
+        },
+        {
+            tipo: "Manicura",
+        },
+        {
+            tipo: "Depilacion",
+        }
+    ]
+    }   
+  ];
+
 export default function Proveedor() {
     return (
-        <div>
+        <Fragment>
             <Header></Header>
-            <br/>
-            <Title pageTitle="Peluqueria"/>
-            <Container>
-                <br/>
-                <br/>
-                <Grid container spacing={1}>
-                        <Grid item xs={6}>
-                            <Paper class="outlinenone">
-                                <Typography variant="h3">
-                                    Descripción
-                                </Typography>
-                                <br/>
-                                <Paper class="outlinenone-second">
-                                    <p>La mejor peluqueria de todo Neiva.
-                                    Tenemos a los mejores estilistas de la 
-                                    ciudad a un excelente precio. Con descuentos
-                                    para nuestros clientes habituales</p>
-                                </Paper>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Paper class="outlinenone">
-                                <Typography variant="h3">
-                                    Imágenes
-                                </Typography>
-                            </Paper>
-                            <br/>
-                            <Paper class="ontlineimg">
-                                <Grid container spacing={1}>
-                                    <Grid item xs={6}>
-                                        <img class="imagen" src={Image2}></img>
-                                        <img class="imagen" src={Image2}></img>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <img class="imagen" src={Image1}></img>
-                                        <img class="imagen" src={Image1}></img>
-                                    </Grid>
-                                </Grid>
-                            </Paper>
-                        </Grid>
-                        <br/>
-                        <Grid item xs={6}>
-                            <Paper class="outlinenone">
-                                <Typography variant="h3">
-                                    Servicios
-                                </Typography>
-                                <br/>
-                                <Paper class="outlinenone-second">
-                                    <Typography >
-                                        Corte de cabello
-                                    </Typography>
-                                </Paper>
-                                <br/>
-                                <Paper class="outlinenone-second">
-                                    <Typography>
-                                        Manicura
-                                    </Typography>
-                                </Paper>
-                                <br/>
-                                <Paper class="outlinenone-second">
-                                    <Typography>
-                                        Barba
-                                    </Typography>
-                                </Paper>
-                                <br/>
-                                <Paper class="outlinenone-second">
-                                    <Typography>
-                                        Depilacion
-                                    </Typography>
-                                </Paper>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Paper class="outlinenone">
-                                <Typography variant="h3">
-                                    Ubicaciones
-                                </Typography>
-                                <br/>
-                                <Paper class="outlinenone-second">
-                                    <Typography >
-                                        Carrera 67 # 123-52
-                                    </Typography>
-                                </Paper>
-                            </Paper>
-                        </Grid>
-                    </Grid>
-                    <br/>
-                    <br/>
-                    <Grid container spacing={1}>
-                            <Grid item xs={3}>
-                                <Button  href="/reserva"> Haz tu reserva </Button>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Button> Agregar otro servicio </Button>
-                            </Grid>                
-                    </Grid>  
-                <Box mt={5}>
-                        <Copyright />
-                </Box>
-            </Container>
-        </div>
+            <Title pageTitle="Peluqueria" />
+            <br></br>
+            <div>
+                {datos.map((dato, i) => {
+                return (
+                    <div key={i} className="card reserv padding-60px">
+                        <div className="lista-datos">
+                            <span><h3>Descripción: </h3></span>
+                            <label>{dato.descripcion}</label>
+                            <br></br>
+                            <li>
+                            <span>Dirección:</span>{dato.direccion}
+                            </li>
+                            <br></br>
+                            <div>
+                                <TableContainer component={Paper} >
+                                    <Table size="medium" aria-label="a dense table">
+                                        <TableHead>
+                                            <TableRow>
+                                            <TableCell ><span>Servicios</span></TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            {dato.servicios.map((servicios, index) => (
+                                            <TableRow key={index}>
+                                                <TableCell >
+                                                {servicios.tipo}
+                                                </TableCell>
+                                            </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                            </div>
+                            <br></br>
+                            <Grid container spacing={1}>
+                                <Grid item xs={3}>
+                                    <Button className="btn btn-primary" href="/reserva"> Haz tu reserva </Button>
+                                </Grid>              
+                            </Grid> 
+                        </div>
+                        <img src={Image2} alt={dato.nombreNegocio}></img>
+                    </div>
+                );
+                })}
+            </div>
+            <Box mt={5}>
+                <Copyright />
+            </Box>
+            <br></br>
+        </Fragment>
     );
 }

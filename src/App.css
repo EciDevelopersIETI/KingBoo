@@ -45,18 +45,14 @@
 }
 
 .outlinenone{
-    background-color: #1a80f3;
     width: 90%;
-    color: white;
     border-radius: 2px;
     padding: 2% 2% 2% 2% ;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.2);
 
 }
 .outlinenone-second{
-  background-color: #6fb1fc;
   width: 100%;
-  color: white;
   border-radius: 5px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
