@@ -59,7 +59,6 @@ export default function Reserva() {
     };
     return (
         <Container component="main" maxWidth="xs">
-            <Header></Header>
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component="h1" variant="h2">
@@ -72,7 +71,7 @@ export default function Reserva() {
                                 id="date"
                                 label="Fecha"
                                 type="date"
-                                defaultValue="2017-05-24"
+                                defaultValue="2020-09-29"
                                 className={classes.textField}
                                 InputLabelProps={{
                                 shrink: true,

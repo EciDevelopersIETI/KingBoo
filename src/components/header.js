@@ -16,11 +16,10 @@ export default class header extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="#home">Inicio</Nav.Link>
-                            <Nav.Link href="#link">Acerca de</Nav.Link>
+                            <Nav.Link href="../listaSitios">Inicio</Nav.Link>
+                            <Nav.Link href="./">Acerca de</Nav.Link>
                             <Nav.Link href="#link">Precios</Nav.Link>
                             <Nav.Link href="#link">Blog</Nav.Link>
-
                         </Nav>
                         <Form inline>
                             <Button variant="outline-success">Botón</Button>

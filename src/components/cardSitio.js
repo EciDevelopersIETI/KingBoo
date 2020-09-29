@@ -12,7 +12,7 @@ export default class cardSitio extends Component {
                 
                 </Card.Body>
                 <Card.Footer>
-                    <a href="#" role="button" className="btn btn-primary btn-block">{this.props.cardTitle}</a>
+                    <a href="./proveedor" role="button" className="btn btn-primary btn-block">{this.props.cardTitle}</a>
                 </Card.Footer>
             </Card>
             </div>
