@@ -23,4 +23,7 @@ KingBoo es una App interactiva en la que podrás reservar en restaurantes, cines
 |Juan C. Ortiz|Team Developer  |
 
 
+## License
+[MIT License](/LICENSE)
+
 ### Creado por ECIDevelopersIETI 
