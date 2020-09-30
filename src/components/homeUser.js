@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import MisReservas from './misReservas';
 import ResponsiveDrawer from './ResponsiveDrawer';
 
 export class HomeUser extends React.Component{
@@ -6,9 +7,10 @@ export class HomeUser extends React.Component{
 		super(props);
 	}
 	render(){
-		
+		const myComponent = <MisReservas />
 		return(
-			<ResponsiveDrawer/>
+			<ResponsiveDrawer childComponent={myComponent}/>
+
 		);
 	}
 }

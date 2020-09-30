@@ -9,7 +9,7 @@ export default class title extends Component {
     render() {
         return (
             <Row noGutters>
-                <Col className="d-flex justify-content-center align-items-center title-image">
+                <Col className={`d-flex justify-content-center align-items-center ${this.props.hasMargin ?? true ? "title-image" : ""}`}>
                     <img
                         alt=""
                         src={LogoImage}

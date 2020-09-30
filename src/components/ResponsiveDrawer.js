@@ -55,7 +55,10 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-  },
+    marginTop:'64px',
+    display:'flex',
+    flexDirection:'column'
+  }
 }));
 
 function ResponsiveDrawer(props) {
@@ -155,6 +158,7 @@ function ResponsiveDrawer(props) {
         </Hidden>
       </nav>
 	  <main className={classes.content}>
+      {props.childComponent}
 	  </main>		
     </div>
   );
