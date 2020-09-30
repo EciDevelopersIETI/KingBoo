@@ -76,8 +76,8 @@ const MisReservas = () => {
   return (
     <Fragment>
       <Header></Header>
-      <Title pageTitle="Mis Reservas" />
-      <div>
+      <Title hasMargin={false} pageTitle="MIS RESERVAS" />
+      <div className="mt-5">
         {datos.map((dato, i) => {
           return (
             <div key={i} className="card reserv padding-60px">
