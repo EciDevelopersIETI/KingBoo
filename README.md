@@ -1,14 +1,23 @@
 # KingBoo :book: :crown: 
 
-## 2020-2-Innovación y Emprendimiento de TI-IETI
+![Logo](/img/logo.PNG)
+
+## Innovación y Emprendimiento de TI - IETI 2020-2
+
+Proyecto realizado por estudientes de ultimo semestre de Ingenieria de sistemas de la [Escuela Colombiana de Ingenieria Julio Garavito](https://www.escuelaing.edu.co/es/) para la materia de Innovación y Emprendimiento de TI.
 
 ## Descripción
 
-KingBoo es una App interactiva en la que podrás reservar en restaurantes, cines, parqueaderos, entre otres ... 
+Sabias que en esta pandemia los salones de belleza han perdido un 80% de clientes ya que los protocolos de bioseguridad exigen tener reservas y un número limitado de clientes en el establecimiento. 
 
-## Despliegues
+Junto con el equipo EciDeveloper, hemos creado KingBoo, una App donde se pueden generar distintas reservas, en este momento nuestro foco son los Salones de belleza y los parqueaderos en el lugar que necesites en el momento que necesites; teniendo en cuenta la capacidad de cada establecimiento y las necesidades del cliente final y sus preferencias.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://kingboo.herokuapp.com/)
+
+## Enlaces
+
+* [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://kingboo.herokuapp.com/)
+
+* [Taiga Timeline](https://tree.taiga.io/project/luisalejandrojaramillo-kingboo/timeline)
 
 ## Integrantes y Roles
 
