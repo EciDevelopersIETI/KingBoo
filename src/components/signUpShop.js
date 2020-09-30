@@ -16,6 +16,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { newUser } from '../api/createUser';
+import { DesktopWindows } from '@material-ui/icons';
 
 
 function Copyright() {
@@ -53,10 +55,46 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function SignUpShop() {
+
+    const services = [];
     const classes = useStyles();
+
+    const handleChangeChk = e => {
+        console.log(e.target.value);
+        if(!(services.includes(e.target.value))){
+            services.push(e.target.value);
+        }
+        else{
+            services.splice(services.indexOf(e.target.value), 1);
+        }
+        //console.log(services);
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
+        if(services.length === 0){
+            alert("Porfavor seleccione alemos un servico");
+        }else{
+            console.log(services)
+            const user = {
+                firstName: document.getElementById("firstName").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+                telefono: (document.getElementById("telefono").value).toString(),
+                provider: {
+                    providerName: document.getElementById("orgName").value,
+                    nit: (document.getElementById("nit").value).toString(),
+                    description: document.getElementById("description").value,
+                    address: document.getElementById("address").value,
+                    services: services
+                    
+                }
+            }; newUser(user);
+            window.location.href="/login";
+        }
+        
+
+        
     };
 
 
@@ -94,19 +132,8 @@ export default function SignUpShop() {
                                 type="number"
                                 id="nit"
                                 label="NIT"
-                                name="Nit"
+                                name="nit"
                                 autoComplete="Nit"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                fullWidth
-                                id="web"
-                                type="url"
-                                label="Pagina Web"
-                                name="web"
-                                autoComplete="web"
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -114,40 +141,40 @@ export default function SignUpShop() {
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="direccion"
+                                id="address"
                                 label="Direccion"
-                                name="dir"
+                                name="address"
                                 autoComplete="dir"
                             />
                         </Grid>
 
                         <Grid item xs={12}>
                             <List 
-                            component="nav" aria-label="nested-list-subheader"  subheader={
+                            component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
-                                Que servicios Prestas ?
+                                Que servicio quieres
                                 </ListSubheader>
                                 }
                                 >
                                 <ListItem button>
                                     <ListItemText primary="Corte de Cabello" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Barba" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Manicura" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Depilacion" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
                                 </ListItem>
                             </List>
                         </Grid>
-
+                        
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
@@ -156,10 +183,10 @@ export default function SignUpShop() {
                                 required
                                 fullWidth
                                 type="tel"
-                                id="comentarios"
-                                label="Comentarios"
-                                name="Comentarios"
-                                autoComplete="Comentarios"
+                                id="description"
+                                label="Descripcion"
+                                name="description"
+                                autoComplete="description"
                             />
                         </Grid>
 
@@ -169,30 +196,18 @@ export default function SignUpShop() {
                                 Datos del Responsable
                             </Typography>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <TextField
-                                autoComplete="nombre"
-                                name="nombre"
+                                autoComplete="fname"
+                                name="firstName"
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="nombre"
-                                label="Nombre"
+                                id="firstName"
+                                label="Nombre del encargado"
                                 autoFocus
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="apellido"
-                                label="Apellido"
-                                name="apellido"
-                                autoComplete="apeliido"
-                            />
-                        </Grid>
-
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
@@ -204,26 +219,32 @@ export default function SignUpShop() {
                                 autoComplete="email"
                             />
                         </Grid>
-
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                            />
+                        </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
                                 required
                                 fullWidth
                                 type="number"
-                                id="tel"
+                                id="telefono"
                                 label="Telefono"
-                                name="Telefono"
+                                name="telefono"
                                 autoComplete="Telefono"
                             />
                         </Grid>
-                        <Grid item xs={12}>
-                            <FormControlLabel
-                                required={true}
-                                control={<Checkbox value="condiciones" color="primary" />}
-                                label="Acepto los terminos y condiciones."
-                            />
-                        </Grid>
+                        
+                        
                     </Grid>
                     <Button
                         type="submit"

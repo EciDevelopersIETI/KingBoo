@@ -58,10 +58,16 @@ export default function SignUp() {
       firstName: document.getElementById("firstName").value,
       email: document.getElementById("email").value,
       password: document.getElementById("password").value,
-      telefono: (document.getElementById("telefono").value).toString()
+      telefono: (document.getElementById("telefono").value).toString(),
+      provider: {
+        organizationName: null,
+        nit: null,
+        address: null,
+        servicios: null
+    }
     };
     newUser(user);
-
+    window.location.href="/login";
   }; 
 
 
