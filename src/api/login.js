@@ -15,6 +15,7 @@ const loginUser = user => {
      })
 	
       .then(function (response) {
+		localStorage.setItem("user",user.email);  
         window.location.href = "/homeuser";
       })
       .catch(function (error) { 

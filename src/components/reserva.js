@@ -16,6 +16,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Header from '../components/header';
+import axios from "axios";
+import {newReserva} from './../api/createReserva';
 
 
 function Copyright() {
@@ -53,10 +55,41 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Reserva() {
     const classes = useStyles();
-
+	const services = [];
     const handleSubmit = e => {
         e.preventDefault();
+		if(services.length === 0){
+			alert("Porfavor seleccione alemos un servico");
+		}
+		else{
+			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
+			var userReserva = axios.get('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user")).then(function (response) {userReserva = response.data;}).catch(function (error) { console.log(error);});
+			setTimeout(function() {	
+				const reserva={
+					 fecha: document.getElementById("date").value,
+					 hora: document.getElementById("time").value,
+					 servicios: services,
+					 comentario: document.getElementById("tel").value,
+					 encargado: " ",
+					 user: userReserva	
+				}
+				console.log(reserva);
+				newReserva(reserva);
+			}.bind(this), 1000);
+			
+		}
+		
     };
+	const handleChangeChk = e => {
+		console.log(e.target.value);
+		if(!(services.includes(e.target.value))){
+			services.push(e.target.value);
+		}
+		else{
+			services.splice(services.indexOf(e.target.value), 1);
+		}
+		console.log(services);
+	}
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -64,7 +97,8 @@ export default function Reserva() {
                 <Typography component="h1" variant="h2">
                     Haz tu reserva
                 </Typography>
-                <form className={classes.form} onSubmit={handleSubmit} >
+                <form className={classes.form} 
+				onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -95,7 +129,7 @@ export default function Reserva() {
                         </Grid>
                         <Grid item xs={12}>
                             <List 
-                            component="nav" aria-label="nested-list-subheader"  subheader={
+                            component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                 Que servicio quieres
                                 </ListSubheader>
@@ -103,19 +137,19 @@ export default function Reserva() {
                                 >
                                 <ListItem button>
                                     <ListItemText primary="Corte de Cabello" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Barba" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Manicura" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Depilacion" />
-                                    <Checkbox edge="start" tabIndex={-1} disableRipple/>
+                                    <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
                                 </ListItem>
                             </List>
                         </Grid>
@@ -139,7 +173,7 @@ export default function Reserva() {
                         </Grid>
 
                     </Grid>
-                    <Button className={classes.submit}> Listo </Button>
+                    <Button className={classes.submit} type="submit"> Listo </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/proveedor" variant="body2">
