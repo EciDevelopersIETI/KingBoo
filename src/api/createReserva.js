@@ -27,8 +27,13 @@ const newReserva = reserva => {
         alert("Error al crear reserva");
       });
 
-  };
+};
+
+const setReserva = reserva =>{
+  console.log(reserva);
+};
 
 export {
     newReserva,
+    setReserva,
 }
