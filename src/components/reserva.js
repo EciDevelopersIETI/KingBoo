@@ -55,8 +55,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Reserva() {
     const classes = useStyles();
+	let	servicesHope = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider")+'/service').then(function (response) {localStorage.setItem("servicesPro",response.data);}).catch(function (error) { console.log(error);});
 	const services = [];
-    const handleSubmit = e => {
+	const handleSubmit = e => {
         e.preventDefault();
 		if(services.length === 0){
 			alert("Porfavor seleccione alemos un servico");
@@ -64,6 +65,7 @@ export default function Reserva() {
 		else{
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
 			var userReserva = axios.get('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user")).then(function (response) {userReserva = response.data;}).catch(function (error) { console.log(error);});
+			var providerReserva = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider")).then(function (response) {providerReserva = response.data;}).catch(function (error) { console.log(error);});
 			setTimeout(function() {	
 				const reserva={
 					 fecha: document.getElementById("date").value,
@@ -71,11 +73,12 @@ export default function Reserva() {
 					 servicios: services,
 					 comentario: document.getElementById("tel").value,
 					 encargado: " ",
-					 user: userReserva	
+					 user: userReserva,
+					 provider: providerReserva					 
 				}
 				console.log(reserva);
 				newReserva(reserva);
-			}.bind(this), 1000);
+			}.bind(this), 1200);
 			
 		}
 		
@@ -90,6 +93,7 @@ export default function Reserva() {
 		}
 		console.log(services);
 	}
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -98,7 +102,7 @@ export default function Reserva() {
                     Haz tu reserva
                 </Typography>
                 <form className={classes.form} 
-				onSubmit={handleSubmit}>
+				onSubmit={handleSubmit} >
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -135,22 +139,26 @@ export default function Reserva() {
                                 </ListSubheader>
                                 }
                                 >
-                                <ListItem button>
-                                    <ListItemText primary="Corte de Cabello" />
-                                    <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
-                                </ListItem>
-                                <ListItem button>
-                                    <ListItemText primary="Barba" />
-                                    <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
-                                </ListItem>
-                                <ListItem button>
-                                    <ListItemText primary="Manicura" />
-                                    <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
-                                </ListItem>
-                                <ListItem button>
-                                    <ListItemText primary="Depilacion" />
-                                    <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
-                                </ListItem>
+								
+								{
+										
+										localStorage.getItem("servicesPro").split(',').map(serv => (
+											<ListItem button key={serv}>
+												<ListItemText primary={serv} />
+												<Checkbox  label={serv} edge="start" value={serv}  tabIndex={-1} disableRipple  onChange={handleChangeChk} />
+											</ListItem>												
+										))
+																		
+										
+
+									
+									
+									
+								}
+								
+								
+                                
+
                             </List>
                         </Grid>
                         <Grid item xs={12}>
