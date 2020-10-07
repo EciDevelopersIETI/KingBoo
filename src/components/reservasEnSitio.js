@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import Title from './title';
 import Header from './header';
+import {setReserva} from './../api/createReserva';
 
 const ReservasEnSitio = ()=> {
 
@@ -35,12 +36,28 @@ const ReservasEnSitio = ()=> {
     }
   ]
 
+  const handleSubmit = e =>{
+    e.preventDefault();
+    console.log(document.getElementById("empleados").value);
+    const reserva ={
+        fecha: null,
+        hora: null,
+        servicios: null,
+        comentario: null,
+        encargado: document.getElementById("empleados").value,
+        user: null
+    }
+    setReserva(reserva);
+  };
+
+
   return (
 
     <Fragment>
       <Header></Header>
       <Title pageTitle="Reservas Sitio X"/>
-      <div >
+      <form onSubmit={handleSubmit} >
+      <div>
         {datos.map((dato, i) =>{
           return(
             <div key={i} className='card reserv' >
@@ -52,7 +69,7 @@ const ReservasEnSitio = ()=> {
                 <li><span>Hora de Reserva:</span> {dato.horaReserva}</li>
                 <li><span>Tipo de Servicio:</span> {dato.tipoServicio}</li>
                 <label> <span>Asignar cliente a: </span> </label>
-                <select id='Empleados'>
+                <select id='empleados'>
                   <option value='...'>...</option>
                   <option value='pedro'>pedro</option>
                   <option value='juan'>juan</option>
@@ -67,6 +84,7 @@ const ReservasEnSitio = ()=> {
           )
         })}
       </div>
+      </form>
     </Fragment>
   );
 

@@ -63,12 +63,16 @@ export default function SignUp() {
         organizationName: null,
         nit: null,
         address: null,
-        servicios: null
+        servicios: null,
+        capacity: null
     }
     };
     newUser(user);
-    window.location.href="/login";
-  }; 
+    setTimeout(function() {
+      window.location.href="/login";
+    }.bind(this), 1000);
+
+  };
 
 
   return (
@@ -81,7 +85,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} 
+        <form className={classes.form}
            onSubmit={handleSubmit}
         >
           <Grid container spacing={2}>

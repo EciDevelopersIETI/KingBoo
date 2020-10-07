@@ -86,15 +86,18 @@ export default function SignUpShop() {
                     nit: (document.getElementById("nit").value).toString(),
                     description: document.getElementById("description").value,
                     address: document.getElementById("address").value,
+                    capacity: (document.getElementById("capacity").value).toString(),
                     services: services
-                    
+
                 }
             }; newUser(user);
-            window.location.href="/login";
+            setTimeout(function() {
+                window.location.href="/login";
+            }.bind(this), 1000);
         }
-        
 
-        
+
+
     };
 
 
@@ -149,7 +152,21 @@ export default function SignUpShop() {
                         </Grid>
 
                         <Grid item xs={12}>
-                            <List 
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                type="number"
+                                id="capacity"
+                                label="Capacidad del lugar:"
+                                name="capacity"
+                                autoComplete="capacidad"
+                            />
+                        </Grid>
+
+
+                        <Grid item xs={12}>
+                            <List
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                 Que servicio quieres
@@ -174,7 +191,7 @@ export default function SignUpShop() {
                                 </ListItem>
                             </List>
                         </Grid>
-                        
+
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
@@ -182,7 +199,6 @@ export default function SignUpShop() {
                                 rows={5}
                                 required
                                 fullWidth
-                                type="tel"
                                 id="description"
                                 label="Descripcion"
                                 name="description"
@@ -243,8 +259,8 @@ export default function SignUpShop() {
                                 autoComplete="Telefono"
                             />
                         </Grid>
-                        
-                        
+
+
                     </Grid>
                     <Button
                         type="submit"
