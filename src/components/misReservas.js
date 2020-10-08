@@ -9,6 +9,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Copyright from '../components/copyright';
 
 const MisReservas = () => {
   const datos = [
@@ -75,8 +76,7 @@ const MisReservas = () => {
 
   return (
     <Fragment>
-      <Header></Header>
-      <Title hasMargin={false} pageTitle="MIS RESERVAS" />
+      <Title hasMargin={false} pageTitle="Mis Reservas" />
       <div className="mt-5">
         {datos.map((dato, i) => {
           return (
@@ -125,6 +125,8 @@ const MisReservas = () => {
           );
         })}
       </div>
+      <p></p>
+      <Copyright></Copyright>
     </Fragment>
   );
 };

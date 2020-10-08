@@ -13,6 +13,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
+import ListIcon from '@material-ui/icons/List';
+import BookIcon from '@material-ui/icons/Book';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -95,10 +98,22 @@ function ResponsiveDrawer(props) {
       </div>
 	  <Divider />
 	  <div>
+    <List>
+          <ListItem button  onClick={() =>  history.push("/categoriauser")}>
+            <ListItemIcon><ListIcon/></ListItemIcon>
+            <ListItemText primary={"Lista de sitios"} />
+          </ListItem>
+      </List>
+      <List>
+          <ListItem button  onClick={() =>  history.push("/homeuser")}>
+            <ListItemIcon><BookIcon/></ListItemIcon>
+            <ListItemText primary={"Mis reservas"} />
+          </ListItem>
+      </List>
       <List>
         {['Logout'].map((text, index) => (
           <ListItem button key={text} onClick={() =>  history.goBack()}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>{index % 2 === 0 ? <ExitToAppIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
