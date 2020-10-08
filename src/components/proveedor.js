@@ -2,10 +2,8 @@ import React, { Fragment } from 'react';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Title from '../components/title'
-import Header from '../components/header';
 import Button from 'react-bootstrap/Button'
 import Image2 from '../img/peluqueria2.jpg'
 import Table from "@material-ui/core/Table";
@@ -61,7 +59,6 @@ const datos = [
 export default function Proveedor() {
     return (
         <Fragment>
-            <Header></Header>
             <Title pageTitle="Peluqueria" />
             <br></br>
             <div>
@@ -99,7 +96,7 @@ export default function Proveedor() {
                             <br></br>
                             <Grid container spacing={1}>
                                 <Grid item xs={3}>
-                                    <Button className="btn btn-primary" href="/reserva"> Haz tu reserva </Button>
+                                    <Button className="btn btn-primary" href="/reservauser"> Haz tu reserva </Button>
                                 </Grid>              
                             </Grid> 
                         </div>
@@ -108,9 +105,8 @@ export default function Proveedor() {
                 );
                 })}
             </div>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
+            <p></p>
+            <Copyright></Copyright>
             <br></br>
         </Fragment>
     );

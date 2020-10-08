@@ -15,7 +15,7 @@ import CardSitio from "../components/cardSitio";
 import MapaImage from '../img/mapa.png'
 import Image1 from '../img/salonbelleza1.jpg'
 import Image2 from '../img/peluqueria2.jpg'
-import Image3 from '../img/parqueadero1.jpeg'
+import Image3 from '../img/peluqueria3.jpeg'
 
 
 

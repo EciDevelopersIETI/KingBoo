@@ -15,7 +15,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Header from '../components/header';
 import axios from "axios";
 import {newReserva} from './../api/createReserva';
 
@@ -184,7 +183,7 @@ export default function Reserva() {
                     <Button className={classes.submit} type="submit"> Listo </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="/proveedor" variant="body2">
+                            <Link href="/proveedoruser" variant="body2">
                                 {"Regresar"}
                             </Link>
                         </Grid>

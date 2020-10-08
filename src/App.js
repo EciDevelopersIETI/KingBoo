@@ -9,9 +9,13 @@ import Reserva from './components/reserva';
 import SignUpShop from "./components/signUpShop";
 import CrearSitio from "./views/crearSitio";
 import ListaSitios from "./views/listaSitios";
+import Categoria from "./views/categoria";
 import ListadoReservas from "./components/listadoReservas";
-import ReservasEnSitio from "./components/reservasEnSitio";
+import {ReservasEnSitio} from "./components/reservasEnSitio";
 import {HomeUser} from "./components/homeUser";
+import {CategoriaUser} from "./components/categoriaUser";
+import {ProveedorUser} from "./components/proveedorUser";
+import {ReservaUser} from "./components/reservaUser";
 import EditarSitio from "./views/editarSitio";
 import MisReservas from "./components/misReservas";
 import OpcionesProveedor from "./components/opcionesProveedor";
@@ -30,9 +34,13 @@ function App() {
   const listadoReservas = () => <ListadoReservas/>;
   const reservasEnSitio = () => <ReservasEnSitio/>;
   const homeUser = () => <HomeUser/>;
+  const categoriaUser = () => <CategoriaUser/>;
+  const proveedorUser = () => <ProveedorUser/>;
+  const reservaUser = () => <ReservaUser/>;
   const editarSitio = () => <EditarSitio/>;
   const misReservas = () => <MisReservas/>;
   const opcionesProveedor = () => <OpcionesProveedor/>;
+  const categoria = () => <Categoria/>;
 
   return (
     <Router>
@@ -49,9 +57,13 @@ function App() {
         <Route exact path="/listadoreservas" component={listadoReservas} />
         <Route exact path="/reservasEnSitio" component={reservasEnSitio} />
         <Route exact path="/homeuser" component={homeUser} />
+        <Route exact path="/categoriauser" component={categoriaUser} />
+        <Route exact path="/proveedoruser" component={proveedorUser} />
+        <Route exact path="/reservauser" component={reservaUser} />
         <Route exact path="/editarsitio" component={editarSitio} />
         <Route exact path="/misReservas" component={misReservas} />
         <Route exact path="/opcionesProveedor" component={opcionesProveedor} />
+        <Route exact path="/categoria" component={categoria} />
       </div>
     </div>
   </Router>
