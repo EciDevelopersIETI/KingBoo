@@ -10,7 +10,7 @@ import SignUpShop from "./components/signUpShop";
 import CrearSitio from "./views/crearSitio";
 import ListaSitios from "./views/listaSitios";
 import ListadoReservas from "./components/listadoReservas";
-import ReservasEnSitio from "./components/reservasEnSitio";
+import {ReservasEnSitio} from "./components/reservasEnSitio";
 import {HomeUser} from "./components/homeUser";
 import EditarSitio from "./views/editarSitio";
 import MisReservas from "./components/misReservas";
