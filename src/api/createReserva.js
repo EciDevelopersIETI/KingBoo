@@ -31,11 +31,11 @@ const newReserva = reserva => {
 
 };
 
-const setReserva = reserva =>{
-  console.log(reserva);
+const updateReserva = update =>{
+  console.log(update);
 };
 
 export {
     newReserva,
-    setReserva,
+    updateReserva,
 }

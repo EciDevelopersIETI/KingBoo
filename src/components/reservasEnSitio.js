@@ -8,16 +8,17 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Title from './title';
 import Header from './header';
-import {setReserva} from './../api/createReserva';
+import {updateReserva} from './../api/createReserva';
 
 export class ReservasEnSitio extends Component{
   constructor(props){
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this); 
+    this.handleIdReserva = this.handleSubmit.bind(this);
+    //this.handleEncargado = this.handleEncargado.bind(this);
     this.state={
       data:[],
-      servicios:[],
     };
-    this.handleSubmit = this.handleSubmit.bind(this); 
   }
 
   componentDidMount() {
@@ -31,23 +32,31 @@ export class ReservasEnSitio extends Component{
         })  
   }
 
+  handleIdReserva(e){
+    this.setState.idReserva({idRerserva: e.target.value});
+  }
+
   handleSubmit(e){
     e.preventDefault();
+    console.log(document.getElementById("idReserva").value);
     console.log(document.getElementById("empleados").value);
-    const reserva ={
-        fecha: null,
-        hora: null,
-        servicios: null,
-        comentario: null,
+    
+    const update ={
+        
         encargado: document.getElementById("empleados").value,
-        user: null
+        reservaId: document.getElementById("idReserva").value
+      
     }
-    setReserva(reserva);
+    updateReserva(update);
   };
 
   render(){
-    const lista = this.state.data.map((reserva) => 
+    const lista = this.state.data.map((reserva) => {
+      const idReserva = reserva.reservaId;
+      //console.log(idReserva);
+      return(
           <div>
+            <input value={reserva.reservaId} id='idReserva' onChange={this.handleIdReserva}/>
             <TableContainer component={Paper} >
                 <Table size="medium" aria-label="a dense table">
                   <TableHead>
@@ -73,12 +82,14 @@ export class ReservasEnSitio extends Component{
                 </Table>
             </TableContainer>
           </div>
-    );  
+      );
+    });
+
     return (
       <Fragment>
         <Header></Header>
         <Title pageTitle="Reservas Sitio X"/>
-        <form >
+        <form onSubmit={this.handleSubmit}>
         <div>
           <div className='card reserv' >
             <div className='lista-datos'> 
