@@ -52,8 +52,6 @@ export class ReservasEnSitio extends Component{
 
   render(){
     const lista = this.state.data.map((reserva) => {
-      const idReserva = reserva.reservaId;
-      //console.log(idReserva);
       return(
           <div>
             <input value={reserva.reservaId} id='idReserva' onChange={this.handleIdReserva}/>
