@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Reserva() {
     const classes = useStyles();
-	let	servicesHope = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider")+'/service').then(function (response) {localStorage.setItem("servicesPro",response.data);}).catch(function (error) { console.log(error);});
 	const services = [];
 	const handleSubmit = e => {
         e.preventDefault();

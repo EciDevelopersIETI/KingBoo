@@ -85,12 +85,12 @@ function ResponsiveDrawer(props) {
 			<List>
                 <ListItem>
                   <ListItemText
-                    primary="Administrator"
+                    primary={localStorage.getItem("user")}
                   />
                 </ListItem>,
 				 <ListItem>
                   <ListItemText
-                    primary={localStorage.getItem("user")}
+                    primary={localStorage.getItem("username")}
                   />
                 </ListItem>,
        </List>
@@ -112,7 +112,7 @@ function ResponsiveDrawer(props) {
       </List>
       <List>
         {['Logout'].map((text, index) => (
-          <ListItem button key={text} onClick={() =>  history.goBack()}>
+          <ListItem button key={text} onClick={() =>  history.push("/login")}>
             <ListItemIcon>{index % 2 === 0 ? <ExitToAppIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
