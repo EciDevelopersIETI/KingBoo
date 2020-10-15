@@ -96,7 +96,7 @@ export default function Proveedor() {
                             <br></br>
                             <Grid container spacing={1}>
                                 <Grid item xs={3}>
-                                    <Button className="btn btn-primary" href="/reservauser"> Haz tu reserva </Button>
+                                    <Button className="btn btn-primary" href="/reserva"> Haz tu reserva </Button>
                                 </Grid>              
                             </Grid> 
                         </div>

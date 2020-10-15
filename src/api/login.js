@@ -14,9 +14,23 @@ const loginUser = user => {
              password: user.password
      })
 	
-      .then(function (response) {
-		localStorage.setItem("user",user.email);  
-        window.location.href = "/homeuser";
+      .then(function (response) { 
+		localStorage.setItem("user",user.email);
+		let user2 = axios.get('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user"))
+		.then(function (response) 
+		{	user2 = response.data;
+			localStorage.setItem("username",user2.userName);
+			if(user2.rol === "cli"){
+				window.location.href = "/homeuser";
+			}
+			else{
+				window.location.href = "/OpcionesProveedor";
+			}
+			
+		})
+		.catch(function (error)
+		{ console.log(error);});	
+		
       })
       .catch(function (error) { 
 		console.log(error);
