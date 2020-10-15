@@ -31,23 +31,6 @@ const newReserva = reserva => {
 
 };
 
-const updateReserva = update =>{
-  console.log("prueba: "+update.reservaId);
-  console.log("prueba: "+update.encargado);
-    axios.post('https://kingboooback.herokuapp.com/reservas/updatereserva',{
-      name: update.encargado,
-      id:  update.reservaId
-    })
-    .then(function (response) {
-      alert("Realizo el update")
-    })
-    .catch(function (error) { 
-  console.log(error);
-      alert("Error al actulizar");
-    });
-};
-
 export {
     newReserva,
-    updateReserva,
 }

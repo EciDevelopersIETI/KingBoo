@@ -8,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Title from './title';
 import Header from './header';
-import {updateReserva} from './../api/createReserva';
+import {updateReserva} from './../api/updateReserva';
 
 export class ReservasEnSitio extends Component{
   constructor(props){
