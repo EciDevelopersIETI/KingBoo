@@ -16,16 +16,24 @@ import Image1 from '../img/salonbelleza1.jpg'
 import Image2 from '../img/peluqueria2.jpg'
 import Image3 from '../img/peluqueria3.jpeg'
 
+import axios from "axios";
+
 
 
 export default class crearSitio extends Component {
 
     render() {
+
+        let	servicesHope = axios.get('https://kingboooback.herokuapp.com/provider')
+        .then(function (response) { servicesHope=response.data; localStorage.setItem("listaProviders",JSON.stringify(servicesHope));})
+        .catch(function (error) { console.log(error);} );
+        //console.log(localStorage.getItem("listaProviders"));
+        //console.log(JSON.parse(localStorage.getItem("listaProviders")));
+
         return (
             <div>
 
-                <Title pageTitle="Categoría"/>
-
+                <Title pageTitle="Tiendas"/>
                 <Container >
                     <Row>
                         <Col lg={{span:4}} className="ml-5">
@@ -42,12 +50,12 @@ export default class crearSitio extends Component {
                         </Col>
                     </Row>
                     <CardDeck className="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-5">
-                        <CardSitio cardImage={Image1} cardTitle="Nellys Beauty Salon"/>
-                        <CardSitio cardImage={Image2} cardTitle="Hair Salon"/>
-                        <CardSitio cardImage={Image3} cardTitle="Lucia Estilo"/>
-                        <CardSitio cardImage={Image1} cardTitle="Nellys Beauty Salon"/>
-                        <CardSitio cardImage={Image2} cardTitle="Hair Salon"/>
-                        <CardSitio cardImage={Image3} cardTitle="Lucia Estilo"/>
+                        {
+                          JSON.parse(localStorage.getItem("listaProviders")).map(serv => (
+                            <CardSitio cardImage={Image1} cardTitle={serv.providerName}/>
+                          ))
+                        }
+
                     </CardDeck>
                     <Copyright></Copyright>
                 </Container>

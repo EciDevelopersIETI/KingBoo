@@ -81,7 +81,7 @@ function ResponsiveDrawer(props) {
 	<div>
 	   <div className={classes.toolbar} />
 	   <div style={{alignItems:'center',justifyContent:'center'}}>
-	   <AccountCircleIcon style={{ fontSize: 80 }} />	
+	   <AccountCircleIcon style={{ fontSize: 80 }} />
 			<List>
                 <ListItem>
                   <ListItemText
@@ -94,14 +94,14 @@ function ResponsiveDrawer(props) {
                   />
                 </ListItem>,
        </List>
-    
+
       </div>
 	  <Divider />
 	  <div>
     <List>
           <ListItem button  onClick={() =>  history.push("/categoriauser")}>
             <ListItemIcon><ListIcon/></ListItemIcon>
-            <ListItemText primary={"Lista de sitios"} />
+            <ListItemText primary={"Tiendas"} />
           </ListItem>
       </List>
       <List>
@@ -154,7 +154,7 @@ function ResponsiveDrawer(props) {
               paper: classes.drawerPaper,
             }}
             ModalProps={{
-              keepMounted: true, 
+              keepMounted: true,
             }}
           >
             {drawer}
@@ -174,7 +174,7 @@ function ResponsiveDrawer(props) {
       </nav>
 	  <main className={classes.content}>
       {props.childComponent}
-	  </main>		
+	  </main>
     </div>
   );
 }
