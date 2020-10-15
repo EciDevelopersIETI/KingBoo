@@ -22,17 +22,15 @@ import axios from "axios";
 
 export default class crearSitio extends Component {
 
+
+
     render() {
 
-        let	servicesHope = axios.get('https://kingboooback.herokuapp.com/provider')
-        .then(function (response) { servicesHope=response.data; localStorage.setItem("listaProviders",JSON.stringify(servicesHope));})
-        .catch(function (error) { console.log(error);} );
         //console.log(localStorage.getItem("listaProviders"));
         //console.log(JSON.parse(localStorage.getItem("listaProviders")));
-
         return (
-            <div>
 
+            <div>
                 <Title pageTitle="Tiendas"/>
                 <Container >
                     <Row>

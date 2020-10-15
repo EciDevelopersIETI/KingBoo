@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component }from 'react';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -13,6 +13,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
+import axios from "axios";
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -26,88 +28,96 @@ function Copyright() {
     );
 }
 
-const datos = [
-    {
-      nombreNegocio: "Peluqueria",
-      descripcion:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor " +
-      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
-      "ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit " +
-      "in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat" +
-      "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 
-      direccion: "Cra 67 # 12-52",
-      imagen:
-        "./img/peluqueria2.jpg",
-      servicios: [
-        {
-            tipo: "Corte de cabello",
-        },
-        {
-            tipo: "Barba",
-        },
-        {
-            tipo: "Manicura",
-        },
-        {
-            tipo: "Depilacion",
-        }
-    ]
-    }   
-  ];
-
-export default function Proveedor() {
+export default class Proveedor extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      datos:[],
+    };
+  }
+  componentDidMount() {
+    console.log("Im in comp")
+    fetch('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider"))
+        .then(response => response.json())
+        .then(result=>{
+          this.setState({
+            datos : result,
+          });
+          console.log(this.state.datos);
+        })
+  }
+  render(){
+    //this.componentDidMount();
+    var dato = this.state.datos;
+    var lista = this.state.datos.services;
+    //console.log(lista);
+    var serv = [];
+    for(var value in lista){
+      //console.log(lista[value]);
+      serv.push(lista[value]);
+    }
+    //var serv = JSON.stringify(dato.services)
+    console.log(serv);
     return (
         <Fragment>
-            <Title pageTitle="Peluqueria" />
+            <Title pageTitle="Salon de belleza" />
             <br></br>
             <div>
-                {datos.map((dato, i) => {
-                return (
-                    <div key={i} className="card reserv padding-60px">
-                        <div className="lista-datos">
-                            <span><h3>Descripción: </h3></span>
-                            <label>{dato.descripcion}</label>
-                            <br></br>
-                            <li>
-                            <span>Dirección:</span>{dato.direccion}
-                            </li>
-                            <br></br>
-                            <div>
-                                <TableContainer component={Paper} >
-                                    <Table size="medium" aria-label="a dense table">
-                                        <TableHead>
-                                            <TableRow>
-                                            <TableCell ><span>Servicios</span></TableCell>
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                            {dato.servicios.map((servicios, index) => (
-                                            <TableRow key={index}>
-                                                <TableCell >
-                                                {servicios.tipo}
-                                                </TableCell>
-                                            </TableRow>
-                                            ))}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
-                            </div>
-                            <br></br>
-                            <Grid container spacing={1}>
-                                <Grid item xs={3}>
-                                    <Button className="btn btn-primary" href="/reserva"> Haz tu reserva </Button>
-                                </Grid>              
-                            </Grid> 
+                <h1>
+                  {dato.providerName}
+                </h1>
+                <div className="card reserv padding-60px">
+                    <div className="lista-datos">
+                        <span><h3>Descripción: </h3></span>
+                        <label>{dato.description}</label>
+                        <br></br>
+                        <li>
+                        <span>Dirección:</span>{dato.address}
+                        </li>
+                        <br></br>
+                        <li>
+                        <span>Cupo:</span>{dato.capacity}
+                        </li>
+                        <br></br>
+                        <div>
+                            <TableContainer component={Paper} >
+                                <Table size="medium" aria-label="a dense table">
+                                    <TableHead>
+                                        <TableRow>
+                                        <TableCell ><span>Servicios</span></TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {serv.map((servicios, index) => (
+                                        <TableRow key={index}>
+                                            <TableCell >
+                                            {servicios}
+                                            </TableCell>
+                                        </TableRow>
+                                        ))}
+                                    </TableBody>
+
+
+
+
+                                </Table>
+                            </TableContainer>
                         </div>
-                        <img src={Image2} alt={dato.nombreNegocio}></img>
+                        <br></br>
+                        <Grid container spacing={1}>
+                            <Grid item xs={3}>
+                                <Button className="btn btn-primary" href="/reserva"> Haz tu reserva </Button>
+                            </Grid>
+                        </Grid>
                     </div>
-                );
-                })}
+                    <img src={Image2} alt={dato.providerName}></img>
+                </div>
             </div>
             <p></p>
             <Copyright></Copyright>
             <br></br>
         </Fragment>
     );
+  }
 }
