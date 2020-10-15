@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card'
 
+import axios from "axios";
+
 export default class cardSitio extends Component {
     constructor(props){
       super(props);
