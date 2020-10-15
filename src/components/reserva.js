@@ -54,17 +54,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Reserva() {
     const classes = useStyles();
+	let	servicesHope = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider")+'/service').then(function (response) {localStorage.setItem("servicesPro",response.data);}).catch(function (error) { console.log(error);});
 	const services = [];
 	const handleSubmit = e => {
         e.preventDefault();
 		if(services.length === 0){
-			alert("Porfavor seleccione alemos un servico");
+			alert("Porfavor seleccione almenos un servico");
 		}
 		else{
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
 			var userReserva = axios.get('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user")).then(function (response) {userReserva = response.data;}).catch(function (error) { console.log(error);});
 			var providerReserva = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider")).then(function (response) {providerReserva = response.data;}).catch(function (error) { console.log(error);});
-			setTimeout(function() {	
+			setTimeout(function() {
 				const reserva={
 					 fecha: document.getElementById("date").value,
 					 hora: document.getElementById("time").value,
@@ -72,14 +73,14 @@ export default function Reserva() {
 					 comentario: document.getElementById("tel").value,
 					 encargado: " ",
 					 user: userReserva,
-					 provider: providerReserva					 
+					 provider: providerReserva
 				}
 				console.log(reserva);
 				newReserva(reserva);
 			}.bind(this), 1200);
-			
+
 		}
-		
+
     };
 	const handleChangeChk = e => {
 		console.log(e.target.value);
@@ -99,7 +100,7 @@ export default function Reserva() {
                 <Typography component="h1" variant="h2">
                     Haz tu reserva
                 </Typography>
-                <form className={classes.form} 
+                <form className={classes.form}
 				onSubmit={handleSubmit} >
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
@@ -130,32 +131,32 @@ export default function Reserva() {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <List 
+                            <List
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                 Que servicio quieres
                                 </ListSubheader>
                                 }
                                 >
-								
+
 								{
-										
+
 										localStorage.getItem("servicesPro").split(',').map(serv => (
 											<ListItem button key={serv}>
 												<ListItemText primary={serv} />
 												<Checkbox  label={serv} edge="start" value={serv}  tabIndex={-1} disableRipple  onChange={handleChangeChk} />
-											</ListItem>												
+											</ListItem>
 										))
-																		
-										
 
-									
-									
-									
+
+
+
+
+
 								}
-								
-								
-                                
+
+
+
 
                             </List>
                         </Grid>
