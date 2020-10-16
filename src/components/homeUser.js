@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MisReservas from './misReservas';
+import {MisReservas} from './misReservas';
 import ResponsiveDrawer from './ResponsiveDrawer';
 
 import axios from "axios";

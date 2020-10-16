@@ -17,7 +17,7 @@ import {CategoriaUser} from "./components/categoriaUser";
 import {ProveedorUser} from "./components/proveedorUser";
 import {ReservaUser} from "./components/reservaUser";
 import EditarSitio from "./views/editarSitio";
-import MisReservas from "./components/misReservas";
+import {MisReservas} from "./components/misReservas";
 import OpcionesProveedor from "./components/opcionesProveedor";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
