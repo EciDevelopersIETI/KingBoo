@@ -83,6 +83,7 @@ export class MisReservas extends Component{
         </div>
         <p></p>
         <Copyright></Copyright>
+        <p></p>
       </Fragment>
     );
   };

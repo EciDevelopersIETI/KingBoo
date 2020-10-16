@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component, Fragment } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -9,20 +9,21 @@ import TableRow from "@material-ui/core/TableRow";
 import Title from './title';
 import Header from './header';
 import {updateReserva} from './../api/updateReserva';
+import Copyright from '../components/copyright';
 
 export class ReservasEnSitio extends Component{
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this); 
-    this.handleIdReserva = this.handleSubmit.bind(this);
-    //this.handleEncargado = this.handleEncargado.bind(this);
+    this.input = React.createRef();
+    this.handleEncargado = this.handleEncargado.bind(this);
     this.state={
       data:[],
     };
   }
 
   componentDidMount() {
-    fetch('https://kingboooback.herokuapp.com/reservas')
+    fetch('https://kingboooback.herokuapp.com/reservas/provider/Luis%20Shop')
         .then(response => response.json())
         .then(result=>{
           this.setState({
@@ -32,54 +33,61 @@ export class ReservasEnSitio extends Component{
         })  
   }
 
-  handleIdReserva(e){
-    this.setState.idReserva({idRerserva: e.target.value});
+  handleEncargado(e){
+    this.setState({empleados: e.target.value});
   }
 
   handleSubmit(e){
+    console.log("idFront: " + this.input.current.value);
+    console.log("Encargado: " + this.state.empleados);
     e.preventDefault();
-    console.log(document.getElementById("idReserva").value);
-    console.log(document.getElementById("empleados").value);
-    
+    /** 
     const update ={
         
-        encargado: document.getElementById("empleados").value,
-        reservaId: document.getElementById("idReserva").value
+        encargado: this.state.empleados,
+        reservaId: this.state.idRerserva
       
     }
     updateReserva(update);
+    */
   };
 
   render(){
-    const lista = this.state.data.map((reserva) => {
+
+    const lista = this.state.data.map((reserva,i) => {
       return(
-          <div>
-            <input value={reserva.reservaId} id='idReserva' onChange={this.handleIdReserva}/>
-            <TableContainer component={Paper} >
-                <Table size="medium" aria-label="a dense table">
-                  <TableHead>
-                        <TableRow>
-                        <TableCell ><span>Fecha: </span> {reserva.fecha} </TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell ><span>Hora: </span> {reserva.hora} </TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell ><span>Servicios: </span> {reserva.servicios} </TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell ><span>Cliente: </span> {reserva.user.userName} Telefono: {reserva.user.telefono} email: {reserva.user.email} </TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell ><span>Comentarios: </span> {reserva.comentario} </TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell ><span>Asignar encargado: </span>  <input id='empleados'></input></TableCell>
-                        </TableRow>
-                    </TableHead>
-                </Table>
-            </TableContainer>
+        <form onSubmit={this.handleSubmit} key={reserva.reservaId} >
+          <div className="card reserv padding-60px" >
+            <div key={i}>
+              <input defaultValue={reserva.reservaId} type="text" ref={this.input}></input> 
+              <TableContainer component={Paper} >
+                  <Table aria-label="a dense table">
+                    <TableHead>
+                          <TableRow>
+                          <TableCell ><span>Fecha: </span> {reserva.fecha} </TableCell>
+                          </TableRow>
+                          <TableRow>
+                          <TableCell ><span>Hora: </span> {reserva.hora} </TableCell>
+                          </TableRow>
+                          <TableRow>
+                          <TableCell ><span>Servicios: </span> {reserva.servicios} </TableCell>
+                          </TableRow>
+                          <TableRow>
+                          <TableCell ><span>Cliente: </span> {reserva.user.userName} Telefono: {reserva.user.telefono} email: {reserva.user.email} </TableCell>
+                          </TableRow>
+                          <TableRow>
+                          <TableCell ><span>Comentarios: </span> {reserva.comentario} </TableCell>
+                          </TableRow>
+                          <TableRow>
+                          <TableCell ><span>Asignar encargado: </span>  <input id='empleados' onChange={this.handleEncargado} ></input></TableCell>
+                          </TableRow>
+                      </TableHead>
+                  </Table>
+              </TableContainer>
+            </div>
+            <button type="submit" variant="contained" className='btn btn-success'>Enviar datos</button>
           </div>
+        </form>
       );
     });
 
@@ -87,19 +95,16 @@ export class ReservasEnSitio extends Component{
       <Fragment>
         <Header></Header>
         <Title pageTitle="Reservas Sitio X"/>
-        <form onSubmit={this.handleSubmit}>
         <div>
           <div className='card reserv' >
             <div className='lista-datos'> 
             {lista}
             </div>
-            <div className='botones'>
-              <button className='btn btn-success'>Enviar datos</button>
-              <button className='btn btn-secondary'>Cancelar datos</button>
-            </div>
           </div>
         </div>
-        </form>
+        <p></p>
+        <Copyright></Copyright>
+        <p></p>
       </Fragment>
     );
   }
