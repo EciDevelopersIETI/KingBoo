@@ -1,28 +1,27 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 /* Style Home */
 
-.container{
+.container {
   width: 80%;
   max-width: 1920px;
   margin: auto;
 }
 
-.navg{
+.navg {
   background-color: rgba(0, 38, 255, 0.582);
-
 }
 
 nav {
@@ -33,57 +32,56 @@ nav {
   padding: 20px;
 }
 
-nav div > a{
+nav div > a {
   text-decoration: none;
   color: white;
   padding: 10px 15px;
 }
 
-nav div > a:hover{
-
+nav div > a:hover {
   border-bottom: 1px solid white;
 }
 
-nav div > .btn-nav-rigth{
+nav div > .btn-nav-rigth {
   border-right: 2px solid white;
 }
 
 /* About Us */
 
-.about-us{
+.about-us {
   text-align: start;
 }
 
 /* user date */
 
-.user-date{
+.user-date {
   margin: 20px auto;
   display: flex;
   justify-content: space-around;
 }
 
-.user-date > div{
+.user-date > div {
   display: flex;
 }
 
-.user-date div > div{
+.user-date div > div {
   height: 100%;
   margin-right: 20px;
 }
 
-.user-date i{
+.user-date i {
   font-size: 70px;
   color: rgba(0, 38, 255, 0.582);
 }
 
-.icono{
+.icono {
   display: flex;
   align-items: center;
 }
 
 /* Style Reservas */
 
-.reserv{
+.reserv {
   display: flex;
   flex-direction: row !important;
   justify-content: space-between;
@@ -91,7 +89,7 @@ nav div > .btn-nav-rigth{
   padding: 20px;
 }
 
-.reserv .lista-datos{
+.reserv .lista-datos {
   text-align: start;
 }
 
@@ -103,17 +101,25 @@ nav div > .btn-nav-rigth{
   font-weight: bold;
 }
 
-.botones{
+.botones {
   align-self: flex-end;
 }
 
-.botones > button{
+.botones > button {
   align-self: flex-end;
   margin-right: 20px;
 }
 
 /* Mis reservas*/
 
-.padding-60px{
-  padding: 60px !important; 
+.padding-60px {
+  padding: 60px !important;
+}
+
+.padding-85perc {
+  padding-left: 85%;
+}
+
+.img-icons{
+   height: 150px;
 }

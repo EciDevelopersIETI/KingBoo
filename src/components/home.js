@@ -1,105 +1,152 @@
 import React, { Fragment } from "react";
 
 const Home = () => {
-    return (
-        <Fragment>
+  return (
+    <Fragment>
+      <section className="navg">
+        <nav>
+          <div className="padding-85perc">
+            <a href="login" className="btn-nav">
+              Login
+            </a>
+            <a href="sign-up" className="btn-nav">
+              Register
+            </a>
+          </div>
+        </nav>
+      </section>
 
-            <section className='navg'>
-                <nav className='container'>
-                    <div>
-                        <a href='/' className='btn-nav-rigth'>Home</a>
-                        <a href='#' className='btn-nav-rigth'>About</a>
-                        <a href='#' className='btn-nav-rigth'>Pricing</a>
-                    </div>
-                    <div>
-                        <a href='login' className='btn-nav'>Login</a>
-                        <a href='sign-up'className='btn-nav'>Register</a>
-                    </div>
-                </nav>
-            </section>
+      <img src="https://www.softwaresuggest.com/blog/wp-content/uploads/2019/10/salon-business-1.png" />
 
-            <img src='https://raw.githubusercontent.com/EciDevelopersIETI/KingBoo-Front-End/dagomez/ajuste-front-home/img/onlineTicket.jpg' alt='Imagen principal'></img>
+      <section className="container about-us">
+        <div>
+          <h1>Sobre nosotros</h1>
+          <p>
+            Debido a la situación actual del mundo y a las recomendaciones
+            hechas por el gobierno nacional por la pandemia nace la idea de
+            Kingboo, una aplicación que permita a las personas reservar en
+            distintos lugares de forma más rápida y simple, permitiendoles:
+            Ahorrar tiempo en la busqueda de lugares Encontrar los mejores
+            lugares en la ciudad Recomendaciones de precio y otras
+            características Proveer confianza y seguridad a los usuarios
+            Facilitar la administración a los dueños de locales
+          </p>
 
-            <section className='container about-us'>
-                <div>
-                    <h1>About Us</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget sodales lacus, 
-                    eu efficitur lacus. Pellentesque ligula massa, elementum at ex sit amet, 
-                    efficitur vestibulum ante. Nulla suscipit turpis ligula, id suscipit arcu consectetur ac. 
-                    Suspendisse pellentesque neque dui, eu ornare velit placerat varius. Cras vestibulum lacus leo, 
-                    sed ullamcorper massa vehicula vel. Donec tincidunt sem orci, at malesuada elit vehicula eu. 
-                    Praesent vehicula, orci in accumsan interdum, sapien elit accumsan justo, in laoreet tellus purus eu nunc. 
-                    Donec gravida massa a nunc maximus imperdiet. Phasellus ac ligula at justo pharetra vulputate eget sed mi. 
-                    Nunc in justo sem. Sed eu ligula mi. Donec tristique mi volutpat, cursus elit ultrices, consectetur neque. 
-                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam dictum, felis eu 
-                    placerat tincidunt, magna arcu dignissim sem, ut tempus erat enim a leo. Lorem ipsum dolor sit amet, consectetur 
-                    adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget sodales lacus, 
-                    eu efficitur lacus. Pellentesque ligula massa, elementum at ex sit amet, 
-                    efficitur vestibulum ante. Nulla suscipit turpis ligula, id suscipit arcu consectetur ac. 
-                    Suspendisse pellentesque neque dui, eu ornare velit placerat varius. Cras vestibulum lacus leo, 
-                    sed ullamcorper massa vehicula vel. Donec tincidunt sem orci, at malesuada elit vehicula eu. 
-                    Praesent vehicula, orci in accumsan interdum, sapien elit accumsan justo, in laoreet tellus purus eu nunc. 
-                    Donec gravida massa a nunc maximus imperdiet. Phasellus ac ligula at justo pharetra vulputate eget sed mi. 
-                    Nunc in justo sem. Sed eu ligula mi. Donec tristique mi volutpat, cursus elit ultrices, consectetur neque. 
-                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam dictum, felis eu 
-                    placerat tincidunt, magna arcu dignissim sem, ut tempus erat enim a leo. Lorem ipsum dolor sit amet, consectetur 
-                    adipiscing elit.</p>
-                </div>
-            </section>
+          <h3>Nuestro propósito:</h3>
+          <p>
+            Ser la empresa más reconocida de reservas en línea mejorando y
+            simplificando la experiencia de los clientes de un establecimiento.
+          </p>
 
-            <section className='container user-date'>
-            
-                <div>
-                        <div className='icono'>
-                            <i className="fas fa-user"></i>
-                        </div>
-                    <div>
-                        <p>Nombre: <span> Oscar Alba</span> </p>
-                        <p>Cargo: <span> Oscar Alba</span> </p>
-                        <p>Area: <span> Oscar Alba</span> </p>
-                        <p>Perfil Linked in: <span> Oscar Alba</span> </p>
-                    </div>
-                </div>
-                <div>
-                    <div className='icono'>
-                        <i className="fas fa-user"></i>
-                    </div>
-                    <div>
-                        <p>Nombre: <span> Oscar Alba</span> </p>
-                        <p>Cargo: <span> Oscar Alba</span> </p>
-                        <p>Area: <span> Oscar Alba</span> </p>
-                        <p>Perfil Linked in: <span> Oscar Alba</span> </p>
-                    </div>
-                </div>
-                <div>
-                        <div className='icono'>
-                            <i className="fas fa-user"></i>
-                        </div>
-                    <div>
-                        <p>Nombre: <span> Oscar Alba</span> </p>
-                        <p>Cargo: <span> Oscar Alba</span> </p>
-                        <p>Area: <span> Oscar Alba</span> </p>
-                        <p>Perfil Linked in: <span> Oscar Alba</span> </p>
-                    </div>
-                </div>
-                <div>
-                    <div className='icono'>
-                        <i className="fas fa-user"></i>
-                    </div>
-                    <div>
-                        <p>Nombre: <span> Oscar Alba</span> </p>
-                        <p>Cargo: <span> Oscar Alba</span> </p>
-                        <p>Area: <span> Oscar Alba</span> </p>
-                        <p>Perfil Linked in: <span> Oscar Alba</span> </p>
-                    </div>
-                </div>
-                
+          <p>
+            Nuestro foco está en ofrecer nuestros servicios a otras industrias
+            donde el éxito de su negocio esté vinculado a la gestión de este a
+            través de nosotros; ponemos a su disposición un conjunto de
+            servicios profesionales que aseguran una gestión integral de
+            reservas y empleados.
+          </p>
 
-            </section>
+          <h2>Nuestro equipo:</h2>
+        </div>
+      </section>
+      <section className="container user-date">
+        <div>
+          <img className = 'img-icons'
+                src="https://media-exp1.licdn.com/dms/image/C5603AQG9776Jtg7ZXg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=Hlrc9BGIrNY30WMJCsrtB5GVJFYQl0hwKrTbnB3D3K8" />
+          <div>
+            <p>
+              Nombre: <span> Luis Jaramillo</span>{" "}
+            </p>
+            <p>
+              Cargo: <span> Team Developer</span>{" "}
+            </p>
+            <p>
+              Area: <span> Desarrollo e Innovacion</span>{" "}
+            </p>
+            <a href="https://www.linkedin.com/in/luis-alejandro-jaramillo-rincon/">
+              Linked In
+            </a>
+          </div>
+        </div>
 
-        </Fragment>
-    )
-}
+        <div>
+          <img className = 'img-icons'
+                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_800_800/0?e=1603317600&v=beta&t=e1s4nWZy-k9mhpN_F5HZwVst9Hv2T-B0qrFgItVv_7U" />
+          <div>
+            <p>
+              Nombre: <span>Fernando Barrera</span>{" "}
+            </p>
+            <p>
+              Cargo: <span> Team Developer</span>{" "}
+            </p>
+            <p>
+              Area: <span> Desarrollo e Innovacion</span>{" "}
+            </p>
+            <a href="https://www.linkedin.com/in/fernando-barrera-barrera-70ba161b2/">
+              Linked In
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <img className = 'img-icons' 
+                src="https://media-exp1.licdn.com/dms/image/C4D03AQHbNmzUOOAiXA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=WfwTKVBliu6jJ3FXdOr10ofHvQc2nAM9MnQXMbaxmfI" />
+          <div>
+            <p>
+              Nombre: <span> Carlos Castañeda</span>{" "}
+            </p>
+            <p>
+              Cargo: <span> Team Developer</span>{" "}
+            </p>
+            <p>
+              Area: <span> Desarrollo e Innovacion</span>{" "}
+            </p>
+            <a href="https://www.linkedin.com/in/carlos-andr%C3%A9s-casta%C3%B1eda-lozano-9a16b3190/">
+              Linked In
+            </a>
+          </div>
+        </div>
+      </section>
+      <section className="container user-date">
+        <div>
+          <img className = 'img-icons'
+                src='https://media-exp1.licdn.com/dms/image/C4E03AQGWpGFymfpOYA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=TLnN6k6h2al4yqXjOf0Fx66EWlR5Q8whNZ_JQIlLGAc' />
+          <div>
+            <p>
+              Nombre: <span> Juan Camilo Ortiz</span>
+            </p>
+            <p>
+              Cargo: <span> Team Developer</span>
+            </p>
+            <p>
+              Area: <span> Desarrollo e Innovacion</span>
+            </p>
+            <a href="https://www.linkedin.com/in/juanortizm/">
+              Linked In
+            </a>
+          </div>
+        </div>
+        <div>
+          <img className = 'img-icons'
+                src = 'https://media-exp1.licdn.com/dms/image/C4E03AQG7waXqkX-IBg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=ev8vrm4ARqbr5gllcGi6JBSI6agF6WUOI8jX69WbQyE'/>
+          <div>
+            <p>
+              Nombre: <span> Alejandra Gómez</span>
+            </p>
+            <p>
+              Cargo: <span> Team Developer</span>
+            </p>
+            <p>
+              Area: <span> Desarrollo e Innovacion</span>
+            </p>
+            <a href="https://www.linkedin.com/in/alejandra-g%C3%B3mez-7a5340158/">
+              Linked In
+            </a>
+          </div>
+        </div>
+      </section>
+    </Fragment>
+  );
+};
 
 export default Home;

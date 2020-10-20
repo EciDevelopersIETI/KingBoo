@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 
 import axios from "axios";
 
-export default class cardSitio extends Component {
+export default class CardReserva extends Component {
     constructor(props){
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,7 +13,7 @@ export default class cardSitio extends Component {
       e.preventDefault();
       //console.log(this.props.cardTitle);
       localStorage.setItem("provider",this.props.cardTitle);
-      window.location.href="./editarsitio";
+      window.location.href="./reservasEnSitio";
     };
     render() {
         return (

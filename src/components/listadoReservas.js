@@ -9,7 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Copyright from './copyright';
 
-import CardSitio from "./cardSitio";
+import CardReserva from "./cardReserva";
 
 
 import MapaImage from '../img/mapa.png'
@@ -43,11 +43,11 @@ export default class listadoReservas extends Component {
                         </Col>
                     </Row>
                     <CardDeck className="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-5">
-                        <CardSitio cardImage={Image1} cardTitle="Consultar reservas"/>
-                        <CardSitio cardImage={Image2} cardTitle="Consultar reservas"/>
-                        <CardSitio cardImage={Image3} cardTitle="Consultar reservas"/>
-                        <CardSitio cardImage={Image2} cardTitle="Consultar reservas"/>
-                        <CardSitio cardImage={Image3} cardTitle="Consultar reservas"/>
+                        <CardReserva cardImage={Image1} cardTitle="Consultar reservas"/>
+                        <CardReserva cardImage={Image2} cardTitle="Consultar reservas"/>
+                        <CardReserva cardImage={Image3} cardTitle="Consultar reservas"/>
+                        <CardReserva cardImage={Image2} cardTitle="Consultar reservas"/>
+                        <CardReserva cardImage={Image3} cardTitle="Consultar reservas"/>
                     </CardDeck>
                     <Copyright></Copyright>
                 </Container>
