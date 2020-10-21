@@ -13,7 +13,7 @@ export default class cardSitio extends Component {
       e.preventDefault();
       //console.log(this.props.cardTitle);
       localStorage.setItem("provider",this.props.cardTitle);
-      window.location.href="./editarsitio";
+      window.location.href="./proveedoruser";
     };
     render() {
         return (
