@@ -21,7 +21,7 @@ export class ReservasEnSitio extends Component{
       data:[],
     };
   }
-
+  
   componentDidMount() {
     fetch('https://kingboooback.herokuapp.com/reservas/provider/Luis%20Shop')
         .then(response => response.json())
@@ -60,6 +60,9 @@ export class ReservasEnSitio extends Component{
           <div className="card reserv padding-60px" >
             <div key={i}>
               <input defaultValue={reserva.reservaId} type="text" ref={this.input}></input> 
+              <h2>
+              <span>{localStorage.getItem('user')}</span>
+            </h2>
               <TableContainer component={Paper} >
                   <Table aria-label="a dense table">
                     <TableHead>

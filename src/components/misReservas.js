@@ -13,13 +13,14 @@ import Copyright from '../components/copyright';
 export class MisReservas extends Component{
   constructor(props){
     super(props);
+    this.email = localStorage.getItem('user');
     this.state={
       data:[],
     };
   }
 
   componentDidMount() {
-    fetch('https://kingboooback.herokuapp.com/reservas/user/fernando@mail.com')
+    fetch('https://kingboooback.herokuapp.com/reservas/user/'+ this.email)
         .then(response => response.json())
         .then(result=>{
           this.setState({
