@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@material-ui/core";
 import Title from "./title";
-import ResponsiveDrawer from "./ResponsiveDrawer";
+import ResponsiveDrawerProveedor from "./ResponsiveDrawerProveedor";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -11,7 +11,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 const OpcionesProveedor = () => {
   const myComponent = (
     <Fragment>
-      <Title hasMargin={false} pageTitle="MIS OPCIONES" />
+      <Title hasMargin={false} pageTitle="Mis Opciones" />
       <div className="padding-60px row">
         <Card className="col-md-5">
           <CardActionArea style={{ height: 200 }}>
@@ -40,7 +40,7 @@ const OpcionesProveedor = () => {
     </Fragment>
   );
 
-  return <ResponsiveDrawer childComponent={myComponent} />;
+  return <ResponsiveDrawerProveedor childComponent={myComponent} />;
 };
 
 export default OpcionesProveedor;
