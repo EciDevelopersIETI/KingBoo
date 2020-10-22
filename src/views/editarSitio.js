@@ -13,18 +13,8 @@ export default class crearSitio extends Component {
     render() {
         return (
             <div>
-                <Title pageTitle="Editar Sitio"/>
-
                 <Container fluid>
-                    <Row>
-                        <Col xs="6">
-                            <CrearSitioForm></CrearSitioForm>
-                        </Col>
-                        <Col xs="6">
-                            <EditarRegistro></EditarRegistro>
-                        </Col>
-                    </Row>
-                <Copyright></Copyright>
+                        <EditarRegistro></EditarRegistro>
                 </Container>
             </div>
 

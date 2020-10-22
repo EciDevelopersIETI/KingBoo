@@ -15,10 +15,10 @@ const OpcionesProveedor = () => {
       <div className="padding-60px row">
         <Card className="col-md-5">
           <CardActionArea style={{ height: 200 }}>
-            <Link to={"/listadoreservas"}>
+            <Link to={"/editarsitio"}>
               <CardContent>
                 <Typography variant="body3" color="textSecondary" component="p">
-                  Listado Reserva
+                  Editar Sitio
                 </Typography>
               </CardContent>
             </Link>
