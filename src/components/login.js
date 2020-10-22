@@ -89,6 +89,7 @@ export default function LogIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+		  {localStorage.clear()}
           <form className={classes.form} 
           onSubmit={handleSubmit}>
             <TextField
