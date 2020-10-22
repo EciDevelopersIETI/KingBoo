@@ -24,7 +24,6 @@ export default class crearSitio extends Component {
     render() {
         return (
             <div>
-                <Header></Header>
                 <Title pageTitle="Sitios"/>
 
                 <Container >
