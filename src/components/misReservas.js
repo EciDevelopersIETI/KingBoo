@@ -9,10 +9,12 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Copyright from '../components/copyright';
+import {deleteReserva} from './../api/deleteReserva';
 
 export class MisReservas extends Component{
   constructor(props){
     super(props);
+    this.handleCancelar = this.handleCancelar.bind(this); 
     this.email = localStorage.getItem('user');
     this.state={
       data:[],
@@ -30,49 +32,67 @@ export class MisReservas extends Component{
         })  
   }
 
+  handleCancelar(e){
+    console.log(document.getElementById("reserva").value);
+    e.preventDefault();
+    /** 
+    const deleteres ={
+        
+        reservaId: document.getElementById("reserva").value,
+      
+    }
+    deleteReserva(deleteres);
+    */
+  };
+
   render(){
     const lista = this.state.data.map((reserva) => {
       return (
-        <div className="card reserv padding-60px">
-          <div className="lista-datos">
-            <h2>
-              <span>{reserva.provider.providerName}</span>
-            </h2>
-            <label>{reserva.provider.description}</label>
-            <br></br>
-            <li>
-              <span>Direccion:</span> {reserva.provider.address}
-            </li>
-            <br></br>
-            <div>
-              <TableContainer component={Paper} >
-                <Table size="medium" aria-label="a dense table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell ><span>Servicio</span></TableCell>
-                      <TableCell ><span>Fecha y Hora Reserva</span></TableCell>
-                      <TableCell ><span>Cancelar Reserva</span></TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
+        <form  onSubmit={this.handleCancelar} >
+          <div className="card reserv padding-60px">
+            <div className="lista-datos">
+              <h2>
+                <span>{reserva.provider.providerName}</span>
+              </h2>
+              <label>{reserva.provider.description}</label>
+              <br></br>
+              <li>
+                <span>Direccion:</span> {reserva.provider.address}
+              </li>
+              <li>
+                <input id='reserva' value={reserva.reservaId} type="text"></input>
+              </li>
+              <br></br>
+              <div>
+                <TableContainer component={Paper} >
+                  <Table size="medium" aria-label="a dense table">
+                    <TableHead>
                       <TableRow>
-                          <TableCell >
-                          {reserva.servicios}
-                        </TableCell>
-                        <TableCell >
-                          {reserva.fecha} - {reserva.hora}
-                        </TableCell>
-                        <TableCell>
-                          <button className="btn btn-secondary">Cancelar reserva</button>
-                        </TableCell>
+                        <TableCell ><span>Servicio</span></TableCell>
+                        <TableCell ><span>Fecha y Hora Reserva</span></TableCell>
+                        <TableCell ><span>Cancelar Reserva</span></TableCell>
                       </TableRow>
-                  </TableBody>
-                </Table>
-              </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell >
+                            {reserva.servicios}
+                          </TableCell>
+                          <TableCell >
+                            {reserva.fecha} - {reserva.hora}
+                          </TableCell>
+                          <TableCell>
+                            <button className="btn btn-secondary">Cancelar reserva</button>
+                          </TableCell>
+                        </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
             </div>
+            <img src='https://www.logopik.com/wp-content/uploads/edd/2018/11/Beauty-Salon-Logo-Vector.png'></img>
           </div>
-          <img src='https://www.logopik.com/wp-content/uploads/edd/2018/11/Beauty-Salon-Logo-Vector.png'></img>
-        </div>
+        </form>
       );
     });
 
