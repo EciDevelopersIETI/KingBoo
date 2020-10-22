@@ -20,7 +20,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useHistory } from 'react-router-dom';
-
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 
 
 
@@ -81,18 +82,20 @@ function ResponsiveDrawer(props) {
 	   <div className={classes.toolbar} />
 	   <div style={{alignItems:'center',justifyContent:'center'}}>
 	   <AccountCircleIcon style={{ fontSize: 80 }} />
-			<List>
-                <ListItem>
-                  <ListItemText
-                    primary={localStorage.getItem("user")}
-                  />
-                </ListItem>,
-				 <ListItem>
-                  <ListItemText
-                    primary={localStorage.getItem("username")}
-                  />
-                </ListItem>,
-       </List>
+     <List>
+         <ListItem button key={"Username"}>
+         <ListItemIcon>
+           <AccountBoxIcon> </AccountBoxIcon>
+         </ListItemIcon>
+         <ListItemText primary={localStorage.getItem("username")} />
+         </ListItem>
+         <ListItem button key={"email"}>
+         <ListItemIcon>
+           <AlternateEmailIcon></AlternateEmailIcon>
+         </ListItemIcon>
+         <ListItemText primary={localStorage.getItem("user")} />
+         </ListItem>
+      </List>
 
       </div>
 	  <Divider />
@@ -106,7 +109,7 @@ function ResponsiveDrawer(props) {
       <List>
           <ListItem button  onClick={() =>  history.push("/editarsitioproveedor")}>
             <ListItemIcon><EditIcon/></ListItemIcon>
-            
+
             <ListItemText primary={"Editar proveedor"} />
           </ListItem>
       </List>

@@ -22,7 +22,8 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useHistory } from 'react-router-dom';
-
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 
 
 
@@ -83,18 +84,19 @@ function ResponsiveDrawer(props) {
 	   <div style={{alignItems:'center',justifyContent:'center'}}>
 	   <AccountCircleIcon style={{ fontSize: 80 }} />
 			<List>
-                <ListItem>
-                  <ListItemText
-                    primary={localStorage.getItem("user")}
-                  />
-                </ListItem>,
-				 <ListItem>
-                  <ListItemText
-                    primary={localStorage.getItem("username")}
-                  />
-                </ListItem>,
+          <ListItem button key={"Username"}>
+          <ListItemIcon>
+            <AccountBoxIcon> </AccountBoxIcon>
+          </ListItemIcon>
+          <ListItemText primary={localStorage.getItem("username")} />
+          </ListItem>
+          <ListItem button key={"email"}>
+          <ListItemIcon>
+            <AlternateEmailIcon></AlternateEmailIcon>
+          </ListItemIcon>
+          <ListItemText primary={localStorage.getItem("user")} />
+          </ListItem>
        </List>
-
       </div>
 	  <Divider />
 	  <div>
