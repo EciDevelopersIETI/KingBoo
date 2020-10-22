@@ -13,6 +13,8 @@ import Categoria from "./views/categoria";
 import ListadoReservas from "./components/listadoReservas";
 import {ReservasEnSitio} from "./components/reservasEnSitio";
 import {HomeUser} from "./components/homeUser";
+import {HomeProveedor} from "./components/homeProveedor";
+import {EditarSitioProveedor} from "./components/editarSitioProveedor";
 import {CategoriaUser} from "./components/categoriaUser";
 import {ProveedorUser} from "./components/proveedorUser";
 import {ReservaUser} from "./components/reservaUser";
@@ -34,6 +36,8 @@ function App() {
   const listadoReservas = () => <ListadoReservas/>;
   const reservasEnSitio = () => <ReservasEnSitio/>;
   const homeUser = () => <HomeUser/>;
+  const homeProveedor = () => <HomeProveedor/>;
+  const editarSitioProveedor = () => <EditarSitioProveedor/>;
   const categoriaUser = () => <CategoriaUser/>;
   const proveedorUser = () => <ProveedorUser/>;
   const reservaUser = () => <ReservaUser/>;
@@ -55,13 +59,15 @@ function App() {
         <Route exact path="/nuevositio" component={crearSitio} />
         <Route exact path="/listasitios" component={listaSitios} />
         <Route exact path="/listadoreservas" component={listadoReservas} />
-        <Route exact path="/reservasEnSitio" component={reservasEnSitio} />
+        <Route exact path="/reservasensitio" component={reservasEnSitio} />
         <Route exact path="/homeuser" component={homeUser} />
+        <Route exact path="/homeproveedor" component={homeProveedor} />
+        <Route exact path="/editarsitioproveedor" component={editarSitioProveedor} />
         <Route exact path="/categoriauser" component={categoriaUser} />
         <Route exact path="/proveedoruser" component={proveedorUser} />
         <Route exact path="/reservauser" component={reservaUser} />
         <Route exact path="/editarsitio" component={editarSitio} />
-        <Route exact path="/misReservas" component={misReservas} />
+        <Route exact path="/misreservas" component={misReservas} />
         <Route exact path="/opcionesProveedor" component={opcionesProveedor} />
         <Route exact path="/categoria" component={categoria} />
       </div>

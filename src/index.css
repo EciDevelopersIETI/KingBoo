@@ -91,6 +91,8 @@ nav div > .btn-nav-rigth {
 
 .reserv .lista-datos {
   text-align: start;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .reserv .lista-datos > li {

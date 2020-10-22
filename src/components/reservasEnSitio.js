@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Title from './title';
-import Header from './header';
+import { Container, Row, Col } from 'reactstrap';
 import {updateReserva} from './../api/updateReserva';
 import Copyright from '../components/copyright';
 
@@ -54,7 +54,7 @@ export class ReservasEnSitio extends Component{
 
   render(){
 
-    const lista = this.state.data.map((reserva,i) => {
+    const   lista = this.state.data.map((reserva,i) => {
       return(
         <form onSubmit={this.handleSubmit} key={reserva.reservaId} >
           <div className="card reserv padding-60px" >
@@ -92,20 +92,19 @@ export class ReservasEnSitio extends Component{
     });
 
     return (
-      <Fragment>
-        <Header></Header>
-        <Title pageTitle="Reservas Sitio X"/>
-        <div>
-          <div className='card reserv' >
-            <div className='lista-datos'> 
-            {lista}
+      <div>
+        <Title hasMargin={false} pageTitle="Reservas Sitio X"/>
+      <Container fluid>
+            <div className='card reserv' >
+              <div className='lista-datos'> 
+              {lista}
+              </div>
             </div>
-          </div>
-        </div>
         <p></p>
         <Copyright></Copyright>
         <p></p>
-      </Fragment>
-    );
+        </Container>
+      </div>
+    );  
   }
 }

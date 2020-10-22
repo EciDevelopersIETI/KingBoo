@@ -24,7 +24,6 @@ export default class listadoReservas extends Component {
     render() {
         return (
             <div>
-                <Header></Header>
                 <Title pageTitle="Reservas"/>
 
                 <Container >
