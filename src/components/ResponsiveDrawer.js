@@ -112,7 +112,7 @@ function ResponsiveDrawer(props) {
       </List>
       <List>
         {['Logout'].map((text, index) => (
-          <ListItem button key={text} onClick={() =>  history.push("/login")}>
+          <ListItem button key={text} onClick={() => history.push("/login")}>
             <ListItemIcon>{index % 2 === 0 ? <ExitToAppIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>

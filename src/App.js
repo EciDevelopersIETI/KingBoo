@@ -22,6 +22,8 @@ import EditarSitio from "./views/editarSitio";
 import {MisReservas} from "./components/misReservas";
 import OpcionesProveedor from "./components/opcionesProveedor";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
+import {PrivateRoute} from "./PrivateRoute";
+import {PrivateRoute2} from "./PrivateRoute2";
 
 function App() {
 
@@ -44,7 +46,7 @@ function App() {
   const editarSitio = () => <EditarSitio/>;
   const misReservas = () => <MisReservas/>;
   const opcionesProveedor = () => <OpcionesProveedor/>;
-  const categoria = () => <Categoria/>;
+  const categoria = () => <Categoria/>;			 
 
   return (
     <Router>
@@ -54,22 +56,22 @@ function App() {
         <Route exact path="/sign-up" component={SignUpView} />
         <Route exact path="/sign-up-provider" component={SignUpShopView} />
         <Route exact path="/login" component={LoginView} />
-        <Route exact path="/proveedor" component={proveedor} />
-        <Route exact path="/reserva" component={reserva} />
+        <PrivateRoute exact path="/proveedor" component={proveedor} />
+        <PrivateRoute exact path="/reserva" component={reserva} />
         <Route exact path="/nuevositio" component={crearSitio} />
         <Route exact path="/listasitios" component={listaSitios} />
-        <Route exact path="/listadoreservas" component={listadoReservas} />
-        <Route exact path="/reservasensitio" component={reservasEnSitio} />
-        <Route exact path="/homeuser" component={homeUser} />
-        <Route exact path="/homeproveedor" component={homeProveedor} />
-        <Route exact path="/editarsitioproveedor" component={editarSitioProveedor} />
-        <Route exact path="/categoriauser" component={categoriaUser} />
-        <Route exact path="/proveedoruser" component={proveedorUser} />
-        <Route exact path="/reservauser" component={reservaUser} />
+        <PrivateRoute2 exact path="/listadoreservas" component={listadoReservas} />
+        <PrivateRoute2 exact path="/reservasensitio" component={reservasEnSitio} />
+        <PrivateRoute exact path="/homeuser" component={homeUser} />
+        <PrivateRoute2 exact path="/homeproveedor" component={homeProveedor} />
+        <PrivateRoute2 exact path="/editarsitioproveedor" component={editarSitioProveedor} />
+        <PrivateRoute exact path="/categoriauser" component={categoriaUser} />
+        <PrivateRoute exact path="/proveedoruser" component={proveedorUser} />
+        <PrivateRoute exact path="/reservauser" component={reservaUser} />
         <Route exact path="/editarsitio" component={editarSitio} />
-        <Route exact path="/misreservas" component={misReservas} />
-        <Route exact path="/opcionesProveedor" component={opcionesProveedor} />
-        <Route exact path="/categoria" component={categoria} />
+        <PrivateRoute exact path="/misreservas" component={misReservas} />
+        <PrivateRoute2  exact path="/opcionesProveedor" component={opcionesProveedor} />
+        <PrivateRoute exact path="/categoria" component={categoria} />
       </div>
     </div>
   </Router>

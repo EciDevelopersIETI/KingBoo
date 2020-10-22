@@ -20,6 +20,7 @@ const loginUser = user => {
 		.then(function (response) 
 		{	user2 = response.data;
 			localStorage.setItem("username",user2.userName);
+			localStorage.setItem("roluser",user2.rol);
 			if(user2.rol === "cli"){
 				window.location.href = "/homeuser";
 			}
