@@ -12,7 +12,7 @@ const deleteReserva = deleteres =>{
         reservaId: deleteres.reservaId
       })
       .then(function (response) {
-        alert("Cancelo la reserva")
+        alert("Reserva cancelada")
       })
       .catch(function (error) { 
     console.log(error);

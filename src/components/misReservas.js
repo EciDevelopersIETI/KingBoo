@@ -29,26 +29,27 @@ export class MisReservas extends Component{
             data : result,
           });
           console.log(result);
+          localStorage.setItem("reservas",JSON.stringify(result));
         })  
   }
 
   handleCancelar(e){
-    console.log(document.getElementById("reserva").value);
     e.preventDefault();
-    
+    console.log(e.target.id);
+   
     const deleteres ={
         
-        reservaId: document.getElementById("reserva").value,
+        reservaId: e.target.id,
       
     }
     deleteReserva(deleteres);
-    
+
   };
 
   render(){
     const lista = this.state.data.map((reserva) => {
       return (
-        <form  onSubmit={this.handleCancelar} >
+        <form  id={reserva.reservaId}  onSubmit={this.handleCancelar} >
           <div className="card reserv padding-60px">
             <div className="lista-datos">
               <h2>
@@ -57,10 +58,11 @@ export class MisReservas extends Component{
               <label>{reserva.provider.description}</label>
               <br></br>
               <li>
-                <span>Direccion:</span> {reserva.provider.address}
+              <span>ID Reserva:</span> <label id="reservaId" value={reserva.reservaId} >{reserva.reservaId}</label>
               </li>
+              <br></br>
               <li>
-                <input id='reserva' value={reserva.reservaId} type="text"></input>
+                <span>Direccion:</span> {reserva.provider.address}
               </li>
               <br></br>
               <div>
@@ -82,7 +84,7 @@ export class MisReservas extends Component{
                             {reserva.fecha} - {reserva.hora}
                           </TableCell>
                           <TableCell>
-                            <button className="btn btn-secondary">Cancelar reserva</button>
+                            <button type="submit" variant="contained"  className="btn btn-secondary">Cancelar reserva</button>
                           </TableCell>
                         </TableRow>
                     </TableBody>

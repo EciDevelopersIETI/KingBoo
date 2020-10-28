@@ -11,7 +11,7 @@ export class HomeUser extends React.Component{
 
 	render(){
 		let	servicesHope =  axios.get('https://kingboooback.herokuapp.com/provider')
-		.then(function (response) {localStorage.setItem("listaProviders",JSON.stringify(response.data));})
+		.then(function (response) {localStorage.setItem("listaProviders",JSON.stringify(response.data));console.log(response.data);})
 		.catch(function (error) { console.log(error);} );
 		const myComponent = <MisReservas />
 		return(
