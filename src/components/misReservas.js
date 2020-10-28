@@ -35,14 +35,14 @@ export class MisReservas extends Component{
   handleCancelar(e){
     console.log(document.getElementById("reserva").value);
     e.preventDefault();
-    /** 
+    
     const deleteres ={
         
         reservaId: document.getElementById("reserva").value,
       
     }
     deleteReserva(deleteres);
-    */
+    
   };
 
   render(){

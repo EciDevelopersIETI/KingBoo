@@ -16,7 +16,6 @@ export class ReservasEnSitio extends Component{
     super(props);
     this.email = localStorage.getItem('user');
     this.handleSubmit = this.handleSubmit.bind(this); 
-    this.input = React.createRef();
     this.handleEncargado = this.handleEncargado.bind(this);
     this.state={
       data:[],
@@ -31,7 +30,9 @@ export class ReservasEnSitio extends Component{
             data : result,
           });
           console.log(result);
-        })  
+          localStorage.setItem("reservas",JSON.stringify(result));
+        })
+
   }
 
   handleEncargado(e){
@@ -39,30 +40,30 @@ export class ReservasEnSitio extends Component{
   }
 
   handleSubmit(e){
-    console.log("idFront: " + this.input.current.value);
-    console.log("Encargado: " + this.state.empleados);
     e.preventDefault();
-    /** 
+    console.log(e.target.id);
+    console.log(this.state.empleados);
+    
+    
     const update ={
         
         encargado: this.state.empleados,
-        reservaId: this.state.idRerserva
+        reservaId: e.target.id
       
     }
     updateReserva(update);
-    */
+    
   };
 
   render(){
 
-    const   lista = this.state.data.map((reserva,i) => {
+    const   lista = this.state.data.map((reserva) => {
       return(
-        <form onSubmit={this.handleSubmit} key={reserva.reservaId} >
+        <form id={reserva.reservaId} onSubmit={this.handleSubmit}>
+          <label id="reservaId" value={reserva.reservaId} >{reserva.reservaId}</label>
           <div className="card reserv padding-60px" >
-            <div key={i}>
-              <input defaultValue={reserva.reservaId} type="text" ref={this.input}></input> 
-              <TableContainer component={Paper} >
-                  <Table aria-label="a dense table">
+              <TableContainer component={Paper} id="table" >
+                  <Table aria-label="a dense table" id="tableDos">
                     <TableHead>
                           <TableRow>
                           <TableCell ><span>Fecha: </span> {reserva.fecha} </TableCell>
@@ -82,11 +83,12 @@ export class ReservasEnSitio extends Component{
                           <TableRow>
                           <TableCell ><span>Asignar encargado: </span>  <input id='empleados' onChange={this.handleEncargado} ></input></TableCell>
                           </TableRow>
+                          <TableRow>
+                          <TableCell > <button id="button" type="submit" variant="contained" className='btn btn-success' >Enviar datos</button></TableCell>
+                          </TableRow>
                       </TableHead>
                   </Table>
               </TableContainer>
-            </div>
-            <button type="submit" variant="contained" className='btn btn-success'>Enviar datos</button>
           </div>
         </form>
       );
