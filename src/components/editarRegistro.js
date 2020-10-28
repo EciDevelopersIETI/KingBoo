@@ -85,15 +85,24 @@ export default class editarRegistro extends Component{
       //console.log(provider[i]);
     }
     const services = [];
+    const prices = [];
     const handleChangeChk = e => {
         console.log(e.target.value);
         if(!(services.includes(e.target.value))){
-            services.push(e.target.value);
+          if(document.getElementById(e.target.value).value!==""){
+              services.push((e.target.value));
+              prices.push((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")");
+          }else{
+              e.target.click();
+              //alert("Se requiere ingresar el precio")
+          }
         }
         else{
             services.splice(services.indexOf(e.target.value), 1);
+            prices.splice(services.indexOf((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")"), 1);
         }
-        //console.log(services);
+        console.log(services);
+        console.log(prices);
     }
 
     const handleSubmit = e => {
@@ -113,7 +122,7 @@ export default class editarRegistro extends Component{
                     description: document.getElementById("description").value,
                     address: document.getElementById("address").value,
                     capacity: (document.getElementById("capacity").value).toString(),
-                    services: services
+                    services: prices
                 }
             }; updateUser(user); //Vamos a crear uno para update
         }
@@ -178,18 +187,42 @@ export default class editarRegistro extends Component{
                         >
                         <ListItem button>
                             <ListItemText primary="Corte de Cabello" />
+                            <TextField
+                                type="number"
+                                id="Corte de Cabello"
+                                label="precio:"
+                                name="pcorte"
+                            />
                             <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
                         </ListItem>
                         <ListItem button>
                             <ListItemText primary="Barba" />
+                            <TextField
+                                type="number"
+                                id="Barba"
+                                label="precio:"
+                                name="pbarba"
+                            />
                             <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
                         </ListItem>
                         <ListItem button>
                             <ListItemText primary="Manicura" />
+                            <TextField
+                                type="number"
+                                id="Manicura"
+                                label="precio:"
+                                name="pmani"
+                            />
                             <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                         </ListItem>
                         <ListItem button>
                             <ListItemText primary="Depilacion" />
+                            <TextField
+                                type="number"
+                                id="Depilacion"
+                                label="precio:"
+                                name="pdepil"
+                            />
                             <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
                         </ListItem>
                     </List>
