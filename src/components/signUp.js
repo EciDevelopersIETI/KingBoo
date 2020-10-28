@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {newUser} from './../api/createUser';
 
+//import SignUpShop from './SignUpShop';
 
 function Copyright() {
   return (
@@ -154,9 +155,11 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/sign-up-provider" variant="body2">
+
+              <Link href={"/signUpView"}>
                 {"Quieres ser un proveedor? Registrate!"}
               </Link>
+
             </Grid>
           </Grid>
           <Grid container justify="flex-end">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, Component }from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,6 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { newUser } from '../api/createUser';
 import { DesktopWindows } from '@material-ui/icons';
+import Title from '../components/title'
 
 
 function Copyright() {
@@ -33,41 +34,32 @@ function Copyright() {
     );
 }
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-        width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(3),
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
-}));
 
-
-export default function SignUpShop() {
-
+export default class SignUpShop extends Component{
+    render(){
     const services = [];
-    const classes = useStyles();
+    const prices = [];
+    //const classes = useStyles();
 
     const handleChangeChk = e => {
-        console.log(e.target.value);
+        console.log(e.target.checked);
         if(!(services.includes(e.target.value))){
-            services.push(e.target.value);
+            //console.log(document.getElementById(e.target.value));
+            if(document.getElementById(e.target.value).value!==""){
+                services.push((e.target.value));
+                prices.push((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")");
+            }else{
+                e.target.click();
+                //alert("Se requiere ingresar el precio")
+            }
+            console.log(e.target.checked);
         }
         else{
             services.splice(services.indexOf(e.target.value), 1);
+            prices.splice(services.indexOf((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")"), 1);
         }
-        //console.log(services);
+        console.log(services);
+        console.log(prices);
     }
 
     const handleSubmit = e => {
@@ -87,32 +79,32 @@ export default function SignUpShop() {
                     description: document.getElementById("description").value,
                     address: document.getElementById("address").value,
                     capacity: (document.getElementById("capacity").value).toString(),
-                    services: services
+                    services: prices
 
                 }
             }; newUser(user);
             setTimeout(function() {
                 window.location.href="/login";
-            }.bind(this), 1000);
+            }.bind(this), 1200);
         }
 
 
 
     };
 
-
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign up as provider
-                </Typography>
-                <form className={classes.form}
-                      onSubmit={handleSubmit}
+            <Fragment>
+              <Title pageTitle="Sign up as provider" />
+              <Avatar>
+                  <LockOutlinedIcon />
+              </Avatar>
+              <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <div >
+                <br></br>
+                <br></br>
+
+                <form onSubmit={handleSubmit}
                 >
                     <Grid container spacing={2}>
                         <Grid item xs={12} >
@@ -164,7 +156,6 @@ export default function SignUpShop() {
                             />
                         </Grid>
 
-
                         <Grid item xs={12}>
                             <List
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
@@ -175,19 +166,43 @@ export default function SignUpShop() {
                                 >
                                 <ListItem button>
                                     <ListItemText primary="Corte de Cabello" />
-                                    <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
+                                    <TextField
+                                        type="number"
+                                        id="Corte de Cabello"
+                                        label="precio:"
+                                        name="pcorte"
+                                    />
+                                    <Checkbox id="pcorte" label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Barba" />
-                                    <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
+                                    <TextField
+                                        type="number"
+                                        id="Barba"
+                                        label="precio:"
+                                        name="pbarba"
+                                    />
+                                    <Checkbox id="pbarba" edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Manicura" />
-                                    <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
+                                    <TextField
+                                        type="number"
+                                        id="Manicura"
+                                        label="precio:"
+                                        name="pmani"
+                                    />
+                                    <Checkbox id="pmani" edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText primary="Depilacion" />
-                                    <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
+                                    <TextField
+                                        type="number"
+                                        id="Depilacion"
+                                        label="precio:"
+                                        name="pdepil"
+                                    />
+                                    <Checkbox id="pdepil" edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
                                 </ListItem>
                             </List>
                         </Grid>
@@ -267,7 +282,6 @@ export default function SignUpShop() {
                         fullWidth
                         variant="contained"
                         color="primary"
-                        className={classes.submit}
                     >
                         Sign Up
                     </Button>
@@ -279,10 +293,12 @@ export default function SignUpShop() {
                         </Grid>
                     </Grid>
                 </form>
-            </div>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
-        </Container>
+              </div>
+            </Container>
+            <p></p>
+            <Copyright></Copyright>
+            <br></br>
+          </Fragment>
     );
+  }
 }
