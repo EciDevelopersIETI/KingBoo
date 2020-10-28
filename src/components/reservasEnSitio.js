@@ -10,20 +10,28 @@ import Title from './title';
 import { Container, Row, Col } from 'reactstrap';
 import {updateReserva} from './../api/updateReserva';
 import Copyright from '../components/copyright';
+import axios from "axios";
 
 export class ReservasEnSitio extends Component{
   constructor(props){
     super(props);
-    this.email = localStorage.getItem('user');
+    this.email = localStorage.getItem('user')
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.handleEncargado = this.handleEncargado.bind(this);
     this.state={
       data:[],
     };
+    axios.get('https://kingboooback.herokuapp.com/users/'+this.email)
+    .then(response => {
+      console.log(response.data.provider.providerName);
+      localStorage.setItem("providerUser",response.data.provider.providerName);
+    })
+    .catch(function (error){
+      console.log(error);});
   }
 
   componentDidMount() {
-    fetch('https://kingboooback.herokuapp.com/reservas/provider/Luis%20Shop')
+    fetch('https://kingboooback.herokuapp.com/reservas/provider/'+localStorage.getItem("providerUser"))
         .then(response => response.json())
         .then(result=>{
           this.setState({
@@ -56,15 +64,17 @@ export class ReservasEnSitio extends Component{
   };
 
   render(){
-
+    
     const   lista = this.state.data.map((reserva) => {
       return(
         <form id={reserva.reservaId} onSubmit={this.handleSubmit}>
-          <label id="reservaId" value={reserva.reservaId} >{reserva.reservaId}</label>
           <div className="card reserv padding-60px" >
               <TableContainer component={Paper} id="table" >
                   <Table aria-label="a dense table" id="tableDos">
                     <TableHead>
+                          <TableRow>
+                          <TableCell ><span>IDReserva: </span> {reserva.reservaId} </TableCell>
+                          </TableRow>
                           <TableRow>
                           <TableCell ><span>Fecha: </span> {reserva.fecha} </TableCell>
                           </TableRow>
