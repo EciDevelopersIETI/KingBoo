@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -65,10 +66,11 @@ export default function Reserva() {
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
 			var userReserva = axios.get('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user")).then(function (response) {userReserva = response.data;}).catch(function (error) { console.log(error);});
 			var providerReserva = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider")).then(function (response) {providerReserva = response.data;}).catch(function (error) { console.log(error);});
+			console.log(document.getElementById("hora").value.split('-')[0])
 			setTimeout(function() {
 				const reserva={
 					 fecha: document.getElementById("date").value,
-					 hora: document.getElementById("time").value,
+					 hora: document.getElementById("hora").value.split('-')[0],
 					 servicios: services,
 					 comentario: document.getElementById("tel").value,
 					 encargado: " ",
@@ -82,6 +84,23 @@ export default function Reserva() {
 		}
 
     };
+	const handlechangehope= e =>{
+		console.log(e.target.value);
+		var  tempo = document.getElementById("alfa");
+		var data = axios.get('https://kingboooback.herokuapp.com/reservas/provider/'+localStorage.getItem("provider")+'/date/'+e.target.value+'/getcupos').then(function (response) {data=response.data;}).catch(function (error) { console.log(error);});
+		const myelement = React.createElement('h1', {}, 'I do not use JSX!');
+		setTimeout(function() {
+			ReactDOM.render(<div> <label for="horarios">Horarios:</label>
+			<select id="hora" name="horarios" form="horaform">
+			{console.log(data)}
+			{data.map(hora => (
+						 <option value={hora}>{hora}</option>						
+			))}
+			</select> </div>,tempo);
+				
+		}.bind(this), 1000);
+		
+	}
 	const handleChangeChk = e => {
 		console.log(e.target.value);
 		if(!(services.includes(e.target.value))){
@@ -103,33 +122,22 @@ export default function Reserva() {
                 <form className={classes.form}
 				onSubmit={handleSubmit} >
                     <Grid container spacing={2}>
+						
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 id="date"
                                 label="Fecha"
                                 type="date"
                                 defaultValue="2020-09-29"
+								onChange={handlechangehope}
                                 className={classes.textField}
                                 InputLabelProps={{
                                 shrink: true,
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                id="time"
-                                label="Hora"
-                                type="time"
-                                defaultValue="07:30"
-                                className={classes.textField}
-                                InputLabelProps={{
-                                shrink: true,
-                                }}
-                                inputProps={{
-                                step: 300, // 5 min
-                                }}
-                            />
-                        </Grid>
+						<div id="alfa">
+						</div>
                         <Grid item xs={12}>
                             <List
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
