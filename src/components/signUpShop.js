@@ -100,7 +100,7 @@ export default class SignUpShop extends Component{
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Registrarse
+                        <b>Registrarse</b>
                     </Typography>
                 </div>
               <Container component="main" maxWidth="xs">
@@ -164,16 +164,16 @@ export default class SignUpShop extends Component{
                         <Grid item xs={12}>
                             <List style={{display:'block'}}
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                                <ListSubheader component="div" id="nested-list-subheader">
-                                ¿Qué servicios prestas?
-                                </ListSubheader>
+                                <Typography component="h1" variant="h5">
+                                 <b>¿Qué servicios prestas?</b>
+                                </Typography>
                                 }
                                 >
                                 <ListItem button>
                                     <ListItemText primary="Corte de cabello" />
                                     <TextField
                                         type="number"
-                                        id="Corte de cabello"
+                                        id="Corte de Cabello"
                                         label="Precio:"
                                         name="pcorte"
                                     />
@@ -200,10 +200,10 @@ export default class SignUpShop extends Component{
                                     <Checkbox id="pmani" edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
-                                    <ListItemText primary="Depilacion" />
+                                    <ListItemText primary="Depilación" />
                                     <TextField
                                         type="number"
-                                        id="Depilación"
+                                        id="Depilacion"
                                         label="Precio:"
                                         name="pdepil"
                                     />
@@ -228,8 +228,8 @@ export default class SignUpShop extends Component{
 
 
                         <Grid item xs={12}>
-                            <Typography component="h6" variant="h6">
-                                Datos del responsable
+                            <Typography component="h1" variant="h5">
+                                <b>Datos del responsable</b>
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>

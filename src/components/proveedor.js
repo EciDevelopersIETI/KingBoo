@@ -69,15 +69,15 @@ export default class Proveedor extends Component{
                 </h1>
                 <div className="card reserv padding-60px">
                     <div className="lista-datos">
-                        <span><h3>Descripción: </h3></span>
+                        <span><h3><b>Descripción: </b> </h3></span>
                         <label>{dato.description}</label>
                         <br></br>
                         <li>
-                        <span>Dirección:</span>{dato.address}
+                        <span>Dirección:</span> {dato.address}
                         </li>
                         <br></br>
                         <li>
-                        <span>Cupo:</span>{dato.capacity}
+                        <span>Cupo:</span>  {dato.capacity}
                         </li>
                         <br></br>
                         <div>

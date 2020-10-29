@@ -20,7 +20,7 @@ const Home = () => {
 
       <Title hasMargin={false} />
       <img src="https://www.softwaresuggest.com/blog/wp-content/uploads/2019/10/salon-business-1.png" />
-
+      <p></p>
       <section className="container about-us">
         <div>
           <h1>SOBRE NOSOTROS:</h1>

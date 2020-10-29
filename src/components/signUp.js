@@ -87,7 +87,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Registrarse
+          <b>Registrarse</b>
         </Typography>
         <form className={classes.form}
            onSubmit={handleSubmit}

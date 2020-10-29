@@ -140,9 +140,9 @@ export default function Reserva() {
                         <Grid item xs={12}>
                             <List style={{display:'block'}}
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                                <ListSubheader component="div" id="nested-list-subheader">
-                               ¿Qué servicios necesitas?
-                                </ListSubheader>
+                                <Typography component="h1" variant="h5">
+                                    <b>¿Qué servicios necesitas?</b>
+                                </Typography>
                                 }
                                 >
 
