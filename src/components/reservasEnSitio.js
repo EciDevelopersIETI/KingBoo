@@ -21,13 +21,6 @@ export class ReservasEnSitio extends Component{
     this.state={
       data:[],
     };
-    axios.get('https://kingboooback.herokuapp.com/users/'+this.email)
-    .then(response => {
-      console.log(response.data.provider.providerName);
-      localStorage.setItem("providerUser",response.data.provider.providerName);
-    })
-    .catch(function (error){
-      console.log(error);});
   }
 
   componentDidMount() {

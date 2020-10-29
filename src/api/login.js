@@ -25,7 +25,9 @@ const loginUser = user => {
 				window.location.href = "/homeuser";
 			}
 			else{
+				localStorage.setItem("providerUser",user2.provider.providerName);
 				window.location.href = "/homeProveedor";
+				
 			}
 			
 		})
