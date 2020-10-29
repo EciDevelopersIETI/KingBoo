@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-  nav:{
+  displayblock:{
     display:'block'
   }
 }));
@@ -74,6 +74,7 @@ export default class editarRegistro extends Component{
 
 
   render(){
+    
     var dato = this.state.datos;
     var provider = dato.provider;
     var lisProv = [];
@@ -175,7 +176,7 @@ export default class editarRegistro extends Component{
 
 
                 <Grid item xs={12}>
-                    <List
+                    <List style={{display:'block'}}
                     component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                         <ListSubheader component="div" id="nested-list-subheader">
                         ¿Qué servicios prestas?
