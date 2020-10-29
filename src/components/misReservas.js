@@ -62,7 +62,7 @@ export class MisReservas extends Component{
               </li>
               <br></br>
               <li>
-                <span>Direccion:</span> {reserva.provider.address}
+                <span>Dirección:</span> {reserva.provider.address}
               </li>
               <br></br>
               <div>
@@ -71,8 +71,8 @@ export class MisReservas extends Component{
                     <TableHead>
                       <TableRow>
                         <TableCell ><span>Servicio</span></TableCell>
-                        <TableCell ><span>Fecha y Hora Reserva</span></TableCell>
-                        <TableCell ><span>Cancelar Reserva</span></TableCell>
+                        <TableCell ><span>Fecha y hora de reserva</span></TableCell>
+                        <TableCell ><span>Cancelar reserva</span></TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>

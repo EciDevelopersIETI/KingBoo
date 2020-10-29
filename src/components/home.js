@@ -7,10 +7,10 @@ const Home = () => {
         <nav>
           <div className="padding-85perc">
             <a href="login" className="btn-nav">
-              Login
+              Iniciar sesión
             </a>
             <a href="sign-up" className="btn-nav">
-              Register
+              Registrarse
             </a>
           </div>
         </nav>
@@ -20,7 +20,7 @@ const Home = () => {
 
       <section className="container about-us">
         <div>
-          <h1>Sobre nosotros</h1>
+          <h1>SOBRE NOSOTROS:</h1>
           <p>
             Debido a la situación actual del mundo y a las recomendaciones
             hechas por el gobierno nacional por la pandemia nace la idea de
@@ -32,13 +32,11 @@ const Home = () => {
             Facilitar la administración a los dueños de locales
           </p>
 
-          <h3>Nuestro propósito:</h3>
+          <h1>NUESTRO PROPOSITO:</h1>
           <p>
             Ser la empresa más reconocida de reservas en línea mejorando y
             simplificando la experiencia de los clientes de un establecimiento.
-          </p>
-
-          <p>
+            <p></p>
             Nuestro foco está en ofrecer nuestros servicios a otras industrias
             donde el éxito de su negocio esté vinculado a la gestión de este a
             través de nosotros; ponemos a su disposición un conjunto de
@@ -46,7 +44,7 @@ const Home = () => {
             reservas y empleados.
           </p>
 
-          <h2>Nuestro equipo:</h2>
+          <h1>NUESTRO EQUIPO:</h1>
         </div>
       </section>
       <section className="container user-date">
@@ -61,7 +59,7 @@ const Home = () => {
               Cargo: <span> Team Developer</span>{" "}
             </p>
             <p>
-              Area: <span> Desarrollo e Innovacion</span>{" "}
+              Area: <span> Desarrollo e Innovación</span>{" "}
             </p>
             <a href="https://www.linkedin.com/in/luis-alejandro-jaramillo-rincon/">
               Linked In
@@ -71,7 +69,7 @@ const Home = () => {
 
         <div>
           <img className = 'img-icons'
-                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_800_800/0?e=1603317600&v=beta&t=e1s4nWZy-k9mhpN_F5HZwVst9Hv2T-B0qrFgItVv_7U" />
+                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_800_800/0?e=1604008800&v=beta&t=tsxzrcFYc-bcSYtvBGLDvrfayxsVVlMoD2pOxQLhF-k" />
           <div>
             <p>
               Nombre: <span>Fernando Barrera</span>{" "}
@@ -80,7 +78,7 @@ const Home = () => {
               Cargo: <span> Team Developer</span>{" "}
             </p>
             <p>
-              Area: <span> Desarrollo e Innovacion</span>{" "}
+              Area: <span> Desarrollo e Innovación</span>{" "}
             </p>
             <a href="https://www.linkedin.com/in/fernando-barrera-barrera-70ba161b2/">
               Linked In
@@ -99,7 +97,7 @@ const Home = () => {
               Cargo: <span> Team Developer</span>{" "}
             </p>
             <p>
-              Area: <span> Desarrollo e Innovacion</span>{" "}
+              Area: <span> Desarrollo e Innovación</span>{" "}
             </p>
             <a href="https://www.linkedin.com/in/carlos-andr%C3%A9s-casta%C3%B1eda-lozano-9a16b3190/">
               Linked In
@@ -119,7 +117,7 @@ const Home = () => {
               Cargo: <span> Team Developer</span>
             </p>
             <p>
-              Area: <span> Desarrollo e Innovacion</span>
+              Area: <span> Desarrollo e Innovación</span>
             </p>
             <a href="https://www.linkedin.com/in/juanortizm/">
               Linked In
@@ -137,7 +135,7 @@ const Home = () => {
               Cargo: <span> Team Developer</span>
             </p>
             <p>
-              Area: <span> Desarrollo e Innovacion</span>
+              Area: <span> Desarrollo e Innovación</span>
             </p>
             <a href="https://www.linkedin.com/in/alejandra-g%C3%B3mez-7a5340158/">
               Linked In

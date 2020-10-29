@@ -84,7 +84,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Registrarse
         </Typography>
         <form className={classes.form}
            onSubmit={handleSubmit}
@@ -108,7 +108,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Correo electrónico"
                 name="email"
                 autoComplete="email"
               />
@@ -119,7 +119,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Contraseña"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -132,7 +132,7 @@ export default function SignUp() {
                   fullWidth
                   type="number"
                   id="telefono"
-                  label="Telefono"
+                  label="Teléfono"
                   name="telefono"
                   autoComplete="Telefono"
               />
@@ -140,7 +140,7 @@ export default function SignUp() {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="Quiero recibir promociones via Email."
+                label="Quiero recibir promociones via email."
               />
             </Grid>
           </Grid>
@@ -151,13 +151,13 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Registrarte
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
 
               <Link href={"/signUpView"}>
-                {"Quieres ser un proveedor? Registrate!"}
+                {"¿Quieres ser un proveedor? ¡Registrate!"}
               </Link>
 
             </Grid>
@@ -171,8 +171,8 @@ export default function SignUp() {
           </Grid>
           <Grid container justify="flex-end">
             <Grid item>
-                <Link href="/proveedor" variant="body2">
-                    {"vistaProveedor"}
+                <Link href="/login" variant="body2">
+                    {"Iniciar sesión"}
                 </Link>
             </Grid>
           </Grid>
