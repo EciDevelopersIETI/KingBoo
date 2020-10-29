@@ -61,7 +61,7 @@ export default function Reserva() {
 	const handleSubmit = e => {
         e.preventDefault();
 		if(services.length === 0){
-			alert("Porfavor seleccione almenos un servico");
+			alert("Por favor seleccione al menos un servicio");
 		}
 		else{
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
@@ -138,7 +138,7 @@ export default function Reserva() {
 						<div id="alfa">
 						</div>
                         <Grid item xs={12}>
-                            <List
+                            <List style={{display:'block'}}
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                ¿Qué servicios necesitas?
