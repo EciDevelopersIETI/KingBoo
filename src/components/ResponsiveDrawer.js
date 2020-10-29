@@ -56,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "#3C5CEE"
+    backgroundColor: "#3C5CEE",
+    color: 'white'
   },
   content: {
     flexGrow: 1,

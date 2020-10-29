@@ -141,12 +141,12 @@ export default class editarRegistro extends Component{
             <Grid container spacing={2}>
                 <Grid item xs={12} >
                   <h3>
-                    Nombre de la empresa:{lisProv[0]}
+                  <b>Nombre de la empresa:</b> <p></p>{lisProv[0]}
                   </h3>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                    NIT: {lisProv[1]}
+                  <b>NIT:</b> {lisProv[1]}
                   </h5>
                 </Grid>
                 <Grid item xs={12}>
@@ -178,9 +178,9 @@ export default class editarRegistro extends Component{
                 <Grid item xs={12}>
                     <List style={{display:'block'}}
                     component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                        <ListSubheader component="div" id="nested-list-subheader">
-                        ¿Qué servicios prestas?
-                        </ListSubheader>
+                      <Typography component="h1" variant="h5">
+                      <b>¿Qué servicios prestas?</b>
+                      </Typography>
                         }
                         >
                         <ListItem button>
@@ -214,7 +214,7 @@ export default class editarRegistro extends Component{
                             <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                         </ListItem>
                         <ListItem button>
-                            <ListItemText primary="Depilacion" />
+                            <ListItemText primary="Depilación" />
                             <TextField
                                 type="number"
                                 id="Depilacion"
@@ -242,18 +242,18 @@ export default class editarRegistro extends Component{
 
 
                 <Grid item xs={12}>
-                    <Typography component="h6" variant="h6">
-                        Datos del responsable
+                    <Typography component="h1" variant="h5">
+                        <b>Datos del responsable</b>
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                    Nombre: {dato.userName}
+                   <b>Nombre:</b> {dato.userName}
                   </h5>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                    Nombre: {dato.email}
+                  <b>Correo:</b> {dato.email}
                   </h5>
                 </Grid>
 
