@@ -129,9 +129,10 @@ export default class editarRegistro extends Component{
   return (
     <Fragment>
       <Title hasMargin={false} pageTitle="Editar Información" />
+      <div className='card reserv'>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div >
+        <div className='card reserv' >
         <br></br>
         <br></br>
 
@@ -273,15 +274,16 @@ export default class editarRegistro extends Component{
             <br/>
             <Button
                 type="submit"
+                class="btn btn-warning"
                 fullWidth
                 variant="contained"
-                color="primary"
             >
                 Actualizar
             </Button>
         </form>
         </div>
       </Container>
+      </div>
       <p></p>
       <Copyright></Copyright>
       <br></br>

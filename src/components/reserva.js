@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button'
 import List from '@material-ui/core/List';
@@ -114,10 +114,11 @@ export default function Reserva() {
 	}
 
     return (
+        <Fragment>
+        <Title hasMargin={false} pageTitle="Mis Reservas" />
+        <div className='card reserv' >
         <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-            <Title hasMargin={false} pageTitle="Mis Reservas" />
+                <div className='card reserv' >
                 <form className={classes.form}
 				onSubmit={handleSubmit} >
                     <Grid container spacing={2}>
@@ -196,10 +197,12 @@ export default function Reserva() {
                         </Grid>
                     </Grid>
                 </form>
+                    </div>
+            </Container>
             </div>
-            <Box mt={5}>
+            <Box mt={2}>
                 <Copyright />
             </Box>
-        </Container>
+            </Fragment>
     );
 }
