@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Card } from "@material-ui/core";
 import Title from "./title";
 import ResponsiveDrawerProveedor from "./ResponsiveDrawerProveedor";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";

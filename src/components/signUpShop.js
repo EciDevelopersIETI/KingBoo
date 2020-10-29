@@ -26,7 +26,7 @@ function Copyright() {
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+                KingBoo
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -42,7 +42,7 @@ export default class SignUpShop extends Component{
     //const classes = useStyles();
 
     const handleChangeChk = e => {
-        console.log(e.target.checked);
+        console.log(e.target.value);
         if(!(services.includes(e.target.value))){
             //console.log(document.getElementById(e.target.value));
             if(document.getElementById(e.target.value).value!==""){
@@ -52,7 +52,6 @@ export default class SignUpShop extends Component{
                 e.target.click();
                 //alert("Se requiere ingresar el precio")
             }
-            console.log(e.target.checked);
         }
         else{
             services.splice(services.indexOf(e.target.value), 1);
@@ -94,7 +93,7 @@ export default class SignUpShop extends Component{
 
     return (
             <Fragment>
-              <Title pageTitle="Sign up as provider" />
+              <Title hasMargin={false} pageTitle="Registro Proveedor" />
               <Avatar>
                   <LockOutlinedIcon />
               </Avatar>
@@ -115,7 +114,7 @@ export default class SignUpShop extends Component{
                                 required
                                 fullWidth
                                 id="orgName"
-                                label="Nombre de la Empresa"
+                                label="Nombre de la empresa"
                                 autoFocus
                             />
                         </Grid>
@@ -137,7 +136,7 @@ export default class SignUpShop extends Component{
                                 required
                                 fullWidth
                                 id="address"
-                                label="Direccion"
+                                label="Dirección"
                                 name="address"
                                 autoComplete="dir"
                             />
@@ -150,7 +149,7 @@ export default class SignUpShop extends Component{
                                 fullWidth
                                 type="number"
                                 id="capacity"
-                                label="Capacidad del lugar:"
+                                label="Capacidad del sitio"
                                 name="capacity"
                                 autoComplete="capacidad"
                             />
@@ -160,16 +159,16 @@ export default class SignUpShop extends Component{
                             <List
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
-                                Que servicio quieres
+                                ¿Qué servicios prestas?
                                 </ListSubheader>
                                 }
                                 >
                                 <ListItem button>
-                                    <ListItemText primary="Corte de Cabello" />
+                                    <ListItemText primary="Corte de cabello" />
                                     <TextField
                                         type="number"
-                                        id="Corte de Cabello"
-                                        label="precio:"
+                                        id="Corte de cabello"
+                                        label="Precio:"
                                         name="pcorte"
                                     />
                                     <Checkbox id="pcorte" label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
@@ -179,7 +178,7 @@ export default class SignUpShop extends Component{
                                     <TextField
                                         type="number"
                                         id="Barba"
-                                        label="precio:"
+                                        label="Precio:"
                                         name="pbarba"
                                     />
                                     <Checkbox id="pbarba" edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
@@ -189,7 +188,7 @@ export default class SignUpShop extends Component{
                                     <TextField
                                         type="number"
                                         id="Manicura"
-                                        label="precio:"
+                                        label="Precio:"
                                         name="pmani"
                                     />
                                     <Checkbox id="pmani" edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
@@ -198,8 +197,8 @@ export default class SignUpShop extends Component{
                                     <ListItemText primary="Depilacion" />
                                     <TextField
                                         type="number"
-                                        id="Depilacion"
-                                        label="precio:"
+                                        id="Depilación"
+                                        label="Precio:"
                                         name="pdepil"
                                     />
                                     <Checkbox id="pdepil" edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
@@ -215,7 +214,7 @@ export default class SignUpShop extends Component{
                                 required
                                 fullWidth
                                 id="description"
-                                label="Descripcion"
+                                label="Descripción"
                                 name="description"
                                 autoComplete="description"
                             />
@@ -224,7 +223,7 @@ export default class SignUpShop extends Component{
 
                         <Grid item xs={12}>
                             <Typography component="h6" variant="h6">
-                                Datos del Responsable
+                                Datos del responsable
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
@@ -245,7 +244,7 @@ export default class SignUpShop extends Component{
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email Address"
+                                label="Correo electrónico"
                                 name="email"
                                 autoComplete="email"
                             />
@@ -256,7 +255,7 @@ export default class SignUpShop extends Component{
                                 required
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label="Contraseña"
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
@@ -269,7 +268,7 @@ export default class SignUpShop extends Component{
                                 fullWidth
                                 type="number"
                                 id="telefono"
-                                label="Telefono"
+                                label="Teléfono"
                                 name="telefono"
                                 autoComplete="Telefono"
                             />
@@ -277,19 +276,24 @@ export default class SignUpShop extends Component{
 
 
                     </Grid>
+                    <br></br>
                     <Button
                         type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
                     >
-                        Sign Up
+                        Registrarte
                     </Button>
+                    <br></br>
+                    <br></br>
                     <Grid container justify="flex-end">
                         <Grid item>
+
                             <Link href="/sign-up" variant="body2">
                                 {"Regresar"}
                             </Link>
+
                         </Grid>
                     </Grid>
                 </form>

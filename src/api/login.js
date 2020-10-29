@@ -25,7 +25,7 @@ const loginUser = user => {
 				window.location.href = "/homeuser";
 			}
 			else{
-				window.location.href = "/OpcionesProveedor";
+				window.location.href = "/homeProveedor";
 			}
 			
 		})
@@ -35,7 +35,7 @@ const loginUser = user => {
       })
       .catch(function (error) { 
 		console.log(error);
-        alert("Check credentials");
+        alert("Verificar credenciales");
       });
 
   };

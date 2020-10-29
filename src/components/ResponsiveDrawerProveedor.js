@@ -141,7 +141,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            KingBoo Proveedor
+            Proveedor KingBoo
           </Typography>
         </Toolbar>
       </AppBar>

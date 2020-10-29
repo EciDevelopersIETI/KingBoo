@@ -18,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from "axios";
 import {newReserva} from './../api/createReserva';
+import Title from "./title";
 
 
 function Copyright() {
@@ -116,9 +117,7 @@ export default function Reserva() {
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
-                <Typography component="h1" variant="h2">
-                    Haz tu reserva
-                </Typography>
+            <Title hasMargin={false} pageTitle="Mis Reservas" />
                 <form className={classes.form}
 				onSubmit={handleSubmit} >
                     <Grid container spacing={2}>
@@ -142,7 +141,7 @@ export default function Reserva() {
                             <List
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
-                                Que servicio quieres
+                               ¿Qué servicios necesitas?
                                 </ListSubheader>
                                 }
                                 >
@@ -183,12 +182,12 @@ export default function Reserva() {
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={<Checkbox value="parqueadero" color="primary" />}
-                                label="Necesitas un parqueador"
+                                label="¿Necesitas un parqueadero?"
                             />
                         </Grid>
 
                     </Grid>
-                    <Button className={classes.submit} type="submit"> Listo </Button>
+                    <Button className={classes.submit} type="submit"> Reservar </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/proveedoruser" variant="body2">

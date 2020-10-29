@@ -61,7 +61,7 @@ export default class Proveedor extends Component{
     console.log(serv);
     return (
         <Fragment>
-            <Title hasMargin={false} pageTitle="Salon de belleza" />
+            <Title hasMargin={false} pageTitle="Salon De Belleza" />
             <br></br>
             <div>
                 <h1>
@@ -107,7 +107,7 @@ export default class Proveedor extends Component{
                         <br></br>
                         <Grid container spacing={1}>
                             <Grid item xs={3}>
-                                <Button className="btn btn-primary" href="/reservauser"> Haz tu reserva </Button>
+                                <Button className="btn btn-primary" href="/reservauser"> ¡Haz tu reserva ahora! </Button>
                             </Grid>
                         </Grid>
                     </div>
