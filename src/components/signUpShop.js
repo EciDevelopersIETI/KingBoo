@@ -36,6 +36,7 @@ function Copyright() {
 
 
 export default class SignUpShop extends Component{
+    
     render(){
     const services = [];
     const prices = [];
@@ -64,7 +65,7 @@ export default class SignUpShop extends Component{
     const handleSubmit = e => {
         e.preventDefault();
         if(services.length === 0){
-            alert("Porfavor seleccione alemos un servico");
+            alert("Porfavor seleccione almenos un servico");
         }else{
             console.log(services)
             const user = {
@@ -94,9 +95,14 @@ export default class SignUpShop extends Component{
     return (
             <Fragment>
               <Title hasMargin={false} pageTitle="Registro Proveedor" />
-              <Avatar>
-                  <LockOutlinedIcon />
-              </Avatar>
+                <div className='row row-icono flex-column align-items-center'>
+                    <Avatar className="icono-fondo-rojo">
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Registrarse
+                    </Typography>
+                </div>
               <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div >
@@ -156,7 +162,7 @@ export default class SignUpShop extends Component{
                         </Grid>
 
                         <Grid item xs={12}>
-                            <List
+                            <List style={{display:'block'}}
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                 ¿Qué servicios prestas?
