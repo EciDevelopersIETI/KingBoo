@@ -94,7 +94,7 @@ export class ReservasEnSitio extends Component{
                           <TableCell ><span>Asignar encargado: </span>  <input id='empleados' onChange={this.handleEncargado} ></input></TableCell>
                           </TableRow>
                           <TableRow>
-                          <TableCell > <button id="button" type="submit" variant="contained" className='btn btn-success' >Enviar datos</button></TableCell>
+                          <TableCell > <button id="button" type="submit" variant="contained" className='btn btn-warning' >Enviar datos</button></TableCell>
                           </TableRow>
                       </TableHead>
                   </Table>

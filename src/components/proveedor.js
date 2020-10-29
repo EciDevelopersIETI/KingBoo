@@ -64,20 +64,20 @@ export default class Proveedor extends Component{
             <Title hasMargin={false} pageTitle="Salon De Belleza" />
             <br></br>
             <div>
-                <h1>
-                  {dato.providerName}
-                </h1>
                 <div className="card reserv padding-60px">
                     <div className="lista-datos">
-                        <span><h3><b>Descripción: </b> </h3></span>
-                        <label>{dato.description}</label>
+                    <h1>
+                      <p><b>{dato.providerName}</b></p>
+                    </h1>
+                        <span>Descripción:</span> {dato.description}
+                        <br></br>
                         <br></br>
                         <li>
                         <span>Dirección:</span> {dato.address}
                         </li>
                         <br></br>
                         <li>
-                        <span>Cupo:</span>  {dato.capacity}
+                        <span>Cupos:</span> {dato.capacity}
                         </li>
                         <br></br>
                         <div>
