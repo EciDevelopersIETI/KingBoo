@@ -25,6 +25,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {PrivateRoute} from "./PrivateRoute";
 import {PrivateRoute2} from "./PrivateRoute2";
 import SignUpView from "./views/signUpView";
+import ImageUpload from "./components/imageUpload";
+
 
 function App() {
 
@@ -49,7 +51,7 @@ function App() {
   const opcionesProveedor = () => <OpcionesProveedor/>;
   const categoria = () => <Categoria/>;
   const signUpView = () => <SignUpView/>;
-
+  const imageUpload = () => <ImageUpload/>;
   return (
     <Router>
     <div className="App">
@@ -75,6 +77,7 @@ function App() {
         <PrivateRoute exact path="/misreservas" component={misReservas} />
         <PrivateRoute2  exact path="/opcionesProveedor" component={opcionesProveedor} />
         <PrivateRoute exact path="/categoria" component={categoria} />
+        <Route exact path="/upload" component={imageUpload} />
       </div>
     </div>
   </Router>
