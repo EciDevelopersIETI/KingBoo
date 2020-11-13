@@ -73,7 +73,7 @@ const Home = () => {
 
         <div>
           <img className = 'img-icons'
-                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_800_800/0?e=1604008800&v=beta&t=tsxzrcFYc-bcSYtvBGLDvrfayxsVVlMoD2pOxQLhF-k" />
+                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_400_400/0?e=1605333600&v=beta&t=7eUo-b3-D9V_LzTQJ91JlC7aScP6cy81xCWasxd1La8" />
           <div>
             <p>
               <b>Nombre:</b> <span>Fernando Barrera</span>{" "}
