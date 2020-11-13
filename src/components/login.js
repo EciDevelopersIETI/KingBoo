@@ -74,15 +74,16 @@ export default function LogIn() {
 	}
 	console.log(user);
     loginUser(user);
-  }; 
+  };
 
   return (
+    <Box m="auto">
     <Grid container component="main" justify='center' alignItems='center' style={{ backgroundColor: '#f5a623'}} className={classes.root}>
       <CssBaseline />
-	  <img src={logo2} style={{ height: '20%' ,width: '20%'}}/> 
+	  <img src={logo2} style={{ height: '100%' ,width: '20%'}}/>
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-		<img src={logo} style={{ height: '100%',width: '85%' }}/> 
-		<div className={classes.paper} border='1px solid red'>		
+		<img src={logo} style={{ height: '100%',width: '85%' }}/>
+		<div className={classes.paper} border='1px solid red'>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -90,7 +91,7 @@ export default function LogIn() {
             Iniciar sesión
           </Typography>
 		  {localStorage.clear()}
-          <form className={classes.form} 
+          <form className={classes.form}
           onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
@@ -128,25 +129,26 @@ export default function LogIn() {
               Acceder
             </Button>
               <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                ¿Se te olvidó tu contraseña?
+              <Grid container justify="flex-end">
+                <Link href="/" variant="body2">
+                {"Inicio"}
                 </Link>
               </Grid>
-              <Grid item>
+              <Grid container justify="flex-end">
                 <Link href="/sign-up" variant="body2">
                   {"¿No tienes una cuenta? Regístrate"}
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={5}>
+            <Box mt={7}>
               <Copyright />
             </Box>
           </form>
         </div>
       </Grid>
-	  <img src={logo5} style={{ height: '20%' ,width: '20%'}}/> 
+	  <img src={logo5} style={{ height: '100%' , width: '20%'}}/>
     </Grid>
+    </Box>
 
   );
 }

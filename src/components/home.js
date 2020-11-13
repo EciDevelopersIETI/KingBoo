@@ -64,7 +64,6 @@ const Home = () => {
             <p>
               <b>Area:</b> <span> Desarrollo e Innovación</span>{" "}
             </p>
-            
             <a href="https://www.linkedin.com/in/luis-alejandro-jaramillo-rincon/">
               <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
               </img>
@@ -93,7 +92,7 @@ const Home = () => {
         </div>
 
         <div>
-          <img className = 'img-icons' 
+          <img className = 'img-icons'
                 src="https://media-exp1.licdn.com/dms/image/C4D03AQHbNmzUOOAiXA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=WfwTKVBliu6jJ3FXdOr10ofHvQc2nAM9MnQXMbaxmfI" />
           <div>
             <p>
