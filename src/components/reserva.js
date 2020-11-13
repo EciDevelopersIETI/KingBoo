@@ -97,7 +97,7 @@ export default function Reserva() {
 			ReactDOM.render(<div> <InputLabel id="demo-simple-select-outlined-label">Horarios</InputLabel>
 			<Select
 			  labelId="demo-simple-select-outlined-label"
-			  id="demo-simple-select-outlined"
+			  id="hora"
 			  label="Horarios"
 			  width="100px"
 			  defaultValue={data[0]}
