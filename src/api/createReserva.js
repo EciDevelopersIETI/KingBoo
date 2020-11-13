@@ -9,7 +9,7 @@ const axiosHeader = axios.create({
 const newReserva = reserva => {
 	console.log('llega auiiiiiiiiiiiiii');
 	console.log(reserva);
-    axios.post('http://localhost:8080/reservas/newreserva', {
+    axios.post('https://kingboooback.herokuapp.com/reservas/newreserva', {
 			 reservaId: reserva.provider.providerName+reserva.fecha.toString()+reserva.hora.toString(),
              fecha: reserva.fecha,
              hora: reserva.hora,
