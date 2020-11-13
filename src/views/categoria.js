@@ -51,7 +51,6 @@ export default class crearSitio extends Component {
                             <CardSitio cardImage={Image1} cardTitle={serv.providerName}/>
                           ))
                         }
-
                     </CardDeck>
                     </div>
                     <p></p>
