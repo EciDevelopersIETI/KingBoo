@@ -64,7 +64,6 @@ const Home = () => {
             <p>
               <b>Area:</b> <span> Desarrollo e Innovación</span>{" "}
             </p>
-            
             <a href="https://www.linkedin.com/in/luis-alejandro-jaramillo-rincon/">
               <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
               </img>
@@ -74,7 +73,7 @@ const Home = () => {
 
         <div>
           <img className = 'img-icons'
-                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_800_800/0?e=1604008800&v=beta&t=tsxzrcFYc-bcSYtvBGLDvrfayxsVVlMoD2pOxQLhF-k" />
+                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_400_400/0?e=1605333600&v=beta&t=7eUo-b3-D9V_LzTQJ91JlC7aScP6cy81xCWasxd1La8" />
           <div>
             <p>
               <b>Nombre:</b> <span>Fernando Barrera</span>{" "}
@@ -93,7 +92,7 @@ const Home = () => {
         </div>
 
         <div>
-          <img className = 'img-icons' 
+          <img className = 'img-icons'
                 src="https://media-exp1.licdn.com/dms/image/C4D03AQHbNmzUOOAiXA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=WfwTKVBliu6jJ3FXdOr10ofHvQc2nAM9MnQXMbaxmfI" />
           <div>
             <p>

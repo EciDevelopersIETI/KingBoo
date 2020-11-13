@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
+    backgroundColor: "#3C5CEE"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -55,6 +56,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#3C5CEE",
+    color: 'white'
   },
   content: {
     flexGrow: 1,

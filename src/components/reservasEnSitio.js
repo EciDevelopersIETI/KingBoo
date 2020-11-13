@@ -16,7 +16,7 @@ export class ReservasEnSitio extends Component{
   constructor(props){
     super(props);
     this.email = localStorage.getItem('user')
-    this.handleSubmit = this.handleSubmit.bind(this); 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEncargado = this.handleEncargado.bind(this);
     this.state={
       data:[],
@@ -24,7 +24,7 @@ export class ReservasEnSitio extends Component{
   }
 
   componentDidMount() {
-    fetch('https://kingboooback.herokuapp.com/reservas/provider/'+localStorage.getItem("providerUser"))
+    fetch('https://kingboooback.herokuapp.com/reservas/activeprovider/'+localStorage.getItem("providerUser"))
         .then(response => response.json())
         .then(result=>{
           this.setState({
@@ -44,20 +44,20 @@ export class ReservasEnSitio extends Component{
     e.preventDefault();
     console.log(e.target.id);
     console.log(this.state.empleados);
-    
-    
+
+
     const update ={
-        
+
         encargado: this.state.empleados,
         reservaId: e.target.id
-      
+
     }
     updateReserva(update);
-    
+
   };
 
   render(){
-    
+
     const   lista = this.state.data.map((reserva) => {
       return(
         <form id={reserva.reservaId} onSubmit={this.handleSubmit}>
@@ -96,21 +96,20 @@ export class ReservasEnSitio extends Component{
         </form>
       );
     });
-
     return (
       <div>
         <Title hasMargin={false} pageTitle="Reservas Sitio X"/>
-      <Container fluid>
+          <Container fluid>
             <div className='card reserv' >
-              <div className='lista-datos'> 
+              <div className='lista-datos'>
               {lista}
               </div>
             </div>
-        <p></p>
-        <Copyright></Copyright>
-        <p></p>
-        </Container>
+          <p></p>
+          <Copyright></Copyright>
+          <p></p>
+          </Container>
       </div>
-    );  
+    );
   }
 }

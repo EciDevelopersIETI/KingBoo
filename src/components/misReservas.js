@@ -14,7 +14,7 @@ import {deleteReserva} from './../api/deleteReserva';
 export class MisReservas extends Component{
   constructor(props){
     super(props);
-    this.handleCancelar = this.handleCancelar.bind(this); 
+    this.handleCancelar = this.handleCancelar.bind(this);
     this.email = localStorage.getItem('user');
     this.state={
       data:[],
@@ -22,7 +22,7 @@ export class MisReservas extends Component{
   }
 
   componentDidMount() {
-    fetch('https://kingboooback.herokuapp.com/reservas/user/'+ this.email)
+    fetch('https://kingboooback.herokuapp.com/reservas/activeuser/'+ this.email)
         .then(response => response.json())
         .then(result=>{
           this.setState({
@@ -30,23 +30,24 @@ export class MisReservas extends Component{
           });
           console.log(result);
           localStorage.setItem("reservas",JSON.stringify(result));
-        })  
+        })
   }
 
   handleCancelar(e){
     e.preventDefault();
     console.log(e.target.id);
-   
+
     const deleteres ={
-        
+
         reservaId: e.target.id,
-      
+
     }
     deleteReserva(deleteres);
 
   };
 
   render(){
+
     const lista = this.state.data.map((reserva) => {
       return (
         <form  id={reserva.reservaId}  onSubmit={this.handleCancelar} >
@@ -97,18 +98,31 @@ export class MisReservas extends Component{
         </form>
       );
     });
+    if(this.state.data.length==0){
+      console.log("Hola, no hay nada men!")
+      return (
+        <Fragment>
+          <h2>
+            No tiene ninguna reserva activa
+          </h2>
+          <p></p>
+          <Copyright></Copyright>
+          <p></p>
+        </Fragment>
+      );
+    }else{
+      return (
+        <Fragment>
+          <Title hasMargin={false} pageTitle="Mis Reservas" />
+          <div className="mt-5">
+            {lista}
+          </div>
+          <p></p>
+          <Copyright></Copyright>
+          <p></p>
+        </Fragment>
+      );
+    }
 
-    return (
-      <Fragment>
-        <Title hasMargin={false} pageTitle="Mis Reservas" />
-        <div className="mt-5">
-          {lista}
-        </div>
-        <p></p>
-        <Copyright></Copyright>
-        <p></p>
-      </Fragment>
-    );
   };
 }
-

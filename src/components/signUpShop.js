@@ -39,7 +39,6 @@ export default class SignUpShop extends Component{
     render(){
     const services = [];
     const prices = [];
-    //const classes = useStyles();
 
     const handleChangeChk = e => {
         console.log(e.target.value);
@@ -64,7 +63,7 @@ export default class SignUpShop extends Component{
     const handleSubmit = e => {
         e.preventDefault();
         if(services.length === 0){
-            alert("Porfavor seleccione alemos un servico");
+            alert("Porfavor seleccione almenos un servico");
         }else{
             console.log(services)
             const user = {
@@ -94,9 +93,14 @@ export default class SignUpShop extends Component{
     return (
             <Fragment>
               <Title hasMargin={false} pageTitle="Registro Proveedor" />
-              <Avatar>
-                  <LockOutlinedIcon />
-              </Avatar>
+              <div className='row row-icono flex-column align-items-center'>
+                  <Avatar className="icono-fondo-rojo">
+                      <LockOutlinedIcon />
+                  </Avatar>
+                  <Typography component="h1" variant="h5">
+                      <b>Registrarse</b>
+                  </Typography>
+              </div>
               <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div >
@@ -156,18 +160,18 @@ export default class SignUpShop extends Component{
                         </Grid>
 
                         <Grid item xs={12}>
-                            <List
+                            <List style={{display:'block'}}
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                                <ListSubheader component="div" id="nested-list-subheader">
-                                ¿Qué servicios prestas?
-                                </ListSubheader>
+                                <Typography component="h1" variant="h5">
+                                 <b>¿Qué servicios prestas?</b>
+                                </Typography>
                                 }
                                 >
                                 <ListItem button>
                                     <ListItemText primary="Corte de cabello" />
                                     <TextField
                                         type="number"
-                                        id="Corte de cabello"
+                                        id="Corte de Cabello"
                                         label="Precio:"
                                         name="pcorte"
                                     />
@@ -194,10 +198,10 @@ export default class SignUpShop extends Component{
                                     <Checkbox id="pmani" edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                                 </ListItem>
                                 <ListItem button>
-                                    <ListItemText primary="Depilacion" />
+                                    <ListItemText primary="Depilación" />
                                     <TextField
                                         type="number"
-                                        id="Depilación"
+                                        id="Depilacion"
                                         label="Precio:"
                                         name="pdepil"
                                     />
@@ -222,7 +226,7 @@ export default class SignUpShop extends Component{
 
 
                         <Grid item xs={12}>
-                            <Typography component="h6" variant="h6">
+                            <Typography component="h1" variant="h5">
                                 Datos del responsable
                             </Typography>
                         </Grid>
