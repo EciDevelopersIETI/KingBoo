@@ -21,6 +21,13 @@ export class ReservasEnSitio extends Component{
     this.state={
       data:[],
     };
+    axios.get('https://kingboooback.herokuapp.com/users/'+this.email)
+    .then(response => {
+      console.log(response.data.provider.providerName);
+      localStorage.setItem("providerUser",response.data.provider.providerName);
+    })
+    .catch(function (error){
+      console.log(error);});
   }
 
   componentDidMount() {
@@ -87,7 +94,7 @@ export class ReservasEnSitio extends Component{
                           <TableCell ><span>Asignar encargado: </span>  <input id='empleados' onChange={this.handleEncargado} ></input></TableCell>
                           </TableRow>
                           <TableRow>
-                          <TableCell > <button id="button" type="submit" variant="contained" className='btn btn-warning' >Enviar datos</button></TableCell>
+                          <TableCell > <button id="button" type="submit" variant="contained" className='btn btn-success' >Enviar datos</button></TableCell>
                           </TableRow>
                       </TableHead>
                   </Table>

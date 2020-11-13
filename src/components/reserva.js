@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button'
 import List from '@material-ui/core/List';
@@ -61,7 +61,7 @@ export default function Reserva() {
 	const handleSubmit = e => {
         e.preventDefault();
 		if(services.length === 0){
-			alert("Por favor seleccione al menos un servicio");
+			alert("Porfavor seleccione almenos un servico");
 		}
 		else{
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
@@ -114,11 +114,10 @@ export default function Reserva() {
 	}
 
     return (
-        <Fragment>
-        <Title hasMargin={false} pageTitle="Mis Reservas" />
-        <div className='card reserv' >
         <Container component="main" maxWidth="xs">
-                <div className='card reserv' >
+            <CssBaseline />
+            <div className={classes.paper}>
+            <Title hasMargin={false} pageTitle="Mis Reservas" />
                 <form className={classes.form}
 				onSubmit={handleSubmit} >
                     <Grid container spacing={2}>
@@ -139,11 +138,11 @@ export default function Reserva() {
 						<div id="alfa">
 						</div>
                         <Grid item xs={12}>
-                            <List style={{display:'block'}}
+                            <List
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                                <Typography component="h1" variant="h5">
-                                    <b>¿Qué servicios necesitas?</b>
-                                </Typography>
+                                <ListSubheader component="div" id="nested-list-subheader">
+                               ¿Qué servicios necesitas?
+                                </ListSubheader>
                                 }
                                 >
 
@@ -197,12 +196,10 @@ export default function Reserva() {
                         </Grid>
                     </Grid>
                 </form>
-                    </div>
-            </Container>
             </div>
-            <Box mt={2}>
+            <Box mt={5}>
                 <Copyright />
             </Box>
-            </Fragment>
+        </Container>
     );
 }

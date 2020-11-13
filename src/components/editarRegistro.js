@@ -129,10 +129,9 @@ export default class editarRegistro extends Component{
   return (
     <Fragment>
       <Title hasMargin={false} pageTitle="Editar Información" />
-      <div className='card reserv'>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className='card reserv' >
+        <div >
         <br></br>
         <br></br>
 
@@ -142,12 +141,12 @@ export default class editarRegistro extends Component{
             <Grid container spacing={2}>
                 <Grid item xs={12} >
                   <h3>
-                  <b>Nombre de la empresa:</b> <p></p>{lisProv[0]}
+                    Nombre de la empresa:{lisProv[0]}
                   </h3>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                  <b>NIT:</b> {lisProv[1]}
+                    NIT: {lisProv[1]}
                   </h5>
                 </Grid>
                 <Grid item xs={12}>
@@ -179,9 +178,9 @@ export default class editarRegistro extends Component{
                 <Grid item xs={12}>
                     <List style={{display:'block'}}
                     component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                      <Typography component="h1" variant="h5">
-                      <b>¿Qué servicios prestas?</b>
-                      </Typography>
+                        <ListSubheader component="div" id="nested-list-subheader">
+                        ¿Qué servicios prestas?
+                        </ListSubheader>
                         }
                         >
                         <ListItem button>
@@ -215,7 +214,7 @@ export default class editarRegistro extends Component{
                             <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
                         </ListItem>
                         <ListItem button>
-                            <ListItemText primary="Depilación" />
+                            <ListItemText primary="Depilacion" />
                             <TextField
                                 type="number"
                                 id="Depilacion"
@@ -243,18 +242,18 @@ export default class editarRegistro extends Component{
 
 
                 <Grid item xs={12}>
-                    <Typography component="h1" variant="h5">
-                        <b>Datos del responsable</b>
+                    <Typography component="h6" variant="h6">
+                        Datos del responsable
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                   <b>Nombre:</b> {dato.userName}
+                    Nombre: {dato.userName}
                   </h5>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                  <b>Correo:</b> {dato.email}
+                    Nombre: {dato.email}
                   </h5>
                 </Grid>
 
@@ -274,16 +273,15 @@ export default class editarRegistro extends Component{
             <br/>
             <Button
                 type="submit"
-                class="btn btn-warning"
                 fullWidth
                 variant="contained"
+                color="primary"
             >
                 Actualizar
             </Button>
         </form>
         </div>
       </Container>
-      </div>
       <p></p>
       <Copyright></Copyright>
       <br></br>

@@ -84,7 +84,7 @@ export class MisReservas extends Component{
                             {reserva.fecha} - {reserva.hora}
                           </TableCell>
                           <TableCell>
-                            <button type="submit" variant="contained"  className="btn btn-primary">Cancelar reserva</button>
+                            <button type="submit" variant="contained"  className="btn btn-secondary">Cancelar reserva</button>
                           </TableCell>
                         </TableRow>
                     </TableBody>

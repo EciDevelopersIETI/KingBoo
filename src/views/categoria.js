@@ -27,7 +27,7 @@ export default class crearSitio extends Component {
         //console.log(JSON.parse(localStorage.getItem("listaProviders")));
         return (
 
-            <div >
+            <div>
                 <Title pageTitle="Tiendas"/>
                 <Container >
                     <Row>
@@ -44,7 +44,6 @@ export default class crearSitio extends Component {
                             </InputGroup>
                         </Col>
                     </Row>
-                    <div className='card reserv'>
                     <CardDeck className="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-5">
                         {
                           JSON.parse(localStorage.getItem("listaProviders")).map(serv => (
@@ -53,8 +52,6 @@ export default class crearSitio extends Component {
                         }
 
                     </CardDeck>
-                    </div>
-                    <p></p>
                     <Copyright></Copyright>
                 </Container>
             </div>

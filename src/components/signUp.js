@@ -13,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {newUser} from './../api/createUser';
-import Title from '../components/title'
 
 //import SignUpShop from './SignUpShop';
 
@@ -32,7 +31,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    //marginTop: theme.spacing(8),
+    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -78,16 +77,14 @@ export default function SignUp() {
 
 
   return (
-    <div className="container-fluid">
-      <Title hasMargin={false} pageTitle="Registro Cliente" />
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          <b>Registrarse</b>
+          Registrarse
         </Typography>
         <form className={classes.form}
            onSubmit={handleSubmit}
@@ -184,7 +181,6 @@ export default function SignUp() {
       <Box mt={5}>
         <Copyright />
       </Box>
-      </Container>
-    </div>
+    </Container>
   );
 }
