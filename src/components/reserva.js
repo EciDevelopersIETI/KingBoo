@@ -19,6 +19,9 @@ import Container from '@material-ui/core/Container';
 import axios from "axios";
 import {newReserva} from './../api/createReserva';
 import Title from "./title";
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 
 
 function Copyright() {
@@ -91,13 +94,20 @@ export default function Reserva() {
 		var data = axios.get('https://kingboooback.herokuapp.com/reservas/provider/'+localStorage.getItem("provider")+'/date/'+e.target.value+'/getcupos').then(function (response) {data=response.data;}).catch(function (error) { console.log(error);});
 		const myelement = React.createElement('h1', {}, 'I do not use JSX!');
 		setTimeout(function() {
-			ReactDOM.render(<div> <label for="horarios">Horarios:</label>
-			<select id="hora" name="horarios" form="horaform">
+			ReactDOM.render(<div> <InputLabel id="demo-simple-select-outlined-label">Horarios</InputLabel>
+			<Select
+			  labelId="demo-simple-select-outlined-label"
+			  id="demo-simple-select-outlined"
+			  label="Horarios"
+			  width="100px"
+			  defaultValue={data[0]}
+			>
 			{console.log(data)}
 			{data.map(hora => (
-						 <option value={hora}>{hora}</option>
+						<MenuItem value={hora}>{hora}</MenuItem>					
 			))}
-			</select> </div>,tempo);
+			</Select> </div>,tempo);
+				
 
 		}.bind(this), 1000);
 
@@ -128,7 +138,6 @@ export default function Reserva() {
                                 id="date"
                                 label="Fecha"
                                 type="date"
-                                defaultValue="2020-09-29"
 								onChange={handlechangehope}
                                 className={classes.textField}
                                 InputLabelProps={{

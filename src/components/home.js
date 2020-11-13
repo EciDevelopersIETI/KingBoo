@@ -64,7 +64,6 @@ const Home = () => {
             <p>
               <b>Area:</b> <span> Desarrollo e Innovación</span>{" "}
             </p>
-
             <a href="https://www.linkedin.com/in/luis-alejandro-jaramillo-rincon/">
               <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
               </img>
