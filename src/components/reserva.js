@@ -70,11 +70,11 @@ export default function Reserva() {
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
 			var userReserva = axios.get('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user")).then(function (response) {userReserva = response.data;}).catch(function (error) { console.log(error);});
 			var providerReserva = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider")).then(function (response) {providerReserva = response.data;}).catch(function (error) { console.log(error);});
-			console.log(document.getElementById("hora").value.split('-')[0])
+			console.log(document.getElementById("hora").textContent.split('-')[0]);
 			setTimeout(function() {
 				const reserva={
 					 fecha: document.getElementById("date").value,
-					 hora: document.getElementById("hora").value.split('-')[0],
+					 hora: document.getElementById("hora").textContent.split('-')[0],
 					 servicios: services,
 					 comentario: document.getElementById("tel").value,
 					 encargado: " ",
@@ -96,7 +96,6 @@ export default function Reserva() {
 		setTimeout(function() {
 			ReactDOM.render(<div> <InputLabel id="demo-simple-select-outlined-label">Horarios</InputLabel>
 			<Select
-			  labelId="demo-simple-select-outlined-label"
 			  id="hora"
 			  label="Horarios"
 			  width="100px"
