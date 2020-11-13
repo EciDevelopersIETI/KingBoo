@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button'
 import List from '@material-ui/core/List';
@@ -61,7 +61,7 @@ export default function Reserva() {
 	const handleSubmit = e => {
         e.preventDefault();
 		if(services.length === 0){
-			alert("Porfavor seleccione almenos un servico");
+      alert("Por favor seleccione al menos un servicio");
 		}
 		else{
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
@@ -95,12 +95,12 @@ export default function Reserva() {
 			<select id="hora" name="horarios" form="horaform">
 			{console.log(data)}
 			{data.map(hora => (
-						 <option value={hora}>{hora}</option>						
+						 <option value={hora}>{hora}</option>
 			))}
 			</select> </div>,tempo);
-				
+
 		}.bind(this), 1000);
-		
+
 	}
 	const handleChangeChk = e => {
 		console.log(e.target.value);
@@ -114,14 +114,15 @@ export default function Reserva() {
 	}
 
     return (
+      <Fragment>
+      <Title hasMargin={false} pageTitle="Mis Reservas" />
+      <div className='card reserv' >
         <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-            <Title hasMargin={false} pageTitle="Mis Reservas" />
+          <div className='card reserv' >
                 <form className={classes.form}
 				onSubmit={handleSubmit} >
                     <Grid container spacing={2}>
-						
+
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 id="date"
@@ -135,14 +136,14 @@ export default function Reserva() {
                                 }}
                             />
                         </Grid>
-						<div id="alfa">
-						</div>
+            						<div id="alfa">
+            						</div>
                         <Grid item xs={12}>
-                            <List
+                            <List  style={{display:'block'}}
                             component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                                <ListSubheader component="div" id="nested-list-subheader">
-                               ¿Qué servicios necesitas?
-                                </ListSubheader>
+                              <Typography component="h1" variant="h5">
+                                  <b>¿Qué servicios necesitas?</b>
+                              </Typography>
                                 }
                                 >
 
@@ -196,10 +197,12 @@ export default function Reserva() {
                         </Grid>
                     </Grid>
                 </form>
+                </div>
+              </Container>
             </div>
-            <Box mt={5}>
+            <Box mt={2}>
                 <Copyright />
             </Box>
-        </Container>
+        </Fragment>
     );
 }

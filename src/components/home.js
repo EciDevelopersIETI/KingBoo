@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
+import LogoLinkedIn from './img/linkedin.png'
+import Title from '../components/title'
 
 const Home = () => {
   return (
     <Fragment>
       <section className="navg">
-        <nav>
-          <div className="padding-85perc">
+        <nav id="nav-home">
+          <div>
             <a href="login" className="btn-nav">
               Iniciar sesión
             </a>
@@ -16,8 +18,9 @@ const Home = () => {
         </nav>
       </section>
 
+      <Title hasMargin={false} />
       <img src="https://www.softwaresuggest.com/blog/wp-content/uploads/2019/10/salon-business-1.png" />
-
+      <p></p>
       <section className="container about-us">
         <div>
           <h1>SOBRE NOSOTROS:</h1>
@@ -53,16 +56,18 @@ const Home = () => {
                 src="https://media-exp1.licdn.com/dms/image/C5603AQG9776Jtg7ZXg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=Hlrc9BGIrNY30WMJCsrtB5GVJFYQl0hwKrTbnB3D3K8" />
           <div>
             <p>
-              Nombre: <span> Luis Jaramillo</span>{" "}
+              <b>Nombre:</b> <span> Luis Jaramillo</span>{" "}
             </p>
             <p>
-              Cargo: <span> Team Developer</span>{" "}
+              <b>Cargo:</b> <span> Team Developer</span>{" "}
             </p>
             <p>
-              Area: <span> Desarrollo e Innovación</span>{" "}
+              <b>Area:</b> <span> Desarrollo e Innovación</span>{" "}
             </p>
+
             <a href="https://www.linkedin.com/in/luis-alejandro-jaramillo-rincon/">
-              Linked In
+              <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
+              </img>
             </a>
           </div>
         </div>
@@ -72,35 +77,37 @@ const Home = () => {
                 src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_800_800/0?e=1604008800&v=beta&t=tsxzrcFYc-bcSYtvBGLDvrfayxsVVlMoD2pOxQLhF-k" />
           <div>
             <p>
-              Nombre: <span>Fernando Barrera</span>{" "}
+              <b>Nombre:</b> <span>Fernando Barrera</span>{" "}
             </p>
             <p>
-              Cargo: <span> Team Developer</span>{" "}
+              <b>Cargo:</b> <span> Team Developer</span>{" "}
             </p>
             <p>
-              Area: <span> Desarrollo e Innovación</span>{" "}
+              <b>Area:</b> <span> Desarrollo e Innovación</span>{" "}
             </p>
             <a href="https://www.linkedin.com/in/fernando-barrera-barrera-70ba161b2/">
-              Linked In
+              <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
+              </img>
             </a>
           </div>
         </div>
 
         <div>
-          <img className = 'img-icons' 
+          <img className = 'img-icons'
                 src="https://media-exp1.licdn.com/dms/image/C4D03AQHbNmzUOOAiXA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=WfwTKVBliu6jJ3FXdOr10ofHvQc2nAM9MnQXMbaxmfI" />
           <div>
             <p>
-              Nombre: <span> Carlos Castañeda</span>{" "}
+              <b>Nombre:</b> <span> Carlos Castañeda</span>{" "}
             </p>
             <p>
-              Cargo: <span> Team Developer</span>{" "}
+              <b>Cargo:</b> <span> Team Developer</span>{" "}
             </p>
             <p>
-              Area: <span> Desarrollo e Innovación</span>{" "}
+              <b>Area:</b> <span> Desarrollo e Innovación</span>{" "}
             </p>
             <a href="https://www.linkedin.com/in/carlos-andr%C3%A9s-casta%C3%B1eda-lozano-9a16b3190/">
-              Linked In
+              <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
+              </img>
             </a>
           </div>
         </div>
@@ -111,16 +118,17 @@ const Home = () => {
                 src='https://media-exp1.licdn.com/dms/image/C4E03AQGWpGFymfpOYA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=TLnN6k6h2al4yqXjOf0Fx66EWlR5Q8whNZ_JQIlLGAc' />
           <div>
             <p>
-              Nombre: <span> Juan Camilo Ortiz</span>
+              <b>Nombre:</b> <span> Juan Camilo Ortiz</span>
             </p>
             <p>
-              Cargo: <span> Team Developer</span>
+              <b>Cargo:</b> <span> Team Developer</span>
             </p>
             <p>
-              Area: <span> Desarrollo e Innovación</span>
+              <b>Area:</b> <span> Desarrollo e Innovación</span>
             </p>
             <a href="https://www.linkedin.com/in/juanortizm/">
-              Linked In
+              <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
+              </img>
             </a>
           </div>
         </div>
@@ -129,16 +137,17 @@ const Home = () => {
                 src = 'https://media-exp1.licdn.com/dms/image/C4E03AQG7waXqkX-IBg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=ev8vrm4ARqbr5gllcGi6JBSI6agF6WUOI8jX69WbQyE'/>
           <div>
             <p>
-              Nombre: <span> Alejandra Gómez</span>
+              <b>Nombre:</b> <span> Alejandra Gómez</span>
             </p>
             <p>
-              Cargo: <span> Team Developer</span>
+              <b>Cargo:</b> <span> Team Developer</span>
             </p>
             <p>
-              Area: <span> Desarrollo e Innovación</span>
+              <b>Area:</b> <span> Desarrollo e Innovación</span>
             </p>
             <a href="https://www.linkedin.com/in/alejandra-g%C3%B3mez-7a5340158/">
-              Linked In
+              <img src={LogoLinkedIn} className="img-fluid img-logo-linkedin">
+              </img>
             </a>
           </div>
         </div>
