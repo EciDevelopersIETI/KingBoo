@@ -9,7 +9,7 @@ const axiosHeader = axios.create({
 const newReserva = reserva => {
 	console.log('llega auiiiiiiiiiiiiii');
 	console.log(reserva);
-    axios.post('https://kingboooback.herokuapp.com/reservas/newreserva', {
+    axios.post('http://localhost:8080/reservas/newreserva', {
 			 reservaId: reserva.provider.providerName+reserva.fecha.toString()+reserva.hora.toString(),
              fecha: reserva.fecha,
              hora: reserva.hora,
@@ -26,7 +26,7 @@ const newReserva = reserva => {
       })
       .catch(function (error) { 
 		console.log(error);
-        alert("Error al crear reserva");
+        alert("No se pudo realizar la reserva debido a que no hay suficientes cupos en la fecha que eligio para todos los servicios que desea reservar ,Por favor revise los horarios disponibles y realize la reserva en esos horarios");
       });
 
 };

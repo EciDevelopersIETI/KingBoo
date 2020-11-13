@@ -23,7 +23,13 @@ code {
 .navg {
   background-color: rgba(0, 38, 255, 0.582);
 }
-
+#nav-home{	
+  display: flex;	
+  justify-content: flex-end;	
+}	
+.img-logo-linkedin{	
+  width: 100px;	
+}
 nav {
   display: flex;
   flex-direction: row;
@@ -124,4 +130,11 @@ nav div > .btn-nav-rigth {
 
 .img-icons{
    height: 150px;
+	margin-right: 10px;	
+}	
+.icono-fondo-rojo{	
+  background-color: #f50057 !important;	
+}	
+.row-icono{	
+  justify-content: center;   
 }
