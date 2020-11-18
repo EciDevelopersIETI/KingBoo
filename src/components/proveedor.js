@@ -77,7 +77,7 @@ export default class Proveedor extends Component{
                         </li>
                         <br></br>
                         <li>
-                        <span>Cupo:</span>{dato.capacity}
+                        <span>Cupo por Turno:</span>{dato.capacity}
                         </li>
                         <br></br>
                         <div>
@@ -121,3 +121,4 @@ export default class Proveedor extends Component{
     );
   }
 }
+
