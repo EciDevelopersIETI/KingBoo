@@ -23,6 +23,7 @@ const newReserva = reserva => {
 	
       .then(function (response) {
         alert("Registro de reserva exitosa !!!!!!!!!!!")
+		window.location.href="homeuser";
       })
       .catch(function (error) { 
 		console.log(error);

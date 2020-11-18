@@ -11,13 +11,15 @@ import { Container, Row, Col } from 'reactstrap';
 import {updateReserva} from './../api/updateReserva';
 import Copyright from '../components/copyright';
 import axios from "axios";
+import ReactDOM from 'react-dom';
 
 export class ReservasEnSitio extends Component{
   constructor(props){
     super(props);
     this.email = localStorage.getItem('user')
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEncargado = this.handleEncargado.bind(this);
+  this.handleEncargado = this.handleEncargado.bind(this);
+  this.handlechangehope = this.handlechangehope.bind(this);
     this.state={
       data:[],
     };
@@ -53,9 +55,20 @@ export class ReservasEnSitio extends Component{
 
     }
     updateReserva(update);
+	const beta = document.getElementById("delta");
+	console.log(beta);
+	ReactDOM.render(<div><input id='empleados' disabled ={true}  defaultValue={this.state.empleados} onChange={this.handleEncargado} ></input><span>   </span><button id={this.state.empleados} type="submit" variant="contained"  onClick={this.handlechangehope} className='btn btn-warning' >Editar encargado</button></div>,beta);
+
 
   };
-
+  handlechangehope(e){
+		e.preventDefault();
+		console.log(e.target.id);
+		const beta = document.getElementById("delta");
+		console.log(beta);
+		ReactDOM.render(<div><input id='empleados' disabled ={false}  defaultValue={e.target.id} onChange={this.handleEncargado} ></input><span>   </span><button id={e.target.id} type="submit" variant="contained"  onClick={this.handlechangehope} className='btn btn-warning' >Editar encargado</button></div>,beta);
+				
+  }
   render(){
 
     const   lista = this.state.data.map((reserva) => {
@@ -69,7 +82,7 @@ export class ReservasEnSitio extends Component{
                           <TableCell ><span>IDReserva: </span> {reserva.reservaId} </TableCell>
                           </TableRow>
                           <TableRow>
-                          <TableCell ><span>Fecha: </span> {reserva.fecha} </TableCell>
+                          <TableCell ><span>Fecha: </span> {reserva.fecha.split("T")[0]} </TableCell>
                           </TableRow>
                           <TableRow>
                           <TableCell ><span>Hora: </span> {reserva.hora} </TableCell>
@@ -78,13 +91,13 @@ export class ReservasEnSitio extends Component{
                           <TableCell ><span>Servicios: </span> {reserva.servicios} </TableCell>
                           </TableRow>
                           <TableRow>
-                          <TableCell ><span>Cliente: </span> {reserva.user.userName} Telefono: {reserva.user.telefono} email: {reserva.user.email} </TableCell>
+                          <TableCell ><span>Cliente: </span> {reserva.user.userName}</TableCell>
                           </TableRow>
                           <TableRow>
                           <TableCell ><span>Comentarios: </span> {reserva.comentario} </TableCell>
                           </TableRow>
-                          <TableRow>
-                          <TableCell ><span>Asignar encargado: </span>  <input id='empleados' onChange={this.handleEncargado} ></input></TableCell>
+                          <TableRow >
+                          <TableCell><span>Asignar encargado: </span> <div id="delta"> <input id='empleados' disabled ={true} value={reserva.encargado} onChange={this.handleEncargado} ></input><span>   </span><button id={reserva.encargado} type="submit" variant="contained" onClick={this.handlechangehope}  className='btn btn-warning' >Editar encargado</button></div></TableCell>
                           </TableRow>
                           <TableRow>
                           <TableCell > <button id="button" type="submit" variant="contained" className='btn btn-warning' >Enviar datos</button></TableCell>
