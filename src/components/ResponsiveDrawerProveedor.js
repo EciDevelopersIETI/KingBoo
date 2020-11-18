@@ -14,6 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import ListIcon from '@material-ui/icons/List';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -113,6 +114,12 @@ function ResponsiveDrawer(props) {
             <ListItemIcon><EditIcon/></ListItemIcon>
 
             <ListItemText primary={"Editar proveedor"} />
+          </ListItem>
+      </List>
+      <List>
+          <ListItem button  onClick={() =>  history.push("/statsprovider")}>
+            <ListItemIcon><EqualizerIcon/></ListItemIcon>
+            <ListItemText primary={"Estadisticas"} />
           </ListItem>
       </List>
       <List>
