@@ -15,6 +15,7 @@ import {ReservasEnSitio} from "./components/reservasEnSitio";
 import {HomeUser} from "./components/homeUser";
 import {HomeProveedor} from "./components/homeProveedor";
 import {EditarSitioProveedor} from "./components/editarSitioProveedor";
+import {StatsProvider} from "./components/statsProvider";
 import {CategoriaUser} from "./components/categoriaUser";
 import {ProveedorUser} from "./components/proveedorUser";
 import {ReservaUser} from "./components/reservaUser";
@@ -43,6 +44,7 @@ function App() {
   const homeUser = () => <HomeUser/>;
   const homeProveedor = () => <HomeProveedor/>;
   const editarSitioProveedor = () => <EditarSitioProveedor/>;
+  const statsProvider = () => <StatsProvider/>;
   const categoriaUser = () => <CategoriaUser/>;
   const proveedorUser = () => <ProveedorUser/>;
   const reservaUser = () => <ReservaUser/>;
@@ -69,6 +71,7 @@ function App() {
         <PrivateRoute exact path="/homeuser" component={homeUser} />
         <PrivateRoute2 exact path="/homeproveedor" component={homeProveedor} />
         <PrivateRoute2 exact path="/editarsitioproveedor" component={editarSitioProveedor} />
+        <PrivateRoute2 exact path="/statsprovider" component={statsProvider} />
         <PrivateRoute exact path="/categoriauser" component={categoriaUser} />
         <PrivateRoute exact path="/proveedoruser" component={proveedorUser} />
         <PrivateRoute exact path="/reservauser" component={reservaUser} />
