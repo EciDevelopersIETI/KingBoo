@@ -12,9 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {newUser} from './../api/createUser';
+import { newUser } from './../api/createUser';
 import Title from '../components/title'
-
 //import SignUpShop from './SignUpShop';
 
 function Copyright() {
@@ -32,7 +31,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-   // marginTop: theme.spacing(8),
+    // marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -67,11 +66,11 @@ export default function SignUp() {
         address: null,
         servicios: null,
         capacity: null
-    }
+      }
     };
     newUser(user);
-    setTimeout(function() {
-      window.location.href="/login";
+    setTimeout(function () {
+      window.location.href = "/login";
     }.bind(this), 1000);
 
   };
@@ -81,55 +80,55 @@ export default function SignUp() {
     <div className="container-fluid">
       <Title hasMargin={false} pageTitle="Registro Cliente" />
       <CssBaseline />
-	  <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-           <b>Registrarse</b>
-        </Typography>
-        <form className={classes.form}
-           onSubmit={handleSubmit}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="Nombre de usuario"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Correo electrónico"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Contraseña"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
+      <Container component="main" maxWidth="xs">
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            <b>Registrarse</b>
+          </Typography>
+          <form className={classes.form}
+            onSubmit={handleSubmit}
+          >
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="fname"
+                  name="firstName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="Nombre de usuario"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Correo electrónico"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Contraseña"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
                   variant="outlined"
                   required
                   fullWidth
@@ -138,53 +137,53 @@ export default function SignUp() {
                   label="Teléfono"
                   name="telefono"
                   autoComplete="Telefono"
-              />
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="Quiero recibir promociones via email."
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="Quiero recibir promociones via email."
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Registrarte
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Registrarte
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
+            <Grid container justify="flex-end">
+              <Grid item>
 
-              <Link href={"/signUpView"}>
-                {"¿Quieres ser un proveedor? ¡Registrate!"}
-              </Link>
-
-            </Grid>
-          </Grid>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/" variant="body2">
-                {"Inicio"}
-              </Link>
-            </Grid>
-          </Grid>
-          <Grid container justify="flex-end">
-            <Grid item>
-                <Link href="/login" variant="body2">
-                    {"Iniciar sesión"}
+                <Link href={"/signUpView"}>
+                  {"¿Quieres ser un proveedor? ¡Registrate!"}
                 </Link>
+
+              </Grid>
             </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-     </Container>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/" variant="body2">
+                  {"Inicio"}
+                </Link>
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  {"Iniciar sesión"}
+                </Link>
+              </Grid>
+            </Grid>
+          </form>
+        </div>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
     </div>
   );
 }

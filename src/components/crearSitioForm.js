@@ -3,19 +3,59 @@ import React, { Component } from 'react';
 import { Row, Col, Form, Button, CardDeck, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import "./crearSitioForm.css"
+import { storage } from '../api/firebase';
 
 export default class crearSitioForm extends Component {
-
-    state = {
-        sitios: [],
-        caracteristicas: [],
-        //validated: false,
-        //validmeals: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            sitios: [],
+            caracteristicas: [],
+            //validated: false,
+            //validmeals: false,
+            image: null,
+            url: '',
+            progress: 0
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
     }
 
     //sitio = { id: 15, chef: Cookies.getJSON('cook'), meals: this.state.meals, price: 0, description: "", name: "" };
-   
+
     //onChange={(e) => this.handleTipoChange(e)}
+    handleChange(e) {
+        if (e.target.files[0]) {
+            const image = e.target.files[0];
+            this.setState({ image });
+        }
+    }
+
+    handleUpload(e) {
+        const { image } = this.state;
+        const uploadTask = storage.ref('images/'.concat(image.name)).put(image);
+
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+                this.setState({ progress });
+            },
+            (error) => {
+                console.log(error);
+            },
+            () => {
+                storage.ref('images').child(image.name).getDownloadURL().then(
+                    url => {
+                        console.log(url);
+                        this.setState({ url });
+                    }
+
+                )
+            }
+
+        )
+    }
+
     handleTipoChange(e) {
         this.sitio.tipo = e.target.value;
         this.setState({ sitio: this.state.sitio });
@@ -59,7 +99,7 @@ export default class crearSitioForm extends Component {
     handleDescripcionChange = (e) => {
         this.sitio.descripcion = e.target.value;
         this.setState({ sitio: this.state.sitio });
-        
+
     }
 
     handleRemove = (index) => {
@@ -106,7 +146,7 @@ export default class crearSitioForm extends Component {
                                 <Form.Label column sm={2} md={2} lg={2} xl={1} className="ml-auto">Nombre:</Form.Label>
                                 <Col sm={10} md={10} lg={7} xl={6} className="mr-auto">
                                     <Form.Control type="text" placeholder="Nombre del negocio"
-                                        required  />
+                                        required />
                                     <Form.Control.Feedback>Luce bien!</Form.Control.Feedback>
                                     <Form.Control.Feedback type="invalid">Por favor ingresa un nombre al negocio.</Form.Control.Feedback>
                                     <Form.Text className="text-muted">El nombre con el que se identifica el negocio.</Form.Text>
@@ -202,13 +242,14 @@ export default class crearSitioForm extends Component {
                                     id="custom-file-translate-scss"
                                     label="Subir imagenes"
                                     lang="es"
+                                    onChange={this.handleChange}
                                     custom
                                 />
                             </Col>
                         </Form.Group>
 
-
-                        <Button size="lg" type="reset" variant="success" style={{ border: 'medium solid black' }} className="buttonForm boxShadowPro font-weight-bold">
+                        <Button size="lg" type="reset" variant="success" onClick={this.handleUpload}
+                        style={{ border: 'medium solid black' }} className="buttonForm boxShadowPro font-weight-bold">
                             Crear
                         </Button>
                     </Form>
@@ -217,9 +258,9 @@ export default class crearSitioForm extends Component {
 
             /*
             <Form noValidate validated={this.state.validated} onSubmit={(event) => this.handleSubmit(event)}>
-
+    
             {this.state.meals.map((meal, index) => {
-
+    
             
              */
 
