@@ -16,6 +16,8 @@ import { newUser } from '../api/createUser';
 import Title from '../components/title';
 import { Row, Col, Form } from 'react-bootstrap';
 import { storage } from '../api/firebase';
+import ImageUpload from "./imageUpload";
+
 
 function Copyright() {
     return (
@@ -49,21 +51,21 @@ export default class SignUpShop extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(e) {
+		e.preventDefault();
         if (e.target.files[0]) {
             const image = e.target.files[0];
             console.log(image.name);
-            this.setState({ image });
+			this.handleUpload(image);
+            
         }
     }
 
-    handleUpload() {
-        const { image } = this.state;
+    handleUpload(image) {
         const uploadTask = storage.ref('images/'.concat(image.name)).put(image);
-
         uploadTask.on('state_changed',
             (snapshot) => {
                 const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-                this.setState({ progress });
+                this.setState({progress});
             },
             (error) => {
                 console.log(error);
@@ -72,13 +74,12 @@ export default class SignUpShop extends Component {
                 storage.ref('images').child(image.name).getDownloadURL().then(
                     url => {
                         console.log(url);
-                        this.setState({ url });
+						localStorage.setItem("urlimgsite",url);
                     }
 
                 )
             }
-
-        )
+		)	
     }
     handleChangeChk = e => {
         console.log(e.target.value);
@@ -118,8 +119,9 @@ export default class SignUpShop extends Component {
                     address: document.getElementById("address").value,
                     capacity: (document.getElementById("capacity").value).toString(),
                     services: this.state.prices,
-                    url: this.state.url
-                }
+                    provImgUrl: localStorage.getItem("urlimgsite"),
+                },
+				imgUrl: localStorage.getItem("urlimgprofile")
             }; newUser(user);
             setTimeout(function () {
                 window.location.href = "/login";
@@ -333,12 +335,14 @@ export default class SignUpShop extends Component {
 
                             </Grid>
                             <br></br>
+							<ImageUpload/>;
+							<br></br>
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 color="primary"
-                                onClick={this.handleUpload}
+
                             >
                                 Registrarte
                     </Button>

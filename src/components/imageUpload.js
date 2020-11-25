@@ -16,6 +16,7 @@ class ImageUpload extends Component {
         this.handleUpload = this.handleUpload.bind(this);
     }
     handleChange(e) {
+		 e.preventDefault();
         if (e.target.files[0]) {
             const image = e.target.files[0];
             this.setState({ image });
@@ -23,6 +24,7 @@ class ImageUpload extends Component {
     }
 
     handleUpload(e) {
+		e.preventDefault();
         const { image } = this.state;
         const uploadTask = storage.ref('images/'.concat(image.name)).put(image);
 
@@ -38,7 +40,7 @@ class ImageUpload extends Component {
                 storage.ref('images').child(image.name).getDownloadURL().then(
                     url => {
                         console.log(url);
-                        this.setState({url});
+						localStorage.setItem("urlimgprofile",url);
                     }
 
                 )
