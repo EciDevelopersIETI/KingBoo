@@ -103,10 +103,10 @@ export default function Reserva() {
 			>
 			{console.log(data)}
 			{data.map(hora => (
-						<MenuItem value={hora}>{hora}</MenuItem>					
+						<MenuItem value={hora}>{hora}</MenuItem>
 			))}
 			</Select> </div>,tempo);
-				
+
 
 		}.bind(this), 1000);
 
@@ -188,13 +188,6 @@ export default function Reserva() {
                                 autoComplete="Comentarios"
                             />
                         </Grid>
-                        <Grid item xs={12}>
-                            <FormControlLabel
-                                control={<Checkbox value="parqueadero" color="primary" />}
-                                label="¿Necesitas un parqueadero?"
-                            />
-                        </Grid>
-
                     </Grid>
                     <Button className={classes.submit} type="submit"> Reservar </Button>
                     <Grid container justify="flex-end">

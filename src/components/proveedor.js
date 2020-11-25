@@ -111,7 +111,7 @@ export default class Proveedor extends Component{
                             </Grid>
                         </Grid>
                     </div>
-                    <img src={Image2} alt={dato.providerName}></img>
+                    <img src={dato.provImgUrl} alt={dato.providerName} width="350"></img>
                 </div>
             </div>
             <p></p>
@@ -121,4 +121,3 @@ export default class Proveedor extends Component{
     );
   }
 }
-
