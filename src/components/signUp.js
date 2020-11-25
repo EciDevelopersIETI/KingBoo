@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { newUser } from './../api/createUser';
 import Title from '../components/title'
+import ImageUpload from "./imageUpload";
 //import SignUpShop from './SignUpShop';
 
 function Copyright() {
@@ -65,13 +66,12 @@ export default function SignUp() {
         nit: null,
         address: null,
         servicios: null,
-        capacity: null
-      }
+        capacity: null,
+		provImgUrl: null,
+      },
+	  imgUrl: localStorage.getItem("urlimgprofile")
     };
     newUser(user);
-    setTimeout(function () {
-      window.location.href = "/login";
-    }.bind(this), 1000);
 
   };
 
@@ -89,7 +89,6 @@ export default function SignUp() {
             <b>Registrarse</b>
           </Typography>
           <form className={classes.form}
-            onSubmit={handleSubmit}
           >
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -139,19 +138,16 @@ export default function SignUp() {
                   autoComplete="Telefono"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="Quiero recibir promociones via email."
-                />
-              </Grid>
             </Grid>
+			 <br></br>
+			<ImageUpload/>;
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+			  onClick={handleSubmit}
             >
               Registrarte
           </Button>

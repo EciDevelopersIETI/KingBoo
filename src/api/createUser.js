@@ -14,7 +14,8 @@ const newUser = user => {
             password: user.password,
             telefono: user.telefono,
             userName: user.firstName,
-            provider: user.provider
+            provider: user.provider,
+			imgUrl: user.imgUrl,
 
      })
       .then(function (response) {
