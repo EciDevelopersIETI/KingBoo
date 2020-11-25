@@ -13,14 +13,15 @@ const loginUser = user => {
              email: user.email,
              password: user.password
      })
-	
-      .then(function (response) { 
+
+      .then(function (response) {
 		localStorage.setItem("user",user.email);
 		let user2 = axios.get('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user"))
-		.then(function (response) 
+		.then(function (response)
 		{	user2 = response.data;
 			localStorage.setItem("username",user2.userName);
 			localStorage.setItem("roluser",user2.rol);
+      localStorage.setItem("imgUrl",user2.imgUrl);
 			if(user2.rol === "cli"){
 				window.location.href = "/homeuser";
 			}
@@ -28,13 +29,13 @@ const loginUser = user => {
 				localStorage.setItem("providerUser",user2.provider.providerName);
 				window.location.href = "/homeProveedor";
 			}
-			
+
 		})
 		.catch(function (error)
-		{ console.log(error);});	
-		
+		{ console.log(error);});
+
       })
-      .catch(function (error) { 
+      .catch(function (error) {
 		console.log(error);
         alert("Verificar credenciales");
       });
@@ -43,4 +44,4 @@ const loginUser = user => {
 
 export {
     loginUser,
-} 
+}

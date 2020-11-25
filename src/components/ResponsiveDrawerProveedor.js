@@ -64,7 +64,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop:'64px',
     display:'flex',
     flexDirection:'column'
+  },
+  imageLogo:{
+    marginLeft: 8,
+    height: 150,
+    width: 150,
+    borderRadius: 40,
   }
+
 }));
 
 function ResponsiveDrawer(props) {
@@ -84,7 +91,7 @@ function ResponsiveDrawer(props) {
 	<div>
 	   <div className={classes.toolbar} />
 	   <div style={{alignItems:'center',justifyContent:'center'}}>
-	   <AccountCircleIcon style={{ fontSize: 80 }} />
+     <img src={localStorage.getItem("imgUrl")} width="150" height="150" style={{border: '3px solid black',borderRadius: '50%'}}></img>
      <List>
          <ListItem button key={"Username"}>
          <ListItemIcon>
