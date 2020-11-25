@@ -14,6 +14,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { storage } from '../api/firebase';
+import { Row, Col, Form } from 'react-bootstrap';
 
 
 function Copyright() {
@@ -58,7 +60,14 @@ export default class editarRegistro extends Component{
     super(props);
     this.state={
       datos:[],
+	  services: [],
+      prices: [],
+	  lisProv: []
     };
+	this.handleChange = this.handleChange.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+    this.handleChangeChk = this.handleChangeChk.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     console.log("Im in comp")
@@ -71,61 +80,92 @@ export default class editarRegistro extends Component{
           //console.log(this.state.datos);
         })
   }
-
-
-  render(){
-
-    var dato = this.state.datos;
-    var provider = dato.provider;
-    var lisProv = [];
-    for(var i in provider){
-      lisProv.push(provider[i])
-      //console.log(provider[i]);
-    }
-    const services = [];
-    const prices = [];
-    const handleChangeChk = e => {
+    handleChangeChk(e){
         console.log(e.target.value);
-        if(!(services.includes(e.target.value))){
+        if(!(this.state.services.includes(e.target.value))){
           if(document.getElementById(e.target.value).value!==""){
-              services.push((e.target.value));
-              prices.push((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")");
+              this.state.services.push((e.target.value));
+              this.state.prices.push((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")");
           }else{
               e.target.click();
               //alert("Se requiere ingresar el precio")
           }
         }
         else{
-            services.splice(services.indexOf(e.target.value), 1);
-            prices.splice(services.indexOf((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")"), 1);
+            this.state.services.splice(this.state.services.indexOf(e.target.value), 1);
+            this.state.prices.splice(this.state.services.indexOf((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")"), 1);
         }
-        console.log(services);
-        console.log(prices);
+		console.log(this.state.services);
+        console.log(this.state.prices);
     }
 
-    const handleSubmit = e => {
+    handleSubmit(e){
         e.preventDefault();
-        if(services.length === 0){
+		console.log(this.state.services);
+        console.log(this.state.prices);
+        if(this.state.services.length === 0){
             alert("Porfavor seleccione alemos un servico");
         }else{
-            console.log(services)
+            console.log(this.state.services)
             const user = {
-                firstName: dato.userName,
-                email: dato.email,
-                password: dato.password,
+                firstName: this.state.datos.userName,
+                email: this.state.datos.email,
+                password: this.state.datos.password,
                 telefono: (document.getElementById("telefono").value).toString(),
                 provider: {
-                    providerName: lisProv[0],
-                    nit: (lisProv[1]).toString(),
+                    providerName: this.state.lisProv[0],
+                    nit: (this.state.lisProv[1]).toString(),
                     description: document.getElementById("description").value,
                     address: document.getElementById("address").value,
                     capacity: (document.getElementById("capacity").value).toString(),
-                    services: prices
-                }
+                    services: this.state.prices,
+					provImgUrl: localStorage.getItem("urlimgsite"),
+                },
+				imgUrl: localStorage.getItem("imgUrl")
             }; updateUser(user); //Vamos a crear uno para update
         }
-    };
+    }
+	
+	handleChange(e){
+		e.preventDefault();
+        if (e.target.files[0]) {
+            const image = e.target.files[0];
+            console.log(image.name);
+			this.handleUpload(image);
+            
+        }
+    }
 
+    handleUpload(image){
+        const uploadTask = storage.ref('images/'.concat(image.name)).put(image);
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+                this.setState({progress});
+            },
+            (error) => {
+                console.log(error);
+            },
+            () => {
+                storage.ref('images').child(image.name).getDownloadURL().then(
+                    url => {
+                        console.log(url);
+						localStorage.setItem("urlimgsite",url);
+                    }
+
+                )
+            }
+		)	
+    }
+ 
+
+
+  render(){
+	var provider = this.state.datos.provider;
+	for(var i in provider){
+	  this.state.lisProv.push(provider[i])
+	  //console.log(provider[i]);
+	}
   return (
     <Fragment>
       <Title hasMargin={false} pageTitle="Editar Información" />
@@ -137,17 +177,17 @@ export default class editarRegistro extends Component{
         <br></br>
 
         <form
-              onSubmit={handleSubmit}
+              onSubmit={this.handleSubmit}
         >
             <Grid container spacing={2}>
                 <Grid item xs={12} >
                   <h3>
-                    <b>Nombre de la empresa:</b> <p></p>{lisProv[0]}
+                    <b>Nombre de la empresa:</b> <p></p>{this.state.lisProv[0]}
                   </h3>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                    <b>NIT:</b> {lisProv[1]}
+                    <b>NIT:</b> {this.state.lisProv[1]}
                   </h5>
                 </Grid>
                 <Grid item xs={12}>
@@ -192,7 +232,7 @@ export default class editarRegistro extends Component{
                                 label="Precio:"
                                 name="pcorte"
                             />
-                            <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={handleChangeChk} />
+                            <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={this.handleChangeChk} />
                         </ListItem>
                         <ListItem button>
                             <ListItemText primary="Barba" />
@@ -202,7 +242,7 @@ export default class editarRegistro extends Component{
                                 label="Precio:"
                                 name="pbarba"
                             />
-                            <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={handleChangeChk} />
+                            <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={this.handleChangeChk} />
                         </ListItem>
                         <ListItem button>
                             <ListItemText primary="Manicura" />
@@ -212,7 +252,7 @@ export default class editarRegistro extends Component{
                                 label="Precio:"
                                 name="pmani"
                             />
-                            <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={handleChangeChk} />
+                            <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={this.handleChangeChk} />
                         </ListItem>
                         <ListItem button>
                             <ListItemText primary="Depilación" />
@@ -222,7 +262,7 @@ export default class editarRegistro extends Component{
                                 label="Precio:"
                                 name="pdepil"
                             />
-                            <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={handleChangeChk } />
+                            <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={this.handleChangeChk } />
                         </ListItem>
                     </List>
                 </Grid>
@@ -240,6 +280,18 @@ export default class editarRegistro extends Component{
                         autoComplete="description"
                     />
                 </Grid>
+				<Grid item xs={12}>
+                                    <Form.Group as={Row} controlId="formImgNegocio">
+                                        <Form.Label column className="ml-auto">
+                                            <h4><b>Imagen del Negocio:</b></h4>
+                                        </Form.Label>
+                                    </Form.Group>
+                                    <Form.Group as={Row} controlId="formImg">
+                                        <Col className="mr-auto">
+                                            <input type="file" onChange={this.handleChange} />
+                                        </Col>
+                                    </Form.Group>
+                                </Grid>
 
 
                 <Grid item xs={12}>
@@ -249,12 +301,12 @@ export default class editarRegistro extends Component{
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                     <b>Nombre:</b> {dato.userName}
+                     <b>Nombre:</b> {this.state.datos.userName}
                   </h5>
                 </Grid>
                 <Grid item xs={12}>
                   <h5>
-                    <b>Correo:</b> {dato.email}
+                    <b>Correo:</b> {this.state.datos.email}
                   </h5>
                 </Grid>
 
