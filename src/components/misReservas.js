@@ -93,7 +93,7 @@ export class MisReservas extends Component{
                 </TableContainer>
               </div>
             </div>
-            <img src='https://www.logopik.com/wp-content/uploads/edd/2018/11/Beauty-Salon-Logo-Vector.png'></img>
+            <img src={reserva.provider.provImgUrl} width="300"></img>
           </div>
         </form>
       );

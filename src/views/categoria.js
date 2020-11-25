@@ -30,25 +30,12 @@ export default class crearSitio extends Component {
             <div>
                 <Title pageTitle="Tiendas"/>
                 <Container >
-                    <Row>
-                        <Col lg={{span:4}} className="ml-5">
-                            <InputGroup className="mb-3">
-                                <Form.Control
-                                placeholder="Campo de búsqueda"
-                                aria-label="Campo de busqueda"
-                                aria-describedby="basic-addon2"
-                                />
-                                <InputGroup.Append>
-                                    <Button variant="outline-secondary">Buscar</Button>
-                                </InputGroup.Append>
-                            </InputGroup>
-                        </Col>
-                    </Row>
+
                     <div className='card reserv'>
                     <CardDeck className="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-5">
                         {
                           JSON.parse(localStorage.getItem("listaProviders")).map(serv => (
-                            <CardSitio cardImage={Image1} cardTitle={serv.providerName}/>
+                            <CardSitio cardImage={serv.provImgUrl} cardTitle={serv.providerName}/>
                           ))
                         }
                     </CardDeck>
