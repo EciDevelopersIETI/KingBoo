@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import LogoLinkedIn from './img/linkedin.png'
+import Fernanfloo from './img/fernanfloo.jpg'
 import Title from '../components/title'
 
 const Home = () => {
@@ -73,7 +74,7 @@ const Home = () => {
 
         <div>
           <img className = 'img-icons'
-                src="https://media-exp1.licdn.com/dms/image/C4E35AQFKrEd0-kxNCw/profile-framedphoto-shrink_800_800/0?e=1605772800&v=beta&t=3Zcp-xJhyi3ZeWg7JEIyj9D1HROUJNrjHuP-ZBTm18M" />
+                src={Fernanfloo} />
           <div>
             <p>
               <b>Nombre:</b> <span>Fernando Barrera</span>{" "}
