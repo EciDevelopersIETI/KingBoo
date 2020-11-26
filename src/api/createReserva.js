@@ -1,5 +1,4 @@
 import axios from "axios";
-import Swal from 'sweetalert2'
 
 const axiosHeader = axios.create({
     baseURL: "https://kingboooback.herokuapp.com",
@@ -23,20 +22,12 @@ const newReserva = reserva => {
      })
 	
       .then(function (response) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro de reserva exitosa!',
-            showConfirmButton: true,
-          })
+        alert("Registro de reserva exitosa !!!!!!!!!!!")
 		window.location.href="homeuser";
       })
       .catch(function (error) { 
-        console.log(error);
-        Swal.fire(
-            'ERROR!!',
-            'No se pudo realizar la reserva debido a que no hay suficientes cupos en la fecha que eligió para todos los servicios que desea reservar. Por favor revise los horarios disponibles y realice la reserva en esos horarios.',
-            'error'
-          )
+		console.log(error);
+        alert("No se pudo realizar la reserva debido a que no hay suficientes cupos en la fecha que eligio para todos los servicios que desea reservar ,Por favor revise los horarios disponibles y realize la reserva en esos horarios");
       });
 
 };

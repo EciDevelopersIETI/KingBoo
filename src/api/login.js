@@ -1,5 +1,4 @@
 import axios from "axios";
-import Swal from 'sweetalert2'
 
 const axiosHeader = axios.create({
     baseURL: "https://kingboooback.herokuapp.com",
@@ -38,11 +37,7 @@ const loginUser = user => {
       })
       .catch(function (error) {
 		console.log(error);
-        Swal.fire(
-			'ERROR!!',
-			'Verificar credenciales',
-			'error'
-		  ) 
+        alert("Verificar credenciales");
       });
 
   };

@@ -13,9 +13,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { newUser } from '../api/createUser';
-import { DesktopWindows } from '@material-ui/icons';
-import Title from '../components/title'
-import Swal from 'sweetalert2'
+import Title from '../components/title';
 import { Row, Col, Form } from 'react-bootstrap';
 import { storage } from '../api/firebase';
 import ImageUpload from "./imageUpload";
@@ -92,11 +90,7 @@ export default class SignUpShop extends Component {
                 this.state.prices.push((e.target.value) + " ($" + (document.getElementById(e.target.value).value) + ")");
             } else {
                 e.target.click();
-          // Swal.fire(
-          //   'ERROR!!',
-          //   'Es necesario que ingrese el precio del servicio',
-          //   'error'
-          // )
+                //alert("Se requiere ingresar el precio")
             }
         }
         else {
@@ -109,13 +103,9 @@ export default class SignUpShop extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        if(this.state.services.length === 0){
-            Swal.fire(
-                'ERROR!!',
-                'Por favor, seleccione al menos un servicio',
-                'error'
-            )
-        }else{
+        if (this.state.services.length === 0) {
+            alert("Porfavor seleccione almenos un servico");
+        } else {
             console.log(this.state.services)
             const user = {
                 firstName: document.getElementById("firstName").value,

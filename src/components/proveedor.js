@@ -12,7 +12,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Spinner from 'react-bootstrap/Spinner'
 
 import axios from "axios";
 
@@ -35,18 +34,13 @@ export default class Proveedor extends Component{
     super(props);
     this.state={
       datos:[],
-      loading: false
     };
   }
   componentDidMount() {
-    this.setState({ loading: true })
     console.log("Im in comp")
     fetch('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider"))
         .then(response => response.json())
         .then(result=>{
-          setTimeout(() => {
-            this.setState({ loading: false })
-          }, 500);
           this.setState({
             datos : result,
           });
@@ -65,80 +59,65 @@ export default class Proveedor extends Component{
     }
     //var serv = JSON.stringify(dato.services)
     console.log(serv);
-    return this.state.loading?(
-      <div style={{flex:1, flexDirection:"row", alignItems:"center", justifyContent:"center",  }}>
-        <Spinner
-        as="span"
-        animation="border"
-        role="status"
-        aria-hidden="true"
-        style={{width:80, height:80}}
-        
-      />
-    <span style={{marginLeft:25, fontSize:30, fontWeight:"bold"}}>Cargando...</span>
-  
-      </div>):(
-        <div>
-
-          <Fragment>
+    return (
+        <Fragment>
             <Title hasMargin={false} pageTitle="Salon De Belleza" />
             <br></br>
             <div>
-              <h1>
-                {dato.providerName}
-              </h1>
-              <div className="card reserv padding-60px">
-                <div className="lista-datos">
-                  <span><h3>Descripción: </h3></span>
-                  <label>{dato.description}</label>
-                  <br></br>
-                  <li>
-                    <span>Dirección:</span>{dato.address}
-                  </li>
-                  <br></br>
-                  <li>
-                    <span>Cupo por Turno:</span>{dato.capacity}
-                  </li>
-                  <br></br>
-                  <div>
-                    <TableContainer component={Paper} >
-                      <Table size="medium" aria-label="a dense table">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell ><span>Servicios</span></TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {serv.map((servicios, index) => (
-                            <TableRow key={index}>
-                              <TableCell >
-                                {servicios}
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
+                <h1>
+                  {dato.providerName}
+                </h1>
+                <div className="card reserv padding-60px">
+                    <div className="lista-datos">
+                        <span><h3>Descripción: </h3></span>
+                        <label>{dato.description}</label>
+                        <br></br>
+                        <li>
+                        <span>Dirección:</span>{dato.address}
+                        </li>
+                        <br></br>
+                        <li>
+                        <span>Cupo por Turno:</span>{dato.capacity}
+                        </li>
+                        <br></br>
+                        <div>
+                            <TableContainer component={Paper} >
+                                <Table size="medium" aria-label="a dense table">
+                                    <TableHead>
+                                        <TableRow>
+                                        <TableCell ><span>Servicios</span></TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {serv.map((servicios, index) => (
+                                        <TableRow key={index}>
+                                            <TableCell >
+                                            {servicios}
+                                            </TableCell>
+                                        </TableRow>
+                                        ))}
+                                    </TableBody>
 
 
 
 
-                      </Table>
-                    </TableContainer>
-                  </div>
-                  <br></br>
-                  <Grid container spacing={1}>
-                    <Grid item xs={3}>
-                      <Button className="btn btn-primary" href="/reservauser"> ¡Haz tu reserva ahora! </Button>
-                    </Grid>
-                  </Grid>
+                                </Table>
+                            </TableContainer>
+                        </div>
+                        <br></br>
+                        <Grid container spacing={1}>
+                            <Grid item xs={3}>
+                                <Button className="btn btn-primary" href="/reservauser"> ¡Haz tu reserva ahora! </Button>
+                            </Grid>
+                        </Grid>
+                    </div>
+                    <img src={dato.provImgUrl} alt={dato.providerName} width="350"></img>
                 </div>
-                <img src={Image2} alt={dato.providerName}></img>
-              </div>
             </div>
             <p></p>
             <Copyright></Copyright>
             <br></br>
-          </Fragment>
-        </div>
+        </Fragment>
     );
   }
 }

@@ -22,7 +22,6 @@ import Title from "./title";
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
-import Swal from 'sweetalert2'
 
 
 function Copyright() {
@@ -65,11 +64,7 @@ export default function Reserva() {
 	const handleSubmit = e => {
         e.preventDefault();
 		if(services.length === 0){
-            Swal.fire(
-                'ERROR!!',
-                'Por favor, seleccione al menos un servicio',
-                'error'
-            )
+      alert("Por favor seleccione al menos un servicio");
 		}
 		else{
 			console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');

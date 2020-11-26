@@ -12,18 +12,14 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import logo from './img/logo.PNG';
-import logo2 from './img/logo2.PNG';
-import logo5 from './img/logo5.PNG';
-import {loginUser} from './../api/login';
-
+import {loginUser} from '../../api/login';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        KingBoo
+        Your Website
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -33,13 +29,13 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100%',
+    height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://github.com/EciDevelopersIETI/KingBoo-Front-End/blob/master/img/logo.PNG?raw=true)',
+    backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
-    theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -67,31 +63,22 @@ export default function LogIn() {
 
   const handleSubmit = e => {
     e.preventDefault();
-	console.log(e);
-	const user={
-		email: document.getElementById("email").value,
-		password: document.getElementById("password").value
-	}
-	console.log(user);
-    loginUser(user);
-  };
+    loginUser(e.target);
+  }; 
 
   return (
-    <Box m="auto">
-    <Grid container component="main" justify='center' alignItems='center' style={{ backgroundColor: '#f5a623'}} className={classes.root}>
+    <Grid container component="main" className={classes.root}>
       <CssBaseline />
-	  <img src={logo2} style={{ height: '100%' ,width: '20%'}}/>
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-		<img src={logo} style={{ height: '100%',width: '85%' }}/>
-		<div className={classes.paper} border='1px solid red'>
+        <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Iniciar sesión
+            Sign in
           </Typography>
-		  {localStorage.clear()}
-          <form className={classes.form}
+          <form className={classes.form} 
           onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
@@ -99,7 +86,7 @@ export default function LogIn() {
               required
               fullWidth
               id="email"
-              label="Correo electrónico"
+              label="Email Address"
               name="email"
               autoComplete="email"
               autoFocus
@@ -110,12 +97,15 @@ export default function LogIn() {
               required
               fullWidth
               name="password"
-              label="Contraseña"
+              label="Password"
               type="password"
               id="password"
               autoComplete="current-password"
             />
-
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
             <Button
               type="submit"
               fullWidth
@@ -123,29 +113,26 @@ export default function LogIn() {
               color="primary"
               className={classes.submit}
             >
-              Acceder
+              Sign In
             </Button>
-              <Grid container>
-              <Grid container justify="flex-end">
-                <Link href="/" variant="body2">
-                {"Inicio"}
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
                 </Link>
               </Grid>
-              <Grid container justify="flex-end">
+              <Grid item>
                 <Link href="/sign-up" variant="body2">
-                  {"¿No tienes una cuenta? Regístrate"}
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={7}>
+            <Box mt={5}>
               <Copyright />
             </Box>
           </form>
         </div>
       </Grid>
-	  <img src={logo5} style={{ height: '100%' , width: '20%'}}/>
     </Grid>
-    </Box>
-
   );
 }

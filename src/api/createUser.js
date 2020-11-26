@@ -1,5 +1,4 @@
 import axios from "axios";
-import Swal from 'sweetalert2'
 
 const axiosHeader = axios.create({
     baseURL: "https://kingboooback.herokuapp.com",
@@ -20,19 +19,11 @@ const newUser = user => {
 
      })
       .then(function (response) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Creación exitosa!',
-          showConfirmButton: true,
-        })
+        alert("Creacion exitosa !!!!!!!!!!!")
       })
       .catch(function (error) { 
-        console.log(error);
-        Swal.fire(
-          'ERROR!!',
-          'No se pudo crear el usuario.',
-          'error'
-        )
+		    console.log(error);
+        alert("Error al crear USER");
       });
 
   };

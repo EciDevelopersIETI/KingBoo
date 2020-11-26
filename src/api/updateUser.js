@@ -1,5 +1,4 @@
 import axios from "axios";
-import Swal from 'sweetalert2'
 
 const axiosHeader = axios.create({
     baseURL: "https://kingboooback.herokuapp.com",
@@ -20,19 +19,11 @@ const updateUser = user => {
 
      })
       .then(function (response) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Se realizo la actualización satisfactoriamente',
-          showConfirmButton: true,
-        })
+        alert("Good Update !!!!!!!!!!!")
       })
       .catch(function (error) {
 		    console.log(error);
-        Swal.fire(
-          'ERROR!!',
-          'No se pudo realizar la actualización del usuario.',
-          'error'
-        )
+        alert("Error al actualizar USER");
       });
 
   };
