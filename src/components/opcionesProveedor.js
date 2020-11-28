@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
 import { Card } from "@material-ui/core";
-import Title from "./title";
-import ResponsiveDrawerProveedor from "./ResponsiveDrawerProveedor";
+import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import CardActionArea from "@material-ui/core/CardActionArea";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import ResponsiveDrawerProveedor from "./ResponsiveDrawerProveedor";
+import Title from "./title";
 
 const OpcionesProveedor = () => {
   const myComponent = (

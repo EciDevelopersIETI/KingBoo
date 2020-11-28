@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-
-import { Container, Row, Col } from 'reactstrap';
-import Header from '../components/header';
-import Title from '../components/title'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import InputGroup from 'react-bootstrap/InputGroup'
-import CardDeck from 'react-bootstrap/CardDeck'
-import Copyright from '../components/copyright';
-
+import Button from 'react-bootstrap/Button';
+import CardDeck from 'react-bootstrap/CardDeck';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { Col, Container, Row } from 'reactstrap';
 import CardSitio from "../components/cardSitio";
+import Copyright from '../components/copyright';
+import Title from '../components/title';
+import MapaImage from '../img/mapa.png';
+import Image2 from '../img/peluqueria2.jpg';
+import Image3 from '../img/peluqueria3.jpeg';
+import Image1 from '../img/salonbelleza1.jpg';
 
 
-import MapaImage from '../img/mapa.png'
-import Image1 from '../img/salonbelleza1.jpg'
-import Image2 from '../img/peluqueria2.jpg'
-import Image3 from '../img/peluqueria3.jpeg'
+
+
 
 
 

@@ -1,28 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import ListIcon from '@material-ui/icons/List';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { useHistory } from 'react-router-dom';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+import EditIcon from '@material-ui/icons/Edit';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ListIcon from '@material-ui/icons/List';
+import MailIcon from '@material-ui/icons/Mail';
+import MenuIcon from '@material-ui/icons/Menu';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -61,11 +60,11 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    marginTop:'64px',
-    display:'flex',
-    flexDirection:'column'
+    marginTop: '64px',
+    display: 'flex',
+    flexDirection: 'column'
   },
-  imageLogo:{
+  imageLogo: {
     marginLeft: 8,
     height: 150,
     width: 150,
@@ -88,56 +87,56 @@ function ResponsiveDrawer(props) {
 
 
   const drawer = (
-	<div>
-	   <div className={classes.toolbar} />
-	   <div style={{alignItems:'center',justifyContent:'center'}}>
-     <img src={localStorage.getItem("imgUrl")} width="150" height="150" style={{border: '3px solid black',borderRadius: '50%'}}></img>
-     <List>
-         <ListItem button key={"Username"}>
-         <ListItemIcon>
-           <AccountBoxIcon> </AccountBoxIcon>
-         </ListItemIcon>
-         <ListItemText primary={localStorage.getItem("username")} />
-         </ListItem>
-         <ListItem button key={"email"}>
-         <ListItemIcon>
-           <AlternateEmailIcon></AlternateEmailIcon>
-         </ListItemIcon>
-         <ListItemText primary={localStorage.getItem("user")} />
-         </ListItem>
-      </List>
+    <div>
+      <div className={classes.toolbar} />
+      <div style={{ alignItems: 'center', justifyContent: 'center' }}>
+        <img src={localStorage.getItem("imgUrl")} width="150" height="150" style={{ border: '3px solid black', borderRadius: '50%' }}></img>
+        <List>
+          <ListItem button key={"Username"}>
+            <ListItemIcon>
+              <AccountBoxIcon> </AccountBoxIcon>
+            </ListItemIcon>
+            <ListItemText primary={localStorage.getItem("username")} />
+          </ListItem>
+          <ListItem button key={"email"}>
+            <ListItemIcon>
+              <AlternateEmailIcon></AlternateEmailIcon>
+            </ListItemIcon>
+            <ListItemText primary={localStorage.getItem("user")} />
+          </ListItem>
+        </List>
 
       </div>
-	  <Divider />
-	  <div>
-    <List>
-          <ListItem button  onClick={() =>  history.push("/homeproveedor")}>
-            <ListItemIcon><ListIcon/></ListItemIcon>
+      <Divider />
+      <div>
+        <List>
+          <ListItem button onClick={() => history.push("/homeproveedor")}>
+            <ListItemIcon><ListIcon /></ListItemIcon>
             <ListItemText primary={"Mis reservas"} />
           </ListItem>
-      </List>
-      <List>
-          <ListItem button  onClick={() =>  history.push("/editarsitioproveedor")}>
-            <ListItemIcon><EditIcon/></ListItemIcon>
+        </List>
+        <List>
+          <ListItem button onClick={() => history.push("/editarsitioproveedor")}>
+            <ListItemIcon><EditIcon /></ListItemIcon>
 
             <ListItemText primary={"Editar proveedor"} />
           </ListItem>
-      </List>
-      <List>
-          <ListItem button  onClick={() =>  history.push("/statsprovider")}>
-            <ListItemIcon><EqualizerIcon/></ListItemIcon>
+        </List>
+        <List>
+          <ListItem button onClick={() => history.push("/statsprovider")}>
+            <ListItemIcon><EqualizerIcon /></ListItemIcon>
             <ListItemText primary={"Estadisticas"} />
           </ListItem>
-      </List>
-      <List>
-        {['Logout'].map((text, index) => (
-          <ListItem button key={text} onClick={() =>  history.push("/login")}>
-            <ListItemIcon>{index % 2 === 0 ? <ExitToAppIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-	  </div>
+        </List>
+        <List>
+          {['Logout'].map((text, index) => (
+            <ListItem button key={text} onClick={() => history.push("/login")}>
+              <ListItemIcon>{index % 2 === 0 ? <ExitToAppIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </div>
     </div>
   );
 
@@ -161,7 +160,7 @@ function ResponsiveDrawer(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-	     <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer} aria-label="mailbox folders">
         <Hidden smUp implementation="css">
           <Drawer
             variant="temporary"
@@ -190,9 +189,9 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-	  <main className={classes.content}>
-      {props.childComponent}
-	  </main>
+      <main className={classes.content}>
+        {props.childComponent}
+      </main>
     </div>
   );
 }

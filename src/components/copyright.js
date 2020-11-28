@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-
-import { Container, Row, Col } from 'reactstrap';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import React, { Component } from 'react';
+import { Col, Row } from 'reactstrap';
+
 
 export default class copyright extends Component {
 

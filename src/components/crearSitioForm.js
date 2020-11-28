@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
-import { Row, Col, Form, Button, CardDeck, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
-
-import "./crearSitioForm.css"
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { storage } from '../api/firebase';
+import "./crearSitioForm.css";
+
+
 
 export default class crearSitioForm extends Component {
     constructor(props) {
@@ -249,7 +249,7 @@ export default class crearSitioForm extends Component {
                         </Form.Group>
 
                         <Button size="lg" type="reset" variant="success" onClick={this.handleUpload}
-                        style={{ border: 'medium solid black' }} className="buttonForm boxShadowPro font-weight-bold">
+                            style={{ border: 'medium solid black' }} className="buttonForm boxShadowPro font-weight-bold">
                             Crear
                         </Button>
                     </Form>

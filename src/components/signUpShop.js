@@ -1,23 +1,23 @@
-import React, { Fragment, Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import React, { Component, Fragment } from 'react';
+import { Col, Form, Row } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 import { newUser } from '../api/createUser';
-import Title from '../components/title';
-import { Row, Col, Form } from 'react-bootstrap';
 import { storage } from '../api/firebase';
+import Title from '../components/title';
 import ImageUpload from "./imageUpload";
-import Swal from 'sweetalert2'
 
 
 function Copyright() {
@@ -341,14 +341,14 @@ export default class SignUpShop extends Component {
                                     />
                                 </Grid>
                                 <Form.Label column className="ml-auto">
-                                <h4><b>Foto del responsable:</b></h4>
+                                    <h4><b>Foto del responsable:</b></h4>
                                 </Form.Label>
 
 
                             </Grid>
                             <br></br>
                             <ImageUpload />
-							<br></br>
+                            <br></br>
                             <Button
                                 type="submit"
                                 fullWidth
