@@ -1,82 +1,80 @@
-import React, { Fragment, Component }from 'react';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Title from '../components/title'
-import Button from 'react-bootstrap/Button'
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Spinner from 'react-bootstrap/Spinner'
-
-import axios from "axios";
+import Typography from '@material-ui/core/Typography';
+import React, { Component, Fragment } from 'react';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+import Title from '../components/title';
 
 function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-            KingBoo
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        KingBoo
             </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 }
 
 
-export default class Proveedor extends Component{
-  constructor(props){
+export default class Proveedor extends Component {
+  constructor(props) {
     super(props);
-    this.state={
-      datos:[],
+    this.state = {
+      datos: [],
       loading: false
     };
   }
   componentDidMount() {
     this.setState({ loading: true })
     console.log("Im in comp")
-    fetch('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem("provider"))
-        .then(response => response.json())
-        .then(result=>{
-          setTimeout(() => {
-            this.setState({ loading: false })
-          }, 500);
-          this.setState({
-            datos : result,
-          });
-          console.log(this.state.datos);
-        })
+    fetch('https://kingboooback.herokuapp.com/provider/' + localStorage.getItem("provider"))
+      .then(response => response.json())
+      .then(result => {
+        setTimeout(() => {
+          this.setState({ loading: false })
+        }, 500);
+        this.setState({
+          datos: result,
+        });
+        console.log(this.state.datos);
+      })
   }
-  render(){
+  render() {
     //this.componentDidMount();
     var dato = this.state.datos;
     var lista = this.state.datos.services;
     //console.log(lista);
     var serv = [];
-    for(var value in lista){
+    for (var value in lista) {
       //console.log(lista[value]);
       serv.push(lista[value]);
     }
     //var serv = JSON.stringify(dato.services)
     console.log(serv);
-    return this.state.loading?(
-      <div style={{flex:1, flexDirection:"row", alignItems:"center", justifyContent:"center",  }}>
+    return this.state.loading ? (
+      <div style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center", }}>
         <Spinner
-        as="span"
-        animation="border"
-        role="status"
-        aria-hidden="true"
-        style={{width:80, height:80}}
+          as="span"
+          animation="border"
+          role="status"
+          aria-hidden="true"
+          style={{ width: 80, height: 80 }}
 
-      />
-    <span style={{marginLeft:25, fontSize:30, fontWeight:"bold"}}>Cargando...</span>
+        />
+        <span style={{ marginLeft: 25, fontSize: 30, fontWeight: "bold" }}>Cargando...</span>
 
-      </div>):(
+      </div>) : (
         <div>
           <Fragment>
             <Title hasMargin={false} pageTitle="Salon De Belleza" />
@@ -137,6 +135,6 @@ export default class Proveedor extends Component{
             <br></br>
           </Fragment>
         </div>
-    );
+      );
   }
 }

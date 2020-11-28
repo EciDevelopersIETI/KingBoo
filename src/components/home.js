@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import LogoLinkedIn from './img/linkedin.png'
-import Fernanfloo from './img/fernanfloo.jpg'
-import Title from '../components/title'
+import Title from '../components/title';
+import Fernanfloo from './img/fernanfloo.jpg';
+import LogoLinkedIn from './img/linkedin.png';
 
 const Home = () => {
   return (
@@ -53,8 +53,8 @@ const Home = () => {
       </section>
       <section className="container user-date">
         <div>
-          <img className = 'img-icons'
-                src="https://media-exp1.licdn.com/dms/image/C5603AQG9776Jtg7ZXg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=Hlrc9BGIrNY30WMJCsrtB5GVJFYQl0hwKrTbnB3D3K8" />
+          <img className='img-icons'
+            src="https://media-exp1.licdn.com/dms/image/C5603AQG9776Jtg7ZXg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=Hlrc9BGIrNY30WMJCsrtB5GVJFYQl0hwKrTbnB3D3K8" />
           <div>
             <p>
               <b>Nombre:</b> <span> Luis Jaramillo</span>{" "}
@@ -73,8 +73,8 @@ const Home = () => {
         </div>
 
         <div>
-          <img className = 'img-icons'
-                src={Fernanfloo} />
+          <img className='img-icons'
+            src={Fernanfloo} />
           <div>
             <p>
               <b>Nombre:</b> <span>Fernando Barrera</span>{" "}
@@ -93,8 +93,8 @@ const Home = () => {
         </div>
 
         <div>
-          <img className = 'img-icons'
-                src="https://media-exp1.licdn.com/dms/image/C4D03AQHbNmzUOOAiXA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=WfwTKVBliu6jJ3FXdOr10ofHvQc2nAM9MnQXMbaxmfI" />
+          <img className='img-icons'
+            src="https://media-exp1.licdn.com/dms/image/C4D03AQHbNmzUOOAiXA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=WfwTKVBliu6jJ3FXdOr10ofHvQc2nAM9MnQXMbaxmfI" />
           <div>
             <p>
               <b>Nombre:</b> <span> Carlos Castañeda</span>{" "}
@@ -114,8 +114,8 @@ const Home = () => {
       </section>
       <section className="container user-date">
         <div>
-          <img className = 'img-icons'
-                src='https://media-exp1.licdn.com/dms/image/C4E03AQGWpGFymfpOYA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=TLnN6k6h2al4yqXjOf0Fx66EWlR5Q8whNZ_JQIlLGAc' />
+          <img className='img-icons'
+            src='https://media-exp1.licdn.com/dms/image/C4E03AQGWpGFymfpOYA/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=TLnN6k6h2al4yqXjOf0Fx66EWlR5Q8whNZ_JQIlLGAc' />
           <div>
             <p>
               <b>Nombre:</b> <span> Juan Camilo Ortiz</span>
@@ -133,8 +133,8 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <img className = 'img-icons'
-                src = 'https://media-exp1.licdn.com/dms/image/C4E03AQG7waXqkX-IBg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=ev8vrm4ARqbr5gllcGi6JBSI6agF6WUOI8jX69WbQyE'/>
+          <img className='img-icons'
+            src='https://media-exp1.licdn.com/dms/image/C4E03AQG7waXqkX-IBg/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=ev8vrm4ARqbr5gllcGi6JBSI6agF6WUOI8jX69WbQyE' />
           <div>
             <p>
               <b>Nombre:</b> <span> Alejandra Gómez</span>

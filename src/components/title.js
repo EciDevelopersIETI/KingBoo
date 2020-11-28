@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Col, Row } from 'reactstrap';
+import LogoImage from '../img/logo.PNG';
 
-import { Container, Row, Col, Button } from 'reactstrap';
-import LogoImage from '../img/logo.PNG'
 
 
 export default class title extends Component {

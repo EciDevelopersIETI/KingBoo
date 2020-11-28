@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
-import { Container, Row, Col } from 'reactstrap';
-import Copyright from '../components/copyright';
-import Title from '../components/title';
+import { Container } from 'reactstrap';
 import SignUpShop from '../components/signUpShop';
+
 
 
 

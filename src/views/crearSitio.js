@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
-import { Container, Row, Col } from 'reactstrap';
-import CrearSitioForm from '../components/crearSitioForm';
+import { Container } from 'reactstrap';
 import Copyright from '../components/copyright';
+import CrearSitioForm from '../components/crearSitioForm';
 import Title from '../components/title';
+
 
 
 
