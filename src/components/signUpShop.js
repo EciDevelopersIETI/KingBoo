@@ -17,6 +17,7 @@ import Title from '../components/title';
 import { Row, Col, Form } from 'react-bootstrap';
 import { storage } from '../api/firebase';
 import ImageUpload from "./imageUpload";
+import Swal from 'sweetalert2'
 
 
 function Copyright() {
@@ -51,12 +52,12 @@ export default class SignUpShop extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(e) {
-		e.preventDefault();
+        e.preventDefault();
         if (e.target.files[0]) {
             const image = e.target.files[0];
             console.log(image.name);
-			this.handleUpload(image);
-            
+            this.handleUpload(image);
+
         }
     }
 
@@ -65,7 +66,7 @@ export default class SignUpShop extends Component {
         uploadTask.on('state_changed',
             (snapshot) => {
                 const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-                this.setState({progress});
+                this.setState({ progress });
             },
             (error) => {
                 console.log(error);
@@ -74,12 +75,12 @@ export default class SignUpShop extends Component {
                 storage.ref('images').child(image.name).getDownloadURL().then(
                     url => {
                         console.log(url);
-						localStorage.setItem("urlimgsite",url);
+                        localStorage.setItem("urlimgsite", url);
                     }
 
                 )
             }
-		)	
+        )
     }
     handleChangeChk = e => {
         console.log(e.target.value);
@@ -90,7 +91,11 @@ export default class SignUpShop extends Component {
                 this.state.prices.push((e.target.value) + " ($" + (document.getElementById(e.target.value).value) + ")");
             } else {
                 e.target.click();
-                //alert("Se requiere ingresar el precio")
+                // Swal.fire(
+                //   'ERROR!!',
+                //   'Es necesario que ingrese el precio del servicio',
+                //   'error'
+                // )
             }
         }
         else {
@@ -104,7 +109,11 @@ export default class SignUpShop extends Component {
     handleSubmit = e => {
         e.preventDefault();
         if (this.state.services.length === 0) {
-            alert("Porfavor seleccione almenos un servico");
+            Swal.fire(
+                'ERROR!!',
+                'Por favor, seleccione al menos un servicio',
+                'error'
+            )
         } else {
             console.log(this.state.services)
             const user = {
@@ -121,7 +130,7 @@ export default class SignUpShop extends Component {
                     services: this.state.prices,
                     provImgUrl: localStorage.getItem("urlimgsite"),
                 },
-				imgUrl: localStorage.getItem("urlimgprofile")
+                imgUrl: localStorage.getItem("urlimgprofile")
             }; newUser(user);
             setTimeout(function () {
                 window.location.href = "/login";
@@ -269,7 +278,7 @@ export default class SignUpShop extends Component {
                                 <Grid item xs={12}>
                                     <Form.Group as={Row} controlId="formImgNegocio">
                                         <Form.Label column className="ml-auto">
-                                            <h4><b>Imagen del Negocio:</b></h4>
+                                            <h4><b>Foto del establecimiento:</b></h4>
                                         </Form.Label>
                                     </Form.Group>
                                     <Form.Group as={Row} controlId="formImg">
@@ -331,11 +340,14 @@ export default class SignUpShop extends Component {
                                         autoComplete="Telefono"
                                     />
                                 </Grid>
+                                <Form.Label column className="ml-auto">
+                                <h4><b>Foto del responsable:</b></h4>
+                                </Form.Label>
 
 
                             </Grid>
                             <br></br>
-							<ImageUpload/>;
+                            <ImageUpload />
 							<br></br>
                             <Button
                                 type="submit"

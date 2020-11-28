@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 const axiosHeader = axios.create({
     baseURL: "https://kingboooback.herokuapp.com",
@@ -12,11 +13,24 @@ const deleteReserva = deleteres =>{
         reservaId: deleteres.reservaId
       })
       .then(function (response) {
-        alert("Reserva cancelada")
+        Swal.fire({
+          icon: 'success',
+          title: 'Reserva cancelada satisfactoriamente',
+          showConfirmButton: true,
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }	
+        })
       })
       .catch(function (error) { 
     console.log(error);
-        alert("Error al cancelar");
+        Swal.fire(
+          'ERROR!!',
+          'No se pudo realizar la cancelación de la reserva.',
+          'error'
+        )
       });
   };
   

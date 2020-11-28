@@ -140,7 +140,8 @@ export default function SignUp() {
               </Grid>
             </Grid>
 			 <br></br>
-			<ImageUpload/>;
+       <h4><b>Foto de perfil:</b></h4>
+			<ImageUpload/>
             <Button
               type="submit"
               fullWidth

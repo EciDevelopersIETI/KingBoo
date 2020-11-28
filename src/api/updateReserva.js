@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 const axiosHeader = axios.create({
     baseURL: "https://kingboooback.herokuapp.com",
@@ -14,11 +15,24 @@ const updateReserva = update =>{
         reservaId: update.reservaId
       })
       .then(function (response) {
-        alert("Realizo el update")
+        Swal.fire({
+          icon: 'success',
+          title: 'Se realizo la actualización satisfactoriamente',
+          showConfirmButton: true,
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }	
+        })
       })
       .catch(function (error) { 
     console.log(error);
-        alert("Error al actulizar");
+    Swal.fire(
+      'ERROR!!',
+      'No se pudo realizar la actualización de la reserva.',
+      'error'
+    )
       });
   };
   

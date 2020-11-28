@@ -10,6 +10,8 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Copyright from '../components/copyright';
 import {deleteReserva} from './../api/deleteReserva';
+import Spinner from 'react-bootstrap/Spinner'
+import { DesktopWindows } from '@material-ui/icons';
 
 export class MisReservas extends Component{
   constructor(props){
@@ -18,13 +20,18 @@ export class MisReservas extends Component{
     this.email = localStorage.getItem('user');
     this.state={
       data:[],
+      loading: false
     };
   }
 
   componentDidMount() {
+    this.setState({ loading: true })
     fetch('https://kingboooback.herokuapp.com/reservas/activeuser/'+ this.email)
         .then(response => response.json())
         .then(result=>{
+          setTimeout(() => {
+            this.setState({ loading: false })
+        }, 500);  
           this.setState({
             data : result,
           });
@@ -43,7 +50,6 @@ export class MisReservas extends Component{
 
     }
     deleteReserva(deleteres);
-
   };
 
   render(){
