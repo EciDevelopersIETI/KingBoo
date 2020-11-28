@@ -12,6 +12,7 @@ import {updateReserva} from './../api/updateReserva';
 import Copyright from '../components/copyright';
 import axios from "axios";
 import ReactDOM from 'react-dom';
+import Spinner from 'react-bootstrap/Spinner'
 
 export class ReservasEnSitio extends Component{
   constructor(props){
@@ -22,13 +23,18 @@ export class ReservasEnSitio extends Component{
   this.handlechangehope = this.handlechangehope.bind(this);
     this.state={
       data:[],
+      loading: false
     };
   }
 
   componentDidMount() {
+    this.setState({ loading: true })
     fetch('https://kingboooback.herokuapp.com/reservas/activeprovider/'+localStorage.getItem("providerUser"))
         .then(response => response.json())
         .then(result=>{
+          setTimeout(() => {
+            this.setState({ loading: false })
+        }, 500);
           this.setState({
             data : result,
           });
@@ -109,7 +115,19 @@ export class ReservasEnSitio extends Component{
         </form>
       );
     });
-    return (
+return this.state.loading?(
+    <div style={{flex:1, flexDirection:"row", alignItems:"center", justifyContent:"center",  }}>
+      <Spinner
+      as="span"
+      animation="border"
+      role="status"
+      aria-hidden="true"
+      style={{width:80, height:80}}
+
+    />
+  <span style={{marginLeft:25, fontSize:30, fontWeight:"bold"}}>Cargando...</span>
+
+    </div>):(
       <div>
         <Title hasMargin={false} pageTitle="Reservas Sitio X"/>
           <Container fluid>

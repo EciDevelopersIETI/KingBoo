@@ -16,6 +16,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { storage } from '../api/firebase';
 import { Row, Col, Form } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner'
+import Swal from 'sweetalert2'
 
 
 function Copyright() {
@@ -62,7 +64,9 @@ export default class editarRegistro extends Component{
       datos:[],
 	  services: [],
       prices: [],
-	  lisProv: []
+      loading: false,
+      lisProv: []
+      
     };
 	this.handleChange = this.handleChange.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
@@ -70,10 +74,14 @@ export default class editarRegistro extends Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
+    this.setState({ loading: true })
     console.log("Im in comp")
     fetch('https://kingboooback.herokuapp.com/users/'+localStorage.getItem("user"))
         .then(response => response.json())
         .then(result=>{
+            setTimeout(() => {
+                this.setState({ loading: false })
+            }, 500);
           this.setState({
             datos : result,
           });
@@ -88,7 +96,11 @@ export default class editarRegistro extends Component{
               this.state.prices.push((e.target.value)+" ($"+(document.getElementById(e.target.value).value)+")");
           }else{
               e.target.click();
-              //alert("Se requiere ingresar el precio")
+              // Swal.fire(
+             //   'ERROR!!',
+            //   'Es necesario que ingrese el precio del servicio',
+           //   'error'
+          // )
           }
         }
         else{
@@ -104,7 +116,11 @@ export default class editarRegistro extends Component{
 		console.log(this.state.services);
         console.log(this.state.prices);
         if(this.state.services.length === 0){
-            alert("Porfavor seleccione alemos un servico");
+            Swal.fire(
+                'ERROR!!',
+                'Por favor, seleccione al menos un servicio',
+                'error'
+            )
         }else{
             console.log(this.state.services)
             const user = {
@@ -166,179 +182,191 @@ export default class editarRegistro extends Component{
 	  this.state.lisProv.push(provider[i])
 	  //console.log(provider[i]);
 	}
-  return (
-    <Fragment>
-      <Title hasMargin={false} pageTitle="Editar Información" />
-      <div className='card reserv'>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className='card reserv'>
-        <br></br>
-        <br></br>
+  return this.state.loading ? (
+      <div style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center", }}>
+          <Spinner
+              as="span"
+              animation="border"
+              role="status"
+              aria-hidden="true"
+              style={{ width: 80, height: 80 }}
+          />
+          <span style={{ marginLeft: 25, fontSize: 30, fontWeight: "bold" }}>Cargando...</span>
+      </div>) : (
+          <div>
+              <Fragment>
+                  <Title hasMargin={false} pageTitle="Editar Información" />
+                  <div className='card reserv'>
+                      <Container component="main" maxWidth="xs">
+                          <CssBaseline />
+                          <div className='card reserv'>
+                              <br></br>
+                              <br></br>
 
-        <form
-              onSubmit={this.handleSubmit}
-        >
-            <Grid container spacing={2}>
-                <Grid item xs={12} >
-                  <h3>
-                    <b>Nombre de la empresa:</b> <p></p>{this.state.lisProv[0]}
-                  </h3>
-                </Grid>
-                <Grid item xs={12}>
-                  <h5>
-                    <b>NIT:</b> {this.state.lisProv[1]}
-                  </h5>
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        variant="outlined"
-                        required
-                        fullWidth
-                        id="address"
-                        label="Dirección"
-                        name="address"
-                        autoComplete="dir"
-                    />
-                </Grid>
+                              <form
+                                  onSubmit={this.handleSubmit}
+                              >
+                                  <Grid container spacing={2}>
+                                      <Grid item xs={12} >
+                                          <h3>
+                                              <b>Nombre de la empresa:</b> <p></p>{this.state.lisProv[0]}
+                                          </h3>
+                                      </Grid>
+                                      <Grid item xs={12}>
+                                          <h5>
+                                              <b>NIT:</b> {this.state.lisProv[1]}
+                                          </h5>
+                                      </Grid>
+                                      <Grid item xs={12}>
+                                          <TextField
+                                              variant="outlined"
+                                              required
+                                              fullWidth
+                                              id="address"
+                                              label="Dirección"
+                                              name="address"
+                                              autoComplete="dir"
+                                          />
+                                      </Grid>
 
-                <Grid item xs={12}>
-                    <TextField
-                        variant="outlined"
-                        required
-                        fullWidth
-                        type="number"
-                        id="capacity"
-                        label="Capacidad del lugar"
-                        name="capacity"
-                        autoComplete="capacidad"
-                    />
-                </Grid>
-
-
-                <Grid item xs={12}>
-                    <List style={{display:'block'}}
-                    component="nav" id="hope" aria-label="nested-list-subheader"  subheader={
-                        <Typography component="h1" variant="h5">
-                        <b>¿Qué servicios prestas?</b>
-                        </Typography>
-                        }
-                        >
-                        <ListItem button>
-                            <ListItemText primary="Corte de cabello" />
-                            <TextField
-                                type="number"
-                                id="Corte de Cabello"
-                                label="Precio:"
-                                name="pcorte"
-                            />
-                            <Checkbox  label="Corte de Cabello" edge="start" value="Corte de Cabello"  tabIndex={-1} disableRipple onChange={this.handleChangeChk} />
-                        </ListItem>
-                        <ListItem button>
-                            <ListItemText primary="Barba" />
-                            <TextField
-                                type="number"
-                                id="Barba"
-                                label="Precio:"
-                                name="pbarba"
-                            />
-                            <Checkbox edge="start"  value="Barba" tabIndex={-1} disableRipple onChange={this.handleChangeChk} />
-                        </ListItem>
-                        <ListItem button>
-                            <ListItemText primary="Manicura" />
-                            <TextField
-                                type="number"
-                                id="Manicura"
-                                label="Precio:"
-                                name="pmani"
-                            />
-                            <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={this.handleChangeChk} />
-                        </ListItem>
-                        <ListItem button>
-                            <ListItemText primary="Depilación" />
-                            <TextField
-                                type="number"
-                                id="Depilacion"
-                                label="Precio:"
-                                name="pdepil"
-                            />
-                            <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={this.handleChangeChk } />
-                        </ListItem>
-                    </List>
-                </Grid>
-
-                <Grid item xs={12}>
-                    <TextField
-                        variant="outlined"
-                        multiline
-                        rows={5}
-                        required
-                        fullWidth
-                        id="description"
-                        label="Descripción"
-                        name="description"
-                        autoComplete="description"
-                    />
-                </Grid>
-				<Grid item xs={12}>
-                                    <Form.Group as={Row} controlId="formImgNegocio">
-                                        <Form.Label column className="ml-auto">
-                                            <h4><b>Imagen del Negocio:</b></h4>
-                                        </Form.Label>
-                                    </Form.Group>
-                                    <Form.Group as={Row} controlId="formImg">
-                                        <Col className="mr-auto">
-                                            <input type="file" onChange={this.handleChange} />
-                                        </Col>
-                                    </Form.Group>
-                                </Grid>
+                                      <Grid item xs={12}>
+                                          <TextField
+                                              variant="outlined"
+                                              required
+                                              fullWidth
+                                              type="number"
+                                              id="capacity"
+                                              label="Capacidad del lugar"
+                                              name="capacity"
+                                              autoComplete="capacidad"
+                                          />
+                                      </Grid>
 
 
-                <Grid item xs={12}>
-                    <Typography component="h1" variant="h5">
-                        <b>Datos del responsable</b>
-                    </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                  <h5>
-                     <b>Nombre:</b> {this.state.datos.userName}
-                  </h5>
-                </Grid>
-                <Grid item xs={12}>
-                  <h5>
-                    <b>Correo:</b> {this.state.datos.email}
-                  </h5>
-                </Grid>
+                                      <Grid item xs={12}>
+                                          <List style={{ display: 'block' }}
+                                              component="nav" id="hope" aria-label="nested-list-subheader" subheader={
+                                                  <Typography component="h1" variant="h5">
+                                                      <b>¿Qué servicios prestas?</b>
+                                                  </Typography>
+                                              }
+                                          >
+                                              <ListItem button>
+                                                  <ListItemText primary="Corte de cabello" />
+                                                  <TextField
+                                                      type="number"
+                                                      id="Corte de Cabello"
+                                                      label="Precio:"
+                                                      name="pcorte"
+                                                  />
+                                                  <Checkbox label="Corte de Cabello" edge="start" value="Corte de Cabello" tabIndex={-1} disableRipple onChange={this.handleChangeChk} />
+                                              </ListItem>
+                                              <ListItem button>
+                                                  <ListItemText primary="Barba" />
+                                                  <TextField
+                                                      type="number"
+                                                      id="Barba"
+                                                      label="Precio:"
+                                                      name="pbarba"
+                                                  />
+                                                  <Checkbox edge="start" value="Barba" tabIndex={-1} disableRipple onChange={this.handleChangeChk} />
+                                              </ListItem>
+                                              <ListItem button>
+                                                  <ListItemText primary="Manicura" />
+                                                  <TextField
+                                                      type="number"
+                                                      id="Manicura"
+                                                      label="Precio:"
+                                                      name="pmani"
+                                                  />
+                                                  <Checkbox edge="start" tabIndex={-1} value="Manicura" disableRipple onChange={this.handleChangeChk} />
+                                              </ListItem>
+                                              <ListItem button>
+                                                  <ListItemText primary="Depilación" />
+                                                  <TextField
+                                                      type="number"
+                                                      id="Depilacion"
+                                                      label="Precio:"
+                                                      name="pdepil"
+                                                  />
+                                                  <Checkbox edge="start" tabIndex={-1} value="Depilacion" disableRipple onChange={this.handleChangeChk} />
+                                              </ListItem>
+                                          </List>
+                                      </Grid>
 
-                <Grid item xs={12}>
-                    <TextField
-                        variant="outlined"
-                        required
-                        fullWidth
-                        type="number"
-                        id="telefono"
-                        label="Teléfono"
-                        name="telefono"
-                        autoComplete="Telefono"
-                    />
-                </Grid>
-            </Grid>
-            <br/>
-            <Button
-                type="submit"
-                class="btn btn-warning"
-                fullWidth
-                variant="contained"
-            >
-                Actualizar
+                                      <Grid item xs={12}>
+                                          <TextField
+                                              variant="outlined"
+                                              multiline
+                                              rows={5}
+                                              required
+                                              fullWidth
+                                              id="description"
+                                              label="Descripción"
+                                              name="description"
+                                              autoComplete="description"
+                                          />
+                                      </Grid>
+                                      <Grid item xs={12}>
+                                          <Form.Group as={Row} controlId="formImgNegocio">
+                                              <Form.Label column className="ml-auto">
+                                                  <h4><b>Imagen del Negocio:</b></h4>
+                                              </Form.Label>
+                                          </Form.Group>
+                                          <Form.Group as={Row} controlId="formImg">
+                                              <Col className="mr-auto">
+                                                  <input type="file" onChange={this.handleChange} />
+                                              </Col>
+                                          </Form.Group>
+                                      </Grid>
+
+
+                                      <Grid item xs={12}>
+                                          <Typography component="h1" variant="h5">
+                                              <b>Datos del responsable</b>
+                                          </Typography>
+                                      </Grid>
+                                      <Grid item xs={12}>
+                                          <h5>
+                                              <b>Nombre:</b> {this.state.datos.userName}
+                                          </h5>
+                                      </Grid>
+                                      <Grid item xs={12}>
+                                          <h5>
+                                              <b>Correo:</b> {this.state.datos.email}
+                                          </h5>
+                                      </Grid>
+
+                                      <Grid item xs={12}>
+                                          <TextField
+                                              variant="outlined"
+                                              required
+                                              fullWidth
+                                              type="number"
+                                              id="telefono"
+                                              label="Teléfono"
+                                              name="telefono"
+                                              autoComplete="Telefono"
+                                          />
+                                      </Grid>
+                                  </Grid>
+                                  <br />
+                                  <Button
+                                      type="submit"
+                                      class="btn btn-warning"
+                                      fullWidth
+                                      variant="contained"
+                                  >
+                                      Actualizar
             </Button>
-        </form>
-        </div>
-      </Container>
-      </div>
-      <p></p>
-      <Copyright></Copyright>
-      <br></br>
-    </Fragment>
+                              </form>
+                          </div>
+                      </Container>
+                  </div>
+                  <p></p>
+                  <Copyright></Copyright>
+                  <br></br>
+              </Fragment>
+          </div>
   );
 }}
