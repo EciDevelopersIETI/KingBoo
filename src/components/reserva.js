@@ -60,6 +60,11 @@ export default function Reserva() {
     const services = [];
     const handleSubmit = e => {
         e.preventDefault();
+		var actual = (new Date()).toLocaleDateString();
+		var tempo = (new Date()).toISOString().split('T')[0];
+	    var fechareserv = document.getElementById("date").value;
+		console.log(document.getElementById("date").value);
+		console.log(tempo);
         if (services.length === 0) {
             Swal.fire(
                 'ERROR!!',
@@ -67,6 +72,46 @@ export default function Reserva() {
                 'error'
             )
         }
+		else if(fechareserv == tempo){
+			if(parseInt(document.getElementById("hora").textContent.split('-')[0])<=(new Date()).getHours()){
+				Swal.fire(
+                'ERROR!!',
+                'Por favor, seleccione una hora posterior a la actual',
+                'error'
+				)
+			}
+			else{
+				console.log('hoyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+				var userReserva = axios.get('https://kingboooback.herokuapp.com/users/' + localStorage.getItem("user")).then(function (response) { userReserva = response.data; }).catch(function (error) { console.log(error); });
+				var providerReserva = axios.get('https://kingboooback.herokuapp.com/provider/' + localStorage.getItem("provider")).then(function (response) { providerReserva = response.data; }).catch(function (error) { console.log(error); });
+				console.log(document.getElementById("hora").textContent.split('-')[0]);
+				setTimeout(function () {
+					const reserva = {
+						fecha: document.getElementById("date").value,
+						hora: document.getElementById("hora").textContent.split('-')[0],
+						servicios: services,
+						comentario: document.getElementById("tel").value,
+						encargado: " ",
+						user: userReserva,
+						provider: providerReserva
+					}
+					console.log(reserva);
+					newReserva(reserva);
+				}.bind(this), 1200);
+
+				
+			}
+			
+			
+		}
+		else if(document.getElementById("date").value < actual){
+			Swal.fire(
+                'ERROR!!',
+                'Por favor, seleccione una fecha posterior a la actual',
+                'error'
+            )
+			
+		}
         else {
             console.log('xdddddddddddddddddddddddddddddddddddddddd15555555555555555');
             var userReserva = axios.get('https://kingboooback.herokuapp.com/users/' + localStorage.getItem("user")).then(function (response) { userReserva = response.data; }).catch(function (error) { console.log(error); });
