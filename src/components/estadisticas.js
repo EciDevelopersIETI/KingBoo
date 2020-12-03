@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React, { Component, Fragment } from 'react';
 import { Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import Title from '../components/title';
 
 
@@ -44,8 +45,8 @@ function Copyright() {
 
 export default class estadisticas extends Component {
   render() {
-    console.log(JSON.parse(localStorage.getItem("estadisticas")));
     var lista = JSON.parse(localStorage.getItem("estadisticas"));
+    var listaHora = JSON.parse(localStorage.getItem("estadisticasHora"));
     const data = {
       labels: ['Corte de Cabello', 'Barba', 'Manicura', 'Depilación'],
       datasets: [{
@@ -56,12 +57,34 @@ export default class estadisticas extends Component {
     const opciones = {
       responsive: true
     }
+    const dataBarras={
+      labels: ["07:00","07:30","08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30"],
+      datasets:[{
+        label:'Horas reservadas',
+        backgroundColor:'rgba(57, 73, 114,1)',
+        borderColor: 'black',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(57, 73, 114,0.2)',
+        hoverBorderColor: '#FF0000',
+        data: listaHora
+      }]
+    }
+    const opcionesHora = {
+      maintainAspectRatio: false,
+      responsive: true
+    }
     return (
       <Fragment>
         <Title hasMargin={false} pageTitle="Estadisticas" />
         <p></p>
+        <h1>Tipo de reserva</h1>
         <div className="App">
           <Pie width={150} height={50} data={data} options={opciones} />
+        </div>
+        <br></br>
+        <h1>Reservas por hora</h1>
+        <div className="App">
+          <Bar height={250} data={dataBarras} options={opcionesHora} />
         </div>
         <p></p>
         <Copyright></Copyright>
@@ -69,5 +92,4 @@ export default class estadisticas extends Component {
       </Fragment>
     )
   }
-
 }
