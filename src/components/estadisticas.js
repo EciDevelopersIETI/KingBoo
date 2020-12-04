@@ -11,7 +11,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';	
+import Paper from '@material-ui/core/Paper';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +54,7 @@ function Copyright() {
 }
 
 export default class estadisticas extends Component {
-  render() { 
+  render() {
 	const StyledTableCell = withStyles((theme) => ({
 	  head: {
 		backgroundColor: theme.palette.common.black,
@@ -117,7 +117,7 @@ export default class estadisticas extends Component {
         <Copyright></Copyright>
         <br></br>
 		<h1>Clientes Frecuentes</h1>
-		<div className="table" style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>	
+		<div className="table" style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
 				<TableContainer component={Paper} style={{width: 1200}}>
 				  <Table aria-label="simple table" >
 					<TableHead>
@@ -132,13 +132,13 @@ export default class estadisticas extends Component {
 					</TableHead>
 					<TableBody>
 					{JSON.parse(localStorage.getItem("clientesfrecuentes")).map((row) => (
-						
+
 						<TableRow key={row[1]}>
 						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[0]}</TableCell>
 						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[1].userName}</TableCell>
 						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[1].email}</TableCell>
 						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[1].telefono}</TableCell>
-						   <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center"><img src={row[1].imgUrl} alt="Foto" style={{height:"50%"}}/></TableCell>
+						   <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center"><img src={row[1].imgUrl} alt="Foto" style={{width: 150}}/></TableCell>
 
 						</TableRow>
 					))}
