@@ -104,7 +104,7 @@ export default function Reserva() {
 			
 			
 		}
-		else if(document.getElementById("date").value < actual){
+		else if (actual < document.getElementById("date").value){
 			Swal.fire(
                 'ERROR!!',
                 'Por favor, seleccione una fecha posterior a la actual',
