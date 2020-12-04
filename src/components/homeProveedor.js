@@ -21,6 +21,9 @@ export class HomeProveedor extends React.Component {
 		let servicesHope = axios.get('https://kingboooback.herokuapp.com/users/' + this.email)
 			.then(function (response) { localStorage.setItem("provider", JSON.stringify(response.data)); })
 			.catch(function (error) { console.log(error); });
+		let clientes = axios.get('https://kingboooback.herokuapp.com/provider/'+localStorage.getItem('providerUser')+'/getClientesFrecuentes')
+			.then(function (response) { localStorage.setItem("clientesfrecuentes", JSON.stringify(response.data)); })
+			.catch(function (error) { console.log(error); });	
 		const myComponent = <ReservasEnSitio />
 		return (
 			<ResponsiveDrawerProveedor childComponent={myComponent} />
