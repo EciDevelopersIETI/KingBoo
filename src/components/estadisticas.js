@@ -1,10 +1,17 @@
 import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
+import {  withStyles , makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React, { Component, Fragment } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import Title from '../components/title';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';	
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   },
   displayblock: {
     display: 'block'
+  },
+  table: {
+	minWidth: 200,
   }
 }));
 
@@ -44,7 +54,24 @@ function Copyright() {
 }
 
 export default class estadisticas extends Component {
-  render() {
+  render() { 
+	const StyledTableCell = withStyles((theme) => ({
+	  head: {
+		backgroundColor: theme.palette.common.black,
+		color: theme.palette.common.white,
+	  },
+	  body: {
+		fontSize: 14,
+	  },
+	}))(TableCell);
+
+	const StyledTableRow = withStyles((theme) => ({
+	  table: {
+		'&:nth-of-type(odd)': {
+		  backgroundColor: theme.palette.action.hover,
+		},
+	  },
+	}))(TableRow);
     var lista = JSON.parse(localStorage.getItem("estadisticas"));
     var listaHora = JSON.parse(localStorage.getItem("estadisticasHora"));
     const data = {
@@ -89,6 +116,36 @@ export default class estadisticas extends Component {
         <p></p>
         <Copyright></Copyright>
         <br></br>
+		<h1>Clientes Frecuentes</h1>
+		<div className="table" style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>	
+				<TableContainer component={Paper} style={{width: 1200}}>
+				  <Table aria-label="simple table" >
+					<TableHead>
+					  <TableRow>
+						<TableCell style={{ background: "#283747",width: 200, border: '1px solid black'}} align="center">Numero de Reservas</TableCell>
+						<TableCell style={{ background: "#283747",width: 200, border: '1px solid black'}} align="center">Nombre</TableCell>
+						<TableCell style={{ background: "#283747",width: 200, border: '1px solid black'}} align="center">Correo</TableCell>
+						<TableCell style={{ background: "#283747",width: 200, border: '1px solid black'}} align="center">Telefono</TableCell>
+						<TableCell style={{ background: "#283747",width: 400, border: '1px solid black'}} align="center">Foto</TableCell>
+
+					  </TableRow>
+					</TableHead>
+					<TableBody>
+					{JSON.parse(localStorage.getItem("clientesfrecuentes")).map((row) => (
+						
+						<TableRow key={row[1]}>
+						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[0]}</TableCell>
+						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[1].userName}</TableCell>
+						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[1].email}</TableCell>
+						  <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center" className="align-middle">{row[1].telefono}</TableCell>
+						   <TableCell style={{ background: "#5D6D7E",width: 200, border: '1px solid black'}} align="center"><img src={row[1].imgUrl} alt="Foto" style={{height:"50%"}}/></TableCell>
+
+						</TableRow>
+					))}
+					</TableBody>
+				  </Table>
+				</TableContainer>
+				</div>
       </Fragment>
     )
   }
